@@ -5,7 +5,15 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+
+#light {
+  background-color: #ced4da;
+}
+
+#dark {
+  background-color: #242424;
 }
 
 .navbar {
@@ -175,9 +183,15 @@ body {
 
 .footer {
   background-color: #f9f9f9;
+  color: #23242a;
   padding: 2px;
   text-align: center;
   width: 100%;
+}
+
+#dark .footer {
+  background-color: #333;
+  color: #ced4da;
 }
 
 .footer a {
@@ -204,6 +218,10 @@ body {
   width: 100%;
   padding: 20px;
   text-align: center;
+}
+
+#dark .pet-categories {
+  background-color: #23242a;
 }
 
 #menu-search {
@@ -253,6 +271,10 @@ body {
   align-items: center;
   flex-direction: row;
   height: auto;
+}
+
+#dark .footer-dis {
+  background-color: #242424;
 }
 
 .footer-icons {

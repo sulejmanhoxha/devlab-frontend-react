@@ -1,7 +1,7 @@
-import { Form, NavLink } from 'react-router-dom';
+import { Form, NavLink } from "react-router-dom";
 
-import classes from './MainNavigation.module.css';
-import '../App.css';
+import "../App.css";
+import classes from "./MainNavigation.module.css";
 
 function MainNavigation() {
   return (
@@ -22,13 +22,13 @@ function MainNavigation() {
           </li>
           <li>
             <NavLink
-              to="/change-password"
+              to="/about-us"
               id="nav-link"
               className={({ isActive }) =>
                 isActive ? classes.active : undefined
               }
             >
-              Change Password
+              About Us
             </NavLink>
           </li>
           <li>

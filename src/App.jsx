@@ -6,6 +6,7 @@ import ReactSwitch from "react-switch";
 
 import "./App.css";
 import ProtectedRoute from "./components/Protected";
+import AboutUs from "./pages/About";
 import AuthenticationPage, {
   action as authAction,
 } from "./pages/Authentication";
@@ -13,7 +14,6 @@ import ErrorPage from "./pages/Error";
 import HomePage from "./pages/Home";
 import { action as logoutAction } from "./pages/Logout";
 import RootLayout from "./pages/Root";
-import ChangePasswordPage from "./pages/changePassword";
 
 const router = createBrowserRouter([
   {
@@ -29,8 +29,8 @@ const router = createBrowserRouter([
       },
       { path: "logout", action: logoutAction },
       {
-        path: "change-password",
-        element: <ProtectedRoute element={<ChangePasswordPage />} />,
+        path: "about-us",
+        element: <AboutUs />,
       },
     ],
   },
