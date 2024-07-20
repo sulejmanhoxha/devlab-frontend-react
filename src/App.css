@@ -1,0 +1,116 @@
+* {
+  box-sizing: border-box;
+}
+main {
+  height: 100vh !important;
+}
+
+.profile-image {
+  height: 300px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+.content__list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+#light {
+  background-color: #fff;
+}
+
+#dark {
+  background-color: #242424;
+}
+
+body {
+  position: relative;
+}
+
+.switch {
+  position: absolute;
+  top: 23px;
+  right: 0;
+  display: flex;
+}
+
+.switch label {
+  text-align: center;
+}
+
+#light .switch .text {
+  color: #000;
+}
+#dark .switch .text {
+  color: #fff;
+}
+
+#light .switch label {
+  color: #000;
+}
+#dark .switch label {
+  color: #fff;
+}
+
+#light .input-box {
+  background-color: #ced4da;
+}
+
+#light .text {
+  color: #000;
+}
+
+#light .button {
+  background-color: #adb5bd;
+}
+.logout-button {
+  cursor: pointer;
+}
+
+#light .logout-button {
+  color: #242424;
+  background-color: #dee2e6;
+}
+
+#light #nav-link {
+  color: #868e96;
+}
+
+#change-password-form {
+  margin-top: 80px;
+  text-align: center;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #495057;
+  color: #fff;
+  padding: 20px;
+  height: 90px;
+}
+
+.icons {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.icons a {
+  margin-right: 40px;
+}
+
+footer img {
+  flex-direction: row;
+  width: 42px;
+}
+
+.copy-right {
+  height: 12px;
+  font-size: 14px;
+  text-align: center;
+}
