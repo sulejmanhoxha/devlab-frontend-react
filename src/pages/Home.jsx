@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 
+import { Carousel } from "../components/Carousel";
 import "../css/style.css";
+import { slides } from "../data/carouselData.json";
 
 function HomePage() {
   useEffect(() => {
@@ -154,6 +156,8 @@ function HomePage() {
         <section className="services">
           <h2>Pets Available for Adoption</h2>
         </section>
+
+        <Carousel data={slides} />
 
         <section className="footer-dis">
           <div className="footer-adress">
