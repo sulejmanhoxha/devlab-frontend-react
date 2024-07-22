@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 16px;
+  margin-bottom: 60px;
 }
 
 .team-card {
@@ -70,4 +71,8 @@
 
 #light .mb-20 {
   color: #2d3748;
+}
+
+.mb-20 {
+  margin-top: 20px;
 }

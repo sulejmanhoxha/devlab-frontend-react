@@ -5,6 +5,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import ReactSwitch from "react-switch";
 
 import "./App.css";
+import ContactUs from "./components/ContactUs";
 import ProtectedRoute from "./components/Protected";
 import AboutUs from "./pages/About";
 import AuthenticationPage, {
@@ -29,8 +30,8 @@ const router = createBrowserRouter([
       },
       { path: "logout", action: logoutAction },
       {
-        path: "about-us",
-        element: <AboutUs />,
+        path: "contact",
+        element: <ContactUs />,
       },
     ],
   },

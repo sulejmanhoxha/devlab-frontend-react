@@ -105,7 +105,7 @@ const LearnMore = () => {
               </p>
               <a
                 className="mt-3 inline-flex items-center text-indigo-500"
-                href="#!"
+                href="/contact"
               >
                 Learn More
                 <svg
