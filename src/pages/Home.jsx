@@ -44,6 +44,18 @@ function HomePage() {
         });
       });
     });
+
+    return () => {
+      dropdowns.forEach((dropdown) => {
+        const select = dropdown.querySelector(".select");
+        const options = dropdown.querySelectorAll(".menu li");
+
+        select.removeEventListener("click", () => {});
+        options.forEach((option) => {
+          option.removeEventListener("click", () => {});
+        });
+      });
+    };
   }, []);
 
   return (
