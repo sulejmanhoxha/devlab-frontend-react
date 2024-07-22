@@ -67,6 +67,9 @@ const ContactUs = () => {
               ></textarea>
             </div>
             <div className="w-full p-2">
+              <a href="#" onClick={handleButtonClick}>
+                Go Back
+              </a>
               <button
                 className="mx-auto flex rounded border-0 bg-indigo-500 px-8 py-2 text-lg text-white hover:bg-indigo-600 focus:outline-none"
                 onClick={handleButtonClick}

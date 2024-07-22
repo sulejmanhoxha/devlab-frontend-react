@@ -191,8 +191,6 @@ function HomePage() {
             <h2>Find Us</h2>
             <p>123 Pet Street, City</p>
             <p>Opening Hours: Mon-Sat, 09h - 18h</p>
-            <button className="find-store-btn">Find a Store</button>
-            <button className="contact-btn">Contact Us</button>
           </div>
           <div className="footer-icons">
             <a href="https://twitter.com">

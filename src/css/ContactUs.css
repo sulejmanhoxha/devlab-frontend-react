@@ -19,15 +19,15 @@ body-font {
 .form-container {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center everything horizontally */
-  gap: 16px; /* Gap between rows */
+  align-items: center;
+  gap: 16px;
 }
 
 .form-row {
   display: flex;
-  gap: 16px; /* Space between name and email inputs */
+  gap: 16px;
   width: 100%;
-  max-width: 1000px; /* Ensure the form does not stretch too wide */
+  max-width: 1000px;
 }
 
 .form-group {
@@ -41,7 +41,7 @@ body-font {
   width: 100%;
   border-radius: 4px;
   border: 1px solid #ccc;
-  padding: 12px; /* Slightly increased padding for a better feel */
+  padding: 12px;
   background-color: #f9f9f9;
   transition:
     border-color 0.2s ease-in-out,
@@ -50,24 +50,24 @@ body-font {
 
 .form-input:focus,
 .form-textarea:focus {
-  border-color: #4f46e5; /* Indigo color for focus */
+  border-color: #4f46e5;
   background-color: #fff;
   outline: none;
 }
 
 .form-textarea {
-  height: 125px; /* Increase height for better visibility */
+  height: 125px;
 }
 
 .message-group {
   width: 100%;
-  max-width: 1000px; /* Ensure the message group is as wide as the form row */
-  margin-top: 16px; /* Margin to separate from other fields */
+  max-width: 1000px;
+  margin-top: 16px;
 }
 
 button {
   display: inline-block;
-  background-color: #4f46e5; /* Indigo background color */
+  background-color: #4f46e5;
   color: white;
   padding: 12px 24px;
   border-radius: 4px;
@@ -76,14 +76,15 @@ button {
   border: none;
   text-align: center;
   transition: background-color 0.3s ease;
+  margin-left: 100px;
 }
 
 button:hover {
-  background-color: #3730a3; /* Darker indigo for hover */
+  background-color: #3730a3;
 }
 
 .mt-8 {
-  margin-top: 32px; /* Space for the contact information section */
+  margin-top: 32px;
   text-align: center;
 }
 
@@ -92,11 +93,31 @@ button:hover {
 }
 
 .icon {
-  height: 16px; /* Reduced icon size */
+  height: 16px;
   width: 16px;
   fill: currentColor;
 }
 
 .inline-flex a {
-  margin: 0 8px; /* Space between icons */
+  margin: 0 8px;
+}
+
+#light .form-group {
+  color: #000;
+}
+
+#light .form-group input {
+  background-color: gray;
+}
+
+#light .form-group textarea {
+  background-color: gray;
+}
+
+.p-2 a {
+  text-decoration: none;
+}
+
+#light .p-2 a {
+  color: #1864ab;
 }
