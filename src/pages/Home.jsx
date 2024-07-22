@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 
+import { Card } from "../components/Card";
 import { Carousel } from "../components/Carousel";
 import Colaborators from "../components/Colaborators";
 import "../css/style.css";
@@ -79,7 +80,6 @@ function HomePage() {
             <li>somedf</li>
             <li>somedf</li>
             <li>somedf</li>
-            <li>somedf</li>
           </ul>
         </div>
 
@@ -141,6 +141,15 @@ function HomePage() {
             </ul>
           </div>
         </section>
+
+        <Card
+          imgSrc="https://picsum.photos/300/200"
+          imgAlt="Card Image"
+          title="Card Title"
+          description="This is the card description."
+          buttonText="Learn More"
+          link="cardPage"
+        />
 
         <section className="pet-categories">
           <h2>Find your new best friend</h2>

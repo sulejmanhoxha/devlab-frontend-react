@@ -14,8 +14,8 @@
 .team-card img {
   margin-right: 16px;
   border-radius: 50%;
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   object-fit: cover;
 }
 
@@ -49,6 +49,7 @@
   height: 20px;
   stroke-width: 1.5;
   color: #4a5568;
+  cursor: pointer;
 }
 
 #light .container {
@@ -57,4 +58,12 @@
 
 #dark .container {
   background-color: #242424;
+}
+
+#dark .team-card h2 {
+  color: azure;
+}
+
+#dark .team-card p {
+  color: antiquewhite;
 }
