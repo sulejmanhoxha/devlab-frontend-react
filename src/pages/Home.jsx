@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 
 import { Carousel } from "../components/Carousel";
+import Colaborators from "../components/Colaborators";
 import "../css/style.css";
 import { slides } from "../data/carouselData.json";
 
@@ -158,6 +159,8 @@ function HomePage() {
         </section>
 
         <Carousel data={slides} />
+
+        <Colaborators />
 
         <section className="footer-dis">
           <div className="footer-adress">
