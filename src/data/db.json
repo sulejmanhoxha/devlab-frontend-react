@@ -1,0 +1,55 @@
+{
+  "pets": [
+    {
+      "id": "1",
+      "name": "Rex",
+      "breed": "German Shepherd",
+      "age": 4,
+      "size": "Small",
+      "gender": "Male",
+      "goodWith": ["dog", "cat", "bird", "kids"],
+      "coatLength": "Short",
+      "color": "Black",
+      "images": [
+        "/images/german-shepherd-1.webp",
+        "/images/german-shepherd-2.webp",
+        "/images/german-shepherd-3.webp",
+        "/images/german-shepherd-4.jpg"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Bella",
+      "breed": "Labrador Retriever",
+      "age": 2,
+      "size": "Medium",
+      "gender": "Female",
+      "goodWith": ["dog", "cat", "bird", "kids"],
+      "coatLength": "Medium",
+      "color": "White",
+      "images": [
+        "/images/labrador-retriever-1.webp",
+        "/images/labrador-retriever-2.webp",
+        "/images/labrador-retriever-3.webp",
+        "/images/labrador-retriever-4.jpg"
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Charlie",
+      "breed": "Beagle",
+      "age": 3,
+      "size": "Medium",
+      "gender": "Male",
+      "goodWith": ["dog", "cat", "bird", "kids"],
+      "coatLength": "Medium",
+      "color": "Black",
+      "images": [
+        "/images/beagle-1.webp",
+        "/images/beagle-2.webp",
+        "/images/beagle-3.webp",
+        "/images/beagle-4.jpg"
+      ]
+    }
+  ]
+}

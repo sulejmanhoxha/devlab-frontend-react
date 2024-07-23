@@ -1,60 +1,32 @@
-/////////////// App.js
-import { createContext, useState } from "react";
-//npm install react-switch
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import ReactSwitch from "react-switch";
+import { Route, Routes } from "react-router-dom";
 
-import "./App.css";
-import ProtectedRoute from "./components/Protected";
-import AboutUs from "./pages/About";
-import AuthenticationPage, {
-  action as authAction,
-} from "./pages/Authentication";
-import ErrorPage from "./pages/Error";
-import HomePage from "./pages/Home";
-import { action as logoutAction } from "./pages/Logout";
-import RootLayout from "./pages/Root";
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <RootLayout />,
-    errorElement: <ErrorPage />,
-    children: [
-      { index: true, element: <HomePage /> },
-      {
-        path: "login",
-        element: <AuthenticationPage />,
-        action: authAction,
-      },
-      { path: "logout", action: logoutAction },
-      {
-        path: "about-us",
-        element: <AboutUs />,
-      },
-    ],
-  },
-]);
-
-export const ThemeContext = createContext(null);
+// import "./App.css";
+import Footer from "./components/Footer";
+import FlipNav from "./components/navbar/Navbar";
+import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
+import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/LoginPage";
+import NotFoundPage from "./pages/NotFoundPage";
+import PetsPage from "./pages/PetsPage";
+import ViewPetPage from "./pages/ViewPetPage";
 
 function App() {
-  const [theme, setTheme] = useState("dark");
-
-  const toogleTheme = () => {
-    setTheme((curr) => (curr === "light" ? "dark" : "light"));
-  };
-
   return (
-    <ThemeContext.Provider value={{ theme, toogleTheme }}>
-      <div className="App" id={theme}>
-        <RouterProvider router={router} />
-        <div className="switch">
-          <label>{theme === "light" ? "Light Mode" : "Dark Mode"}</label>
-          <ReactSwitch onChange={toogleTheme} checked={theme === "dark"} />
-        </div>
-      </div>
-    </ThemeContext.Provider>
+    <>
+      <FlipNav />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/pets" element={<PetsPage />} />
+        <Route path="/pets/:id" element={<ViewPetPage />} />
+
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+      <Footer />
+    </>
   );
 }
 
