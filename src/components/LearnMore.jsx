@@ -1,8 +1,18 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 import "../css/LearnMore.css";
 
 const LearnMore = () => {
+  const navigate = useNavigate();
+
+  const handleButtonClick = () => {
+    navigate("/contact");
+  };
+  const handleButtonClick2 = () => {
+    navigate("/shelters");
+  };
+
   return (
     <section className="body-font text-gray-600">
       <div className="container mx-auto px-5 py-24">
@@ -70,7 +80,8 @@ const LearnMore = () => {
               </p>
               <a
                 className="mt-3 inline-flex items-center text-indigo-500"
-                href="/shelters"
+                href="#"
+                onClick={handleButtonClick2}
               >
                 Learn More
                 <svg
@@ -105,7 +116,8 @@ const LearnMore = () => {
               </p>
               <a
                 className="mt-3 inline-flex items-center text-indigo-500"
-                href="/contact"
+                href="#"
+                onClick={handleButtonClick}
               >
                 Learn More
                 <svg

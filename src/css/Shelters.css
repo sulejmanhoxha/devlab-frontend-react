@@ -15,7 +15,7 @@ section {
   color: #fff;
 }
 
-img {
+.stat img {
   width: 120px;
 }
 
@@ -51,7 +51,7 @@ img {
     padding: 10px 30px;
   }
 
-  img {
+  .stat img {
     width: 110px;
   }
 }
