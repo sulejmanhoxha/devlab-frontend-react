@@ -1,9 +1,9 @@
 * {
   box-sizing: border-box;
 }
-/* main {
+main {
   height: 100vh !important;
-} */
+}
 
 .profile-image {
   height: 300px;

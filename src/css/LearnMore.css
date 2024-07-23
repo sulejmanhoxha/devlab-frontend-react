@@ -1,0 +1,91 @@
+.px-5 {
+  margin-top: 70px;
+  margin-bottom: 30px;
+}
+
+.icon-small {
+  width: 40px !important;
+  height: 40px !important;
+}
+
+.icon-small svg {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.text-indigo-500 svg {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+.icon-placeholder {
+  width: 80px;
+  height: 80px;
+  background-color: #ced4da;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.icon-image {
+  width: 24px;
+  height: 24px;
+  object-fit: cover;
+}
+
+.flex-row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.flex-col {
+  display: table-cell;
+  margin: 20px;
+  width: 450px;
+}
+
+.mb-20 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  width: 400px;
+}
+
+.mb-20 p {
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+.icon-placeholder img {
+  width: 67px;
+  height: 67px;
+}
+
+.mt-3 {
+  margin-top: 8px;
+  text-decoration: none;
+}
+
+#light .title-font {
+  color: #000;
+}
+
+#dark .title-font {
+  color: #dee2e6;
+}
+
+#light .text-base {
+  color: #2d3748;
+}
+
+#light .mt-3 {
+  color: #1971c2;
+}
+
+@media only screen and (max-width: 1000px) {
+  .flex-col {
+    display: flow;
+  }
+}

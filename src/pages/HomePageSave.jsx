@@ -1,6 +1,11 @@
 import React, { useEffect } from "react";
 
+import { Card } from "../components/Card";
+import { Carousel } from "../components/Carousel";
+import Colaborators from "../components/Colaborators";
+import LearnMore from "../components/LearnMore";
 import "../css/style.css";
+import { slides } from "../data/carouselData.json";
 
 function HomePage() {
   useEffect(() => {
@@ -41,6 +46,18 @@ function HomePage() {
         });
       });
     });
+
+    return () => {
+      dropdowns.forEach((dropdown) => {
+        const select = dropdown.querySelector(".select");
+        const options = dropdown.querySelectorAll(".menu li");
+
+        select.removeEventListener("click", () => {});
+        options.forEach((option) => {
+          option.removeEventListener("click", () => {});
+        });
+      });
+    };
   }, []);
 
   return (
@@ -58,7 +75,6 @@ function HomePage() {
             <div className="caret"></div>
           </div>
           <ul className="menu">
-            <li>somedf</li>
             <li>somedf</li>
             <li>somedf</li>
             <li>somedf</li>
@@ -127,6 +143,15 @@ function HomePage() {
           </div>
         </section>
 
+        <Card
+          imgSrc="https://picsum.photos/300/200"
+          imgAlt="Card Image"
+          title="Card Title"
+          description="This is the card description."
+          buttonText="Learn More"
+          link="cardPage"
+        />
+
         <section className="pet-categories">
           <h2>Find your new best friend</h2>
           <p>From all over the country</p>
@@ -155,13 +180,17 @@ function HomePage() {
           <h2>Pets Available for Adoption</h2>
         </section>
 
+        <Carousel data={slides} />
+
+        <LearnMore />
+
+        <Colaborators />
+
         <section className="footer-dis">
           <div className="footer-adress">
             <h2>Find Us</h2>
             <p>123 Pet Street, City</p>
             <p>Opening Hours: Mon-Sat, 09h - 18h</p>
-            <button className="find-store-btn">Find a Store</button>
-            <button className="contact-btn">Contact Us</button>
           </div>
           <div className="footer-icons">
             <a href="https://twitter.com">

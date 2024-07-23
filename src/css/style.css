@@ -26,10 +26,10 @@ body {
 }
 .navbar img {
   position: absolute;
-  top: 10px; /* Adjust the space from the top as needed */
-  left: 10px; /* Adjust the space from the left as needed */
-  width: 100px; /* Adjust the size as needed */
-  height: auto; /* Maintain aspect ratio */
+  top: 10px;
+  left: 10px;
+  width: 100px;
+  height: auto;
   padding: 10px;
   border-radius: 15px;
 }
@@ -234,7 +234,6 @@ body {
 }
 
 .buttons {
-  background-color: #f0f0f0;
   margin: 0;
   display: flex;
   justify-content: center;
@@ -265,7 +264,7 @@ body {
 }
 
 .footer-dis {
-  background-color: #ced4da;
+  background-color: #adb5bd;
   width: 100%;
   display: flex;
   align-items: center;
@@ -274,7 +273,7 @@ body {
 }
 
 #dark .footer-dis {
-  background-color: #242424;
+  background-color: #343a40;
 }
 
 .footer-icons {
