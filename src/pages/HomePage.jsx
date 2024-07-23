@@ -1,4 +1,4 @@
-import CardCarousel from "../components/Carousel";
+import CardCarousel from "../components/CardCarousel";
 import Hero from "../components/Hero";
 import CountUpStats from "../components/Stats";
 
