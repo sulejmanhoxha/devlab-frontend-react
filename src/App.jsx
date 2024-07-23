@@ -15,6 +15,7 @@ import ErrorPage from "./pages/Error";
 import HomePage from "./pages/Home";
 import { action as logoutAction } from "./pages/Logout";
 import RootLayout from "./pages/Root";
+import Shelters from "./pages/Shelters";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "contact",
         element: <ContactUs />,
+      },
+      {
+        path: "shelters",
+        element: <Shelters />,
       },
     ],
   },
