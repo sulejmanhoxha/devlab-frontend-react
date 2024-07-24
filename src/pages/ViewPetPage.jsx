@@ -1,3 +1,4 @@
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import "lightgallery/css/lg-thumbnail.css";
 import "lightgallery/css/lg-zoom.css";
 // import styles
@@ -7,48 +8,38 @@ import lgZoom from "lightgallery/plugins/zoom";
 import LightGallery from "lightgallery/react";
 import { useParams } from "react-router-dom";
 
+import { getPetDetails } from "../lib/pets/pets";
+
 const ViewPetPage = () => {
   const { id } = useParams();
 
-  const onInit = () => {
-    console.log("lightGallery has been initialized");
-  };
+  const queryClient = useQueryClient();
+
+  const petDetailsQuery = useQuery({
+    queryKey: ["pets", id],
+    queryFn: () => getPetDetails(id),
+    enabled: !!id,
+  });
   return (
     <div className="bg-white py-28">
       <div className="mx-auto max-w-screen-lg px-4 md:px-8">
         <div className="grid gap-8 md:grid-cols-2">
           {/* images - start */}
           <LightGallery
-            onInit={onInit}
+            // onInit={onInit}
             speed={500}
             plugins={[lgThumbnail, lgZoom]}
           >
-            <a href="/images/hero.jpg">
-              <img
-                src="/images/hero.jpg"
-                loading="lazy"
-                alt="Photo by Himanshu Dewangan"
-                className="w-full object-cover object-center"
-              />{" "}
-            </a>
-
-            <a href="/images/hero.jpg">
-              <img
-                src="/images/hero.jpg"
-                loading="lazy"
-                alt="Photo by Himanshu Dewangan"
-                className="w-full object-cover object-center"
-              />{" "}
-            </a>
-
-            <a href="/images/hero.jpg">
-              <img
-                src="/images/hero.jpg"
-                loading="lazy"
-                alt="Photo by Himanshu Dewangan"
-                className="w-full object-cover object-center"
-              />{" "}
-            </a>
+            {petDetailsQuery.data?.images.map((image, index) => (
+              <a href={image} key={index}>
+                <img
+                  src={image}
+                  loading="lazy"
+                  alt="Photo by Himanshu Dewangan"
+                  className="w-full object-cover object-center"
+                />
+              </a>
+            ))}
           </LightGallery>
 
           {/* <LightGallery
@@ -100,66 +91,14 @@ const ViewPetPage = () => {
             {/* name - start */}
             <div className="mb-2 md:mb-3">
               <span className="mb-0.5 inline-block text-gray-500">
-                Fancy Brand
+                {petDetailsQuery.data?.breed}
               </span>
               <h2 className="text-2xl font-bold text-gray-800 lg:text-3xl">
-                Pet {id}
+                {petDetailsQuery.data?.name}
               </h2>
             </div>
             {/* name - end */}
-            {/* rating - start */}
-            <div className="mb-6 flex items-center md:mb-10">
-              <div className="-ml-1 flex gap-0.5">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6 text-yellow-400"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6 text-yellow-400"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6 text-yellow-400"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6 text-yellow-400"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6 text-gray-300"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-              </div>
-              <span className="ml-2 text-sm text-gray-500">4.2</span>
-              <a
-                href="#"
-                className="ml-4 text-sm font-semibold text-indigo-500 transition duration-100 hover:text-indigo-600 active:text-indigo-700"
-              >
-                view all 47 reviews
-              </a>
-            </div>
-            {/* rating - end */}
+
             {/* color - start */}
             <div className="mb-4 md:mb-6">
               <span className="mb-3 inline-block text-sm font-semibold text-gray-500 md:text-base">
@@ -283,15 +222,7 @@ const ViewPetPage = () => {
                 Description
               </div>
               <p className="text-gray-500">
-                This is a section of some simple filler text, also known as
-                placeholder text. It shares some characteristics of a real
-                written text but is random or otherwise generated. It may be
-                used to display a sample of fonts or generate text for testing.
-                <br />
-                <br />
-                This is a section of some simple filler text, also known as
-                placeholder text. It shares some characteristics of a real
-                written text but is random or otherwise generated.
+                {petDetailsQuery.data?.description}
               </p>
             </div>
             {/* description - end */}
