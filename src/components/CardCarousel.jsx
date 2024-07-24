@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import useMeasure from "react-use-measure";
 
 const CARD_WIDTH = 350;
@@ -12,7 +13,7 @@ const BREAKPOINTS = {
   lg: 1024,
 };
 
-const CardCarousel = () => {
+const CardCarousel = ({ pets, title }) => {
   const [ref, { width }] = useMeasure();
   const [offset, setOffset] = useState(0);
 
@@ -22,7 +23,7 @@ const CardCarousel = () => {
   const CAN_SHIFT_LEFT = offset < 0;
 
   const CAN_SHIFT_RIGHT =
-    Math.abs(offset) < CARD_SIZE * (posts.length - CARD_BUFFER);
+    Math.abs(offset) < CARD_SIZE * (pets.length - CARD_BUFFER);
 
   const shiftLeft = () => {
     if (!CAN_SHIFT_LEFT) {
@@ -43,7 +44,7 @@ const CardCarousel = () => {
       <div className="relative overflow-hidden p-4">
         <div className="mx-auto max-w-6xl">
           <div className="flex items-center justify-between">
-            <h2 className="mb-4 text-2xl">The Team Blog</h2>
+            <h2 className="mb-4 text-2xl">{title}</h2>
 
             <div className="flex items-center gap-2">
               <button
@@ -75,8 +76,8 @@ const CardCarousel = () => {
             }}
             className="flex"
           >
-            {posts.map((post) => {
-              return <Post key={post.id} {...post} />;
+            {pets.map((pet) => {
+              return <PetCard key={pet.id} {...pet} />;
             })}
           </motion.div>
         </div>
@@ -85,7 +86,9 @@ const CardCarousel = () => {
   );
 };
 
-const Post = ({ imgUrl, author, title, description }) => {
+const PetCard = ({ id, images, breed, name, description }) => {
+  const navigate = useNavigate();
+
   return (
     <div
       className="relative shrink-0 cursor-pointer transition-transform hover:-translate-y-1"
@@ -93,78 +96,20 @@ const Post = ({ imgUrl, author, title, description }) => {
         width: CARD_WIDTH,
         marginRight: MARGIN,
       }}
+      onClick={() => navigate(`/pets/${id}`)}
     >
       <img
-        src={imgUrl}
+        src={images[0]}
         className="mb-3 h-[200px] w-full rounded-lg object-cover"
-        alt={`An image for a fake blog post titled ${title}`}
+        alt={`An image for a ${name}`}
       />
       <span className="rounded-md border-[1px] border-neutral-500 px-1.5 py-1 text-xs uppercase text-neutral-500">
-        {author}
+        {breed}
       </span>
-      <p className="mt-1.5 text-base font-medium">{title}</p>
+      <p className="mt-1.5 text-base font-medium">{name}</p>
       <p className="text-sm text-neutral-500">{description}</p>
     </div>
   );
 };
 
 export default CardCarousel;
-
-const posts = [
-  {
-    id: 1,
-    imgUrl: "/images/hero.jpg",
-    author: "John Anderson",
-    title: "We built an AI chess bot with ChatGPT",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, dolor.",
-  },
-  {
-    id: 2,
-    imgUrl: "/images/hero.jpg",
-    author: "Kyle Parsons",
-    title: "How to grow your personal brand as a web designer",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, dolor.",
-  },
-  {
-    id: 3,
-    imgUrl: "/images/hero.jpg",
-    author: "Andrea Bates",
-    title: "Calm down, monoliths are totally fine",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, dolor.",
-  },
-  {
-    id: 4,
-    imgUrl: "/images/hero.jpg",
-    author: "Jess Drum",
-    title: "A quick guide to Framer Motion (for dummies)",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, dolor.",
-  },
-  {
-    id: 5,
-    imgUrl: "/images/hero.jpg",
-    author: "Phil White",
-    title: "You probably don't need kubernetes",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, dolor.",
-  },
-  {
-    id: 6,
-    imgUrl: "/images/hero.jpg",
-    author: "Karen Peabody",
-    title: "State of JavaScript in 2024",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, dolor.",
-  },
-  {
-    id: 7,
-    imgUrl: "/images/hero.jpg",
-    author: "Dante Gordon",
-    title: "What's new in Python?",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, dolor.",
-  },
-];
