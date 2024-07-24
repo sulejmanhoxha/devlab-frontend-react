@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 
 import { Card } from "../components/Card";
-import { Carousel } from "../components/Carousel";
+// import { Carousel } from "../components/Carousel";
 import Colaborators from "../components/Colaborators";
 import LearnMore from "../components/LearnMore";
 import "../css/style.css";
-import { slides } from "../data/carouselData.json";
+
+// import { slides } from "../data/carouselData.json";
 
 function HomePage() {
   useEffect(() => {
@@ -180,7 +181,7 @@ function HomePage() {
           <h2>Pets Available for Adoption</h2>
         </section>
 
-        <Carousel data={slides} />
+        {/* <Carousel data={slides} /> */}
 
         <LearnMore />
 

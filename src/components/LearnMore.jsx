@@ -1,18 +1,9 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import "../css/LearnMore.css";
 
 const LearnMore = () => {
-  const navigate = useNavigate();
-
-  const handleButtonClick = () => {
-    navigate("/contact");
-  };
-  const handleButtonClick2 = () => {
-    navigate("/shelters");
-  };
-
   return (
     <section className="body-font text-gray-600">
       <div className="container mx-auto px-5 py-24">
@@ -78,10 +69,9 @@ const LearnMore = () => {
               <p className="text-base leading-relaxed">
                 Learn how shelters/rescue and help cats and dogs.
               </p>
-              <a
+              <Link
                 className="mt-3 inline-flex items-center text-indigo-500"
-                href="#"
-                onClick={handleButtonClick2}
+                to={"/shelters"}
               >
                 Learn More
                 <svg
@@ -95,7 +85,7 @@ const LearnMore = () => {
                 >
                   <path d="M5 12h14M12 5l7 7-7 7"></path>
                 </svg>
-              </a>
+              </Link>
             </div>
           </div>
           <div className="flex flex-col items-center p-4 text-center md:w-1/3">
@@ -114,10 +104,9 @@ const LearnMore = () => {
                 Get answers to all the questions you have or haven't thought of
                 for your adoption.
               </p>
-              <a
+              <Link
                 className="mt-3 inline-flex items-center text-indigo-500"
-                href="#"
-                onClick={handleButtonClick}
+                to={"/contact2"}
               >
                 Learn More
                 <svg
@@ -131,7 +120,7 @@ const LearnMore = () => {
                 >
                   <path d="M5 12h14M12 5l7 7-7 7"></path>
                 </svg>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
