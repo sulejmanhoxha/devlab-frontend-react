@@ -9,6 +9,7 @@
       "color": "Black",
       "gender": "Male",
       "goodWith": ["dog", "cat", "bird", "kids"],
+      "description": "Rex is a German Shepherd who loves to play with his owner and his family. He is a loyal companion and always ready to greet you with a wagging tail.",
       "name": "Rex",
       "size": "Small",
       "images": [
@@ -26,6 +27,7 @@
       "coatLength": "Medium",
       "color": "White",
       "gender": "Female",
+      "description": "Bella is a Labrador Retriever who loves to play with her owner and her family. She is a loyal companion and always ready to greet you with a wagging tail.",
       "goodWith": ["dog", "cat", "bird", "kids"],
       "name": "Bella",
       "size": "Medium",
@@ -44,14 +46,15 @@
       "coatLength": "Long",
       "color": "Black",
       "gender": "Female",
+      "description": "Misty is a Persian who loves to play with her owner and her family. She is a loyal companion and always ready to greet you with a wagging tail.",
       "goodWith": ["dog", "bird", "kids"],
       "name": "Misty",
       "size": "Medium",
       "images": [
-        "/images/persian-1.webp",
-        "/images/persian-2.jpg",
-        "/images/persian-3.jpg",
-        "/images/persian-4.webp"
+        "/images/persian-cat-1.webp",
+        "/images/persian-cat-2.jpg",
+        "/images/persian-cat-3.jpg",
+        "/images/persian-cat-4.webp"
       ]
     },
     {
@@ -60,6 +63,7 @@
       "breed": "Bengal",
       "category": "cat",
       "coatLength": "Medium",
+      "description": "Charlie is a Bengal who loves to play with his owner and his family. He is a loyal companion and always ready to greet you with a wagging tail.",
       "color": "Black",
       "gender": "Male",
       "goodWith": ["dog", "bird", "kids"],
@@ -80,6 +84,7 @@
       "coatLength": "Medium",
       "color": "Black",
       "gender": "Male",
+      "description": "Charlie is a Bengal who loves to play with his owner and his family. He is a loyal companion and always ready to greet you with a wagging tail.",
       "goodWith": ["dog", "bird", "kids"],
       "name": "Charlie",
       "size": "Medium",
@@ -100,6 +105,7 @@
       "gender": "Male",
       "goodWith": ["dog", "cat", "bird", "kids"],
       "name": "Tiri",
+      "description": "Tiri is a Brittany Shepherd who loves to play with her owner and her family. She is a loyal companion and always ready to greet you with a wagging tail.",
       "size": "Small",
       "images": [
         "/images/brittany-shepherd-dog-1.jpg",
