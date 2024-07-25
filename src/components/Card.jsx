@@ -8,7 +8,10 @@ export const Card = ({ imgSrc, imgAlt, title, description, link }) => {
     <Link to={link} className="card-link">
       <div className="card-container">
         {imgSrc && imgAlt && (
-          <img src={imgSrc} alt={imgAlt} className="card-img" />
+          <div className="image-container">
+            <img src={imgSrc} alt={imgAlt} className="card-img" />
+            <div className="hill"></div>
+          </div>
         )}
         {title && <h1 className="card-title">{title}</h1>}
         {/* {description && <p className="card-description">{description}</p>} */}
