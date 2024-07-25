@@ -1,4 +1,5 @@
 import { Card } from "../components/Card";
+import ListBoxFilter from "../components/ListBoxFilter";
 import { usePets } from "../hooks/usePets";
 
 const PetsPage = () => {
@@ -16,40 +17,32 @@ const PetsPage = () => {
     return (
       <div className="container mx-auto bg-white px-6 py-40">
         <div className="flex w-full gap-4">
-          <div className="w-full max-w-60">
-            <h1 className="text-lg font-semibold tracking-wide">Filters</h1>
+          <div className="w-full max-w-60 max-md:hidden">
+            <h1 className="mb-4 text-4xl">Filters</h1>
             <div className="space-y-3">
               <div>
-                <h2>Breed</h2>
-                <p className="rounded-md border border-violet-500 bg-slate-200 px-2 py-3 font-bold">
-                  Any
-                </p>
+                <h2 className="mb-1 text-sm font-medium tracking-wide">
+                  Breed
+                </h2>
+
+                <ListBoxFilter />
               </div>
 
               <div>
-                <h2>Age</h2>
-                <p className="rounded-md border border-violet-500 bg-slate-200 px-2 py-3 font-bold">
-                  Any
-                </p>
+                <h2 className="mb-1 text-sm font-medium tracking-wide">Age</h2>
+
+                <ListBoxFilter />
               </div>
 
               <div>
-                <h2>Size</h2>
-                <p className="rounded-md border border-violet-500 bg-slate-200 px-2 py-3 font-bold">
-                  Any
-                </p>
-              </div>
+                <h2 className="mb-1 text-sm font-medium tracking-wide">Size</h2>
 
-              <div>
-                <h2>Gender</h2>
-                <p className="rounded-md border border-violet-500 bg-slate-200 px-2 py-3 font-bold">
-                  Any
-                </p>
+                <ListBoxFilter />
               </div>
             </div>
           </div>
 
-          <div className="grid flex-1 grid-cols-2 gap-4">
+          <div className="grid flex-1 grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {petsQuery.data.map((pet) => (
               <Card
                 key={pet.id}
