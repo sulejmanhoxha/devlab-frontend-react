@@ -53,12 +53,10 @@ const PetsPage = () => {
             {petsQuery.data.map((pet) => (
               <Card
                 key={pet.id}
-                description={pet.description}
                 imgSrc={pet.images[0]}
                 imgAlt={`An image for a ${pet.name}`}
                 title={pet.name}
                 link={`/pets/${pet.id}`}
-                buttonText={"View"}
               />
             ))}
           </div>
