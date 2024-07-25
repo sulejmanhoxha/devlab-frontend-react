@@ -65,7 +65,7 @@ body-font {
   margin-top: 16px;
 }
 
-.w-full button {
+/* .w-full button {
   display: inline-block;
   background-color: #4f46e5;
   color: white;
@@ -81,7 +81,7 @@ body-font {
 
 button:hover {
   background-color: #3730a3;
-}
+} */
 
 .mt-8 {
   margin-top: 32px;
