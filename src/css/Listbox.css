@@ -1,0 +1,62 @@
+/* Ensure that ListboxOption has relative positioning */
+.listbox-option {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem; /* Adjust as needed */
+  transition: background-color 0.2s;
+  font-size: 1rem; /* Ensure consistent text size */
+}
+
+/* Adjust hover background color */
+.listbox-option:hover {
+  background-color: #e0f0ff;
+}
+
+.listbox-selected {
+  height: 200px;
+  width: 300px;
+}
+
+.listbox-option-text {
+  flex-grow: 1;
+}
+
+.listbox-option-icons {
+  display: flex;
+  align-items: center;
+  margin-left: 0.5rem; /* Adjust as needed */
+  position: relative;
+  width: 2rem; /* Adjust width as needed */
+}
+
+.listbox-option-check-icon,
+.listbox-option-x-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: opacity 0.2s;
+  width: 1.25rem; /* Adjust icon size */
+  height: 1.25rem; /* Adjust icon size */
+}
+
+.listbox-option-check-icon {
+  color: #10b981; /* Green color for check mark */
+  opacity: 1;
+}
+
+.listbox-option-x-icon {
+  right: 0;
+  color: #ef4444; /* Red color for X mark */
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Apply group hover effects */
+.listbox-option:hover .listbox-option-check-icon {
+  opacity: 0;
+}
+
+.listbox-option:hover .listbox-option-x-icon {
+  opacity: 1;
+}
