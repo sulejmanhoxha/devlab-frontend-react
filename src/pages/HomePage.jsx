@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 
 import CardCarousel from "../components/CardCarousel";
+import Colaborators from "../components/Colaborators";
 import Hero from "../components/Hero";
+import LearnMore from "../components/LearnMore";
 import CountUpStats from "../components/Stats";
 import { usePets } from "../hooks/usePets";
 
@@ -27,6 +29,8 @@ const HomePage = () => {
         <CardCarousel pets={petsQuery.data} title={"Dogs"} />
         <CardCarousel pets={petsQuery.data} title={"Cats"} />
         <CountUpStats />
+        <LearnMore />
+        <Colaborators />;
       </>
     );
   }

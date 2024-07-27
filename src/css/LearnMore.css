@@ -36,7 +36,7 @@
 }
 
 .flex-row {
-  display: flex;
+  display: row;
   justify-content: space-around;
 }
 
@@ -86,6 +86,9 @@
 
 @media only screen and (max-width: 1000px) {
   .flex-col {
+    display: flow;
+  }
+  .flex-row {
     display: flow;
   }
 }
