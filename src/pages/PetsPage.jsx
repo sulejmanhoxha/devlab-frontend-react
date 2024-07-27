@@ -1,13 +1,7 @@
-import {
-  Listbox,
-  ListboxButton,
-  ListboxOption,
-  ListboxOptions,
-} from "@headlessui/react";
-import { CheckIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
 
 import { Card } from "../components/Card";
+import ListboxComponent from "../components/ListBox";
 import "../css/Listbox.css";
 import { usePets } from "../hooks/usePets";
 
@@ -20,10 +14,13 @@ const people = [
 ];
 
 const PetsPage = () => {
-  const [selectedPeople, setSelectedPeople] = useState([people[0], people[1]]);
+  const [selectedPeople1, setSelectedPeople1] = useState([]);
+  const [selectedPeople2, setSelectedPeople2] = useState([]);
+  const [selectedPeople3, setSelectedPeople3] = useState([]);
+  const [selectedPeople4, setSelectedPeople4] = useState([]);
 
-  const handleRemovePerson = (person) => {
-    setSelectedPeople(selectedPeople.filter((p) => p.id !== person.id));
+  const handleRemovePerson = (person, setSelectedPeople) => {
+    setSelectedPeople((prev) => prev.filter((p) => p.id !== person.id));
   };
 
   const { petsQuery } = usePets();
@@ -40,33 +37,42 @@ const PetsPage = () => {
     return (
       <div className="container mx-auto bg-white px-6 py-40">
         <div className="flex w-full gap-4">
-          <Listbox value={selectedPeople} onChange={setSelectedPeople} multiple>
-            <ListboxButton className="listbox-selected">
-              {selectedPeople.map((person) => person.name).join(", ")}
-            </ListboxButton>
-            <ListboxOptions anchor="bottom">
-              {people.map((person) => (
-                <ListboxOption
-                  key={person.id}
-                  value={person}
-                  className="listbox-option"
-                >
-                  <span className="listbox-option-text">{person.name}</span>
-                  {selectedPeople.some((p) => p.id === person.id) && (
-                    <div className="listbox-option-icons">
-                      <CheckIcon className="listbox-option-check-icon" />
-                      <XMarkIcon
-                        className="listbox-option-x-icon"
-                        onClick={() => handleRemovePerson(person)}
-                      />
-                    </div>
-                  )}
-                </ListboxOption>
-              ))}
-            </ListboxOptions>
-          </Listbox>
+          <div className="fillter-container">
+            <ListboxComponent
+              people={people}
+              selectedPeople={selectedPeople1}
+              setSelectedPeople={setSelectedPeople1}
+              handleRemovePerson={(person) =>
+                handleRemovePerson(person, setSelectedPeople1)
+              }
+            />
+            <ListboxComponent
+              people={people}
+              selectedPeople={selectedPeople2}
+              setSelectedPeople={setSelectedPeople2}
+              handleRemovePerson={(person) =>
+                handleRemovePerson(person, setSelectedPeople2)
+              }
+            />
+            <ListboxComponent
+              people={people}
+              selectedPeople={selectedPeople3}
+              setSelectedPeople={setSelectedPeople3}
+              handleRemovePerson={(person) =>
+                handleRemovePerson(person, setSelectedPeople3)
+              }
+            />
+            <ListboxComponent
+              people={people}
+              selectedPeople={selectedPeople4}
+              setSelectedPeople={setSelectedPeople4}
+              handleRemovePerson={(person) =>
+                handleRemovePerson(person, setSelectedPeople4)
+              }
+            />
+          </div>
 
-          <div className="grid flex-1 grid-cols-2 gap-4">
+          <div className="pet-cards-container">
             {petsQuery.data.map((pet) => (
               <Card
                 key={pet.id}

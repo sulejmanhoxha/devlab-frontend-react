@@ -54,7 +54,10 @@ const LearnMore = () => {
               </a>
             </div>
           </div>
-          <div className="flex flex-col items-center p-4 text-center md:w-1/3">
+          <div
+            id="learnMore-container"
+            className="flex flex-col items-center p-4 text-center md:w-1/3"
+          >
             <div className="icon-placeholder mb-5 inline-flex flex-shrink-0 items-center justify-center rounded-full bg-indigo-100 text-indigo-500">
               <img
                 src="../public/images/heartbeat.png"

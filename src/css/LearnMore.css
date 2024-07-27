@@ -40,6 +40,11 @@
   justify-content: space-around;
 }
 
+.flex-wrap {
+  display: row;
+  justify-content: space-around;
+}
+
 .flex-col {
   display: table-cell;
   margin: 20px;
