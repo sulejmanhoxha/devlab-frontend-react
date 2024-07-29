@@ -86,13 +86,13 @@
       "gender": "Male",
       "description": "Charlie is a Bengal who loves to play with his owner and his family. He is a loyal companion and always ready to greet you with a wagging tail.",
       "goodWith": ["dog", "bird", "kids"],
-      "name": "Charlie",
+      "name": "Charlie2",
       "size": "Medium",
       "images": [
-        "/images/beagle-2.webp",
-        "/images/beagle-1.webp",
-        "/images/beagle-4.jpg",
-        "/images/beagle-3.webp"
+        "/images/bengal-cat-2.avif",
+        "/images/bengal-cat-1.jpg",
+        "/images/bengal-cat-4.jpg",
+        "/images/bengal-cat-3.jpg"
       ]
     },
     {
