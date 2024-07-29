@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { Card } from "../components/Card";
 import ListboxComponent from "../components/ListBox";
-import "../css/Listbox.css";
+import styles from "../css/Listbox.module.css";
 import { usePets } from "../hooks/usePets";
 
 const people = [
@@ -35,9 +35,9 @@ const PetsPage = () => {
 
   if (petsQuery.isSuccess) {
     return (
-      <div className="container mx-auto bg-white px-6 py-40">
-        <div className="flex w-full gap-4">
-          <div className="fillter-container">
+      <div className={styles.mainContainer}>
+        <div className={styles.flexContainer}>
+          <div className={styles.fillterContainer}>
             <ListboxComponent
               people={people}
               selectedPeople={selectedPeople1}
@@ -72,7 +72,7 @@ const PetsPage = () => {
             />
           </div>
 
-          <div className="pet-cards-container">
+          <div className={styles.petCardsContainer}>
             {petsQuery.data.map((pet) => (
               <Card
                 key={pet.id}

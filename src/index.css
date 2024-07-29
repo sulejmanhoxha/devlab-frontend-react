@@ -46,4 +46,5 @@
   background-size: cover;
   background-color: rgba(31, 26, 24, 0.67);
   background-blend-mode: multiply;
+  width: 100%;
 }

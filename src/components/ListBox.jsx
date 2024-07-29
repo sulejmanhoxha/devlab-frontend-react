@@ -12,7 +12,7 @@ import {
 } from "@heroicons/react/24/solid";
 import React from "react";
 
-import "../css/Listbox.css";
+import styles from "../css/Listbox.module.css";
 
 const ListboxComponent = ({
   people,
@@ -24,28 +24,30 @@ const ListboxComponent = ({
     <Listbox value={selectedPeople} onChange={setSelectedPeople} multiple>
       {({ open }) => (
         <>
-          <ListboxButton className="listbox-selected">
-            <span className="listbox-filter-text">Filter</span>
-            <span className={`listbox-arrow-icon ${open ? "rotate-180" : ""}`}>
+          <ListboxButton className={styles.listboxSelected}>
+            <span className={styles.listboxFilterText}>Filter</span>
+            <span
+              className={`${styles.listboxArrowIcon} ${open ? styles.rotate180 : ""}`}
+            >
               <ChevronDownIcon />
             </span>
           </ListboxButton>
           <ListboxOptions
-            className={open ? "listbox-options-open" : ""}
+            className={open ? styles.listboxOptionsOpen : ""}
             anchor="bottom"
           >
             {people.map((person) => (
               <ListboxOption
                 key={person.id}
                 value={person}
-                className="listbox-option"
+                className={styles.listboxOption}
               >
-                <span className="listbox-option-text">{person.name}</span>
+                <span className={styles.listboxOptionText}>{person.name}</span>
                 {selectedPeople.some((p) => p.id === person.id) && (
-                  <div className="listbox-option-icons">
-                    <CheckIcon className="listbox-option-check-icon" />
+                  <div className={styles.listboxOptionIcons}>
+                    <CheckIcon className={styles.listboxOptionCheckIcon} />
                     <XMarkIcon
-                      className="listbox-option-x-icon"
+                      className={styles.listboxOptionXIcon}
                       onClick={() => handleRemovePerson(person)}
                     />
                   </div>
