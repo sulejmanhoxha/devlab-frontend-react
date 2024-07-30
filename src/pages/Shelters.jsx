@@ -73,52 +73,31 @@ const Shelters = () => {
               </svg>
             </div>
             <div className={stylesShelter.textContainer}>
-              <h2 className={stylesShelter.title}>Adopt a Pet</h2>
+              <h2 className={stylesShelter.title}>
+                Secure and Reliable Platform
+              </h2>
               <p className={stylesShelter.text}>
-                Discover the joy of bringing a new furry friend into your life.
-                Our platform connects you with pets in need of a loving home,
-                making it easy to find your perfect companion.
+                Our platform ensures safe and secure transactions for buying,
+                selling, and adopting pets. We prioritize the safety of both
+                pets and users, implementing robust security measures to protect
+                your personal information and ensure a trustworthy experience.
               </p>
-              <a className={stylesShelter.learnMore} href="#">
-                Learn More
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  className={stylesShelter.arrow}
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7"></path>
-                </svg>
-              </a>
             </div>
           </div>
           <div
             className={`${stylesShelter.flex} ${stylesShelter.borderBottom} ${stylesShelter.marginBottom}`}
           >
             <div className={stylesShelter.textContainer}>
-              <h2 className={stylesShelter.title}>Sell Your Pet</h2>
+              <h2 className={stylesShelter.title}>
+                Community-Centered Approach
+              </h2>
               <p className={stylesShelter.text}>
-                Looking to find a new home for your pet? Our platform provides
-                an easy and safe way to connect with potential buyers who are
-                ready to provide a loving environment for your pet.
+                We are dedicated to supporting shelters and rescue
+                organizations. Our community-focused approach means we work
+                closely with these groups to help find loving homes for pets in
+                need. By choosing us, you’re also contributing to the welfare of
+                animals and supporting rescue efforts.
               </p>
-              <a className={stylesShelter.learnMore} href="#">
-                Learn More
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  className={stylesShelter.arrow}
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7"></path>
-                </svg>
-              </a>
             </div>
             <div
               className={`${stylesShelter.iconContainer} ${stylesShelter.bgIndigo100} ${stylesShelter.textIndigo500}`}
@@ -156,29 +135,16 @@ const Shelters = () => {
               </svg>
             </div>
             <div className={stylesShelter.textContainer}>
-              <h2 className={stylesShelter.title}>Pet Care Tips</h2>
+              <h2 className={stylesShelter.title}>Diverse Pet Selection</h2>
               <p className={stylesShelter.text}>
-                Ensure the well-being of your pet with our expert care tips and
-                advice. From nutrition to grooming, we provide the resources you
-                need to keep your pet healthy and happy.
+                Whether you’re looking for a dog, cat, bird, or reptile, we
+                cater to all pet lovers. Our wide variety of pets ensures that
+                you can find the perfect companion to match your lifestyle and
+                preferences. Explore our extensive selection and discover your
+                new best friend today.
               </p>
-              <a className={stylesShelter.learnMore} href="#">
-                Learn More
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  className={stylesShelter.arrow}
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7"></path>
-                </svg>
-              </a>
             </div>
           </div>
-          <button className={stylesShelter.button}>Get Started</button>
         </div>
       </section>
 
