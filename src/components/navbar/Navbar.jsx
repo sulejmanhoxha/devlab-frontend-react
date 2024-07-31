@@ -46,9 +46,9 @@ const NavLeft = ({ setIsOpen }) => {
       </motion.button>
       <Logo />
       <NavLink text="Home" href="/" />
-      <NavLink text="Pets" href="/pets" />
-      <NavLink text="About" href="/shelters" />
-      <NavLink text="Contact" href="/contact" />
+      <NavLink text="Pets" href="" />
+      <NavLink text="About" href="" />
+      <NavLink text="Contact" href="" />
     </div>
   );
 };

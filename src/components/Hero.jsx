@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Hero = () => {
   return (
     <>
-      <section className="hero flex min-h-screen flex-col items-center justify-center">
+      <section className="hero m-0 flex min-h-screen flex-col items-center justify-center">
         <div
           className="flex max-w-xl flex-col items-center pb-16 text-center lg:pb-48 lg:pt-32"
           style={{ marginBottom: "150px" }}
@@ -16,15 +16,11 @@ const Hero = () => {
             <a
               href="#"
               className="inline-block rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base"
-            >
-              <Link to={"/pets"}>Start now</Link>
-            </a>
+            ></a>
             <a
               href="#"
               className="inline-block rounded-lg bg-gray-200 px-8 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base"
-            >
-              <Link to={"/shelters"}>About US</Link>
-            </a>
+            ></a>
           </div>
         </div>
       </section>
