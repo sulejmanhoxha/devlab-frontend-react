@@ -4,7 +4,10 @@ const Hero = () => {
   return (
     <>
       <section className="hero flex min-h-screen flex-col items-center justify-center">
-        <div className="flex max-w-xl flex-col items-center pb-16 text-center lg:pb-48 lg:pt-32">
+        <div
+          className="flex max-w-xl flex-col items-center pb-16 text-center lg:pb-48 lg:pt-32"
+          style={{ marginBottom: "150px" }}
+        >
           <h1 className="mb-8 text-4xl font-bold text-white md:mb-12">
             Find your new best friend
           </h1>

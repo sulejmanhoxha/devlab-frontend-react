@@ -28,7 +28,7 @@
 }
 
 .dark footer {
-  background-color: #3f3d3d91;
+  background-color: #3f3d3de5;
 }
 .dark footer span {
   color: #fff;
@@ -46,7 +46,7 @@ footer .container {
 }
 
 .dark .bg-white {
-  background-color: #242424;
+  background-color: #323232ef;
 }
 
 .dark .mb-3 {
@@ -58,9 +58,9 @@ footer .container {
 }
 
 .dark .listboxSelected1 {
-  background-color: #242424;
+  background-color: #393d41;
 }
 
 .dark .listboxOptionsOpen1 {
-  background-color: #242424;
+  background-color: #393d41;
 }
