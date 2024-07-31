@@ -3,8 +3,8 @@ import { Cat, Dog, HandHelping, PawPrint } from "lucide-react";
 const Hero = () => {
   return (
     <>
-      <section className="hero flex min-h-screen flex-col items-center justify-center">
-        <div className="flex max-w-xl flex-col items-center pb-16 text-center lg:pb-48 lg:pt-32">
+      <section className="hero m-0 relative flex min-h-screen flex-col items-center justify-center">
+        <div className="text-center">
           <h1 className="mb-8 text-4xl font-bold text-white md:mb-12">
             Find your new best friend
           </h1>
@@ -24,8 +24,8 @@ const Hero = () => {
           </div>
         </div>
       </section>
+        <HoverDevCards />
 
-      <HoverDevCards />
     </>
   );
 };
@@ -34,8 +34,8 @@ export default Hero;
 
 const HoverDevCards = () => {
   return (
-    <div className="mx-auto -mt-[20%] w-full max-w-4xl">
-      <div className="mg:grid-cols-2 grid grid-cols-1 gap-4 px-8 lg:grid-cols-4">
+    <div className="mx-auto -mt-32  w-full max-w-4xl p-10 ">
+      <div className="md:grid-cols-2 grid grid-cols-1 gap-4 px-8 lg:grid-cols-4">
         <Card
           title="Account"
           subtitle="Manage profile"

@@ -9,15 +9,17 @@ import { ThemeToggle } from "./ThemeToggle";
 const FlipNav = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <nav className="fixed z-50 flex w-full items-center justify-between border-b-[1px] border-gray-200 bg-white p-4">
-      <NavLeft setIsOpen={setIsOpen} />
-      <div className="flex items-center gap-4 text-blue-600 max-lg:hidden">
-        <Instagram />
-        <Twitter />
-        <Facebook />
+    <nav className="fixed top-0 z-50 w-full  border-b border-gray-200 bg-white p-4">
+      <div className="container mx-auto flex flex-row  items-center justify-between">
+        <NavLeft setIsOpen={setIsOpen} />
+        <div className="flex items-center gap-4 text-blue-600 max-lg:hidden">
+          <Instagram />
+          <Twitter />
+          <Facebook />
+        </div>
+        <NavRight />
+        <NavMenu isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
-      <NavRight />
-      <NavMenu isOpen={isOpen} setIsOpen={setIsOpen} />
     </nav>
   );
 };

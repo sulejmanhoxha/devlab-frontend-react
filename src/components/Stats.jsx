@@ -9,7 +9,7 @@ const CountUpStats = () => {
         <span className="text-indigo-500"> BEAUTIFUL LANDING PAGE</span>
       </h2>
 
-      <div className="flex flex-col items-center justify-center sm:flex-row">
+      <div className="flex items-center justify-center sm:flex-row">
         <Stat
           num={45}
           suffix="%"
