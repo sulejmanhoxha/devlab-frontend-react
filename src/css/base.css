@@ -1,0 +1,38 @@
+.light * {
+  /* background-color: #ced4da; */
+  /* background-color: #fff; */
+}
+
+.dark body {
+  background-color: #242424;
+}
+
+.dark nav {
+  background-color: #242424;
+}
+
+.dark section {
+  background-color: #242424;
+}
+
+.dark p {
+  color: #ffffffce;
+}
+
+.dark h1 {
+  color: #fff;
+}
+
+.dark h2 {
+  color: #fff;
+}
+
+.dark footer {
+  background-color: #3f3d3d91;
+}
+.dark footer span {
+  color: #fff;
+}
+.dark footer a {
+  color: #ffffffb3;
+}

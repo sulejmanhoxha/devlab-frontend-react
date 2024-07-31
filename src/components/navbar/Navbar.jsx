@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import { ThemeToggle } from "./ThemeToggle";
+import "/src/css/base.css";
 
 const FlipNav = () => {
   const [isOpen, setIsOpen] = useState(false);

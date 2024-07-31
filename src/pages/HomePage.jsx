@@ -4,6 +4,7 @@ import CardCarousel from "../components/CardCarousel";
 import Hero from "../components/Hero";
 import LearnMore from "../components/LearnMore";
 import CountUpStats from "../components/Stats";
+import "../css/base.css";
 import { usePets } from "../hooks/usePets";
 
 const HomePage = () => {
