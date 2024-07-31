@@ -1,3 +1,5 @@
+import "/src/css/base.css";
+
 const Footer = () => {
   return (
     <footer className="body-font text-gray-600">

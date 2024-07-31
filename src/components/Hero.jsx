@@ -35,7 +35,7 @@ export default Hero;
 const HoverDevCards = () => {
   return (
     <div className="mx-auto -mt-[20%] w-full max-w-4xl">
-      <div className="mg:grid-cols-2 grid grid-cols-1 gap-4 px-8 lg:grid-cols-4">
+      {/* <div className="mg:grid-cols-2 grid grid-cols-1 gap-4 px-8 lg:grid-cols-4">
         <Card
           title="Account"
           subtitle="Manage profile"
@@ -45,7 +45,7 @@ const HoverDevCards = () => {
         <Card title="Email" subtitle="Manage email" href="#" Icon={Cat} />
         <Card title="Team" subtitle="Manage team" href="#" Icon={HandHelping} />
         <Card title="Billing" subtitle="Manage cards" href="#" Icon={Dog} />
-      </div>
+      </div> */}
     </div>
   );
 };

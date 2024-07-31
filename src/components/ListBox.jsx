@@ -24,7 +24,9 @@ const ListboxComponent = ({
     <Listbox value={selectedPeople} onChange={setSelectedPeople} multiple>
       {({ open }) => (
         <>
-          <ListboxButton className={styles.listboxSelected}>
+          <ListboxButton
+            className={`${styles.listboxSelected} listboxSelected1`}
+          >
             <span className={styles.listboxFilterText}>Filter</span>
             <span
               className={`${styles.listboxArrowIcon} ${open ? styles.rotate180 : ""}`}
@@ -33,7 +35,7 @@ const ListboxComponent = ({
             </span>
           </ListboxButton>
           <ListboxOptions
-            className={open ? styles.listboxOptionsOpen : ""}
+            className={`${open ? styles.listboxOptionsOpen : ""} listboxOptionsOpen1`}
             anchor="bottom"
           >
             {people.map((person) => (

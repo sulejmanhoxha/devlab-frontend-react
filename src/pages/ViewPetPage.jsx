@@ -1,13 +1,14 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import "lightgallery/css/lg-thumbnail.css";
 import "lightgallery/css/lg-zoom.css";
-// import styles
 import "lightgallery/css/lightgallery.css";
 import lgThumbnail from "lightgallery/plugins/thumbnail";
 import lgZoom from "lightgallery/plugins/zoom";
 import LightGallery from "lightgallery/react";
 import { useParams } from "react-router-dom";
 
+// import styles
+import "../css/base.css";
 import { getPetDetails } from "../lib/pets/pets";
 
 const ViewPetPage = () => {
@@ -184,7 +185,7 @@ const ViewPetPage = () => {
                   d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"
                 />
               </svg>
-              <span className="text-sm">2-4 day shipping</span>
+              <span className="text-sm">Shipping fee included</span>
             </div>
             {/* shipping notice - end */}
             {/* buttons - start */}
@@ -193,7 +194,7 @@ const ViewPetPage = () => {
                 href="#"
                 className="inline-block flex-1 rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 sm:flex-none md:text-base"
               >
-                Add to cart
+                Adopt
               </a>
               <a
                 href="#"

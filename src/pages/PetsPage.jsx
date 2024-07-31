@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Card } from "../components/Card";
 import ListboxComponent from "../components/ListBox";
 import styles from "../css/Listbox.module.css";
+import "../css/base.css";
 import { usePets } from "../hooks/usePets";
 
 const people = [
@@ -35,9 +36,9 @@ const PetsPage = () => {
 
   if (petsQuery.isSuccess) {
     return (
-      <div className={styles.mainContainer}>
+      <div className={`${styles.mainContainer} mainConatiner1`}>
         <div className={styles.flexContainer}>
-          <div className={styles.fillterContainer}>
+          <div className={`${styles.fillterContainer} mainfillter1`}>
             <ListboxComponent
               people={people}
               selectedPeople={selectedPeople1}

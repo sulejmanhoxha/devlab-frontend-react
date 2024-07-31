@@ -39,9 +39,9 @@
   font-size: 1rem;
 }
 
-.listboxOption:hover {
+/* .listboxOption:hover {
   background-color: #e0f0ff;
-}
+} */
 
 .listboxOptionText {
   flex-grow: 1;

@@ -36,3 +36,31 @@
 .dark footer a {
   color: #ffffffb3;
 }
+
+footer .container {
+  margin-bottom: 0;
+}
+
+.dark span {
+  color: #ffffffce;
+}
+
+.dark .bg-white {
+  background-color: #242424;
+}
+
+.dark .mb-3 {
+  color: #fff;
+}
+
+.dark .mainConatiner1 {
+  background-color: #242424;
+}
+
+.dark .listboxSelected1 {
+  background-color: #242424;
+}
+
+.dark .listboxOptionsOpen1 {
+  background-color: #242424;
+}
