@@ -1,4 +1,5 @@
 import { Cat, Dog, HandHelping, PawPrint } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -16,13 +17,13 @@ const Hero = () => {
               href="#"
               className="inline-block rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base"
             >
-              Start now
+              <Link to={"/pets"}>Start now</Link>
             </a>
             <a
               href="#"
               className="inline-block rounded-lg bg-gray-200 px-8 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base"
             >
-              Take tour
+              <Link to={"/shelters"}>About US</Link>
             </a>
           </div>
         </div>

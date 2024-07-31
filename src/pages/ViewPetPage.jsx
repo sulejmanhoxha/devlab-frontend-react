@@ -101,7 +101,7 @@ const ViewPetPage = () => {
             {/* name - end */}
 
             {/* color - start */}
-            <div className="mb-4 md:mb-6">
+            {/* <div className="mb-4 md:mb-6">
               <span className="mb-3 inline-block text-sm font-semibold text-gray-500 md:text-base">
                 Color
               </span>
@@ -120,10 +120,10 @@ const ViewPetPage = () => {
                   className="h-8 w-8 rounded-full border bg-white ring-2 ring-transparent ring-offset-1 transition duration-100 hover:ring-gray-200"
                 />
               </div>
-            </div>
+            </div> */}
             {/* color - end */}
             {/* size - start */}
-            <div className="mb-8 md:mb-10">
+            {/* <div className="mb-8 md:mb-10">
               <span className="mb-3 inline-block text-sm font-semibold text-gray-500 md:text-base">
                 Size
               </span>
@@ -153,7 +153,7 @@ const ViewPetPage = () => {
                   XL
                 </span>
               </div>
-            </div>
+            </div> */}
             {/* size - end */}
             {/* price - start */}
             <div className="mb-4">
