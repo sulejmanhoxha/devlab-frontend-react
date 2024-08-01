@@ -38,7 +38,7 @@ const ViewPetPage = () => {
                   src={image}
                   loading="lazy"
                   alt="Photo by Himanshu Dewangan"
-                  className="aspect-video w-full object-cover object-center"
+                  className="h-auto w-full max-w-full rounded-lg object-cover object-center"
                 />
               </a>
             ))}

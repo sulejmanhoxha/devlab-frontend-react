@@ -20,15 +20,7 @@ const Footer = () => {
           <span className="ml-3 text-xl">PawLand</span>
         </a>
         <p className="mt-4 text-sm text-gray-500 sm:ml-4 sm:mt-0 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:pl-4">
-          © 2020 PawLand —
-          <a
-            href="https://twitter.com/knyttneve"
-            className="ml-1 text-gray-600"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            @knyttneve
-          </a>
+          © 2024 PawLand — Filip and Sulejman
         </p>
         <span className="mt-4 inline-flex justify-center sm:ml-auto sm:mt-0 sm:justify-start">
           <a className="text-gray-500">

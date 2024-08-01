@@ -32,8 +32,11 @@
       "name": "Bella",
       "size": "Medium",
       "images": [
+        "/images/labrador-retriever-3.jpeg",
         "/images/labrador-retriever-1.jpg",
+        "/images/labrador-retriever-3.jpeg",
         "/images/labrador-retriever-2.webp",
+        "/images/labrador-retriever-3.jpeg",
         "/images/labrador-retriever-3.jpeg",
         "/images/labrador-retriever-4.webp"
       ]
