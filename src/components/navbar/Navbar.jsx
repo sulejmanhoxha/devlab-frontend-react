@@ -56,7 +56,7 @@ const NavLeft = ({ setIsOpen }) => {
 const NavLink = ({ text, href }) => {
   return (
     <Link
-      href={href}
+      to={href}
       className="hidden h-[30px] overflow-hidden font-medium lg:block"
     >
       <motion.div whileHover={{ y: -30 }}>

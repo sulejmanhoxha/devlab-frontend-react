@@ -14,20 +14,18 @@ import React from "react";
 
 import styles from "../css/Listbox.module.css";
 
-const ListboxComponent = ({
-  people,
-  selectedPeople,
-  setSelectedPeople,
-  handleRemovePerson,
-}) => {
+const ListboxComponent = ({ list, selectedList, setSelectedList }) => {
   return (
-    <Listbox value={selectedPeople} onChange={setSelectedPeople} multiple>
+    <Listbox value={selectedList} onChange={setSelectedList} multiple>
       {({ open }) => (
         <>
           <ListboxButton
             className={`${styles.listboxSelected} listboxSelected1`}
           >
-            <span className={styles.listboxFilterText}>Filter</span>
+            {selectedList.length === 0
+              ? "Any"
+              : `Selected (${selectedList.length})`}
+
             <span
               className={`${styles.listboxArrowIcon} ${open ? styles.rotate180 : ""}`}
             >
@@ -38,19 +36,19 @@ const ListboxComponent = ({
             className={`${open ? styles.listboxOptionsOpen : ""} listboxOptionsOpen1`}
             anchor="bottom"
           >
-            {people.map((person) => (
+            {list.map((item) => (
               <ListboxOption
-                key={person.id}
-                value={person}
+                key={item.id}
+                value={item}
                 className={styles.listboxOption}
               >
-                <span className={styles.listboxOptionText}>{person.name}</span>
-                {selectedPeople.some((p) => p.id === person.id) && (
+                <span className={styles.listboxOptionText}>{item.name}</span>
+                {selectedList.some((p) => p.id === item.id) && (
                   <div className={styles.listboxOptionIcons}>
                     <CheckIcon className={styles.listboxOptionCheckIcon} />
                     <XMarkIcon
                       className={styles.listboxOptionXIcon}
-                      onClick={() => handleRemovePerson(person)}
+                      onClick={() => handleRemoveItem(item)}
                     />
                   </div>
                 )}

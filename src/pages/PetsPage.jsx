@@ -1,93 +1,63 @@
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-import { Card } from "../components/Card";
-import ListboxComponent from "../components/ListBox";
-import styles from "../css/Listbox.module.css";
-import "../css/base.css";
+import Filters from "../components/Filters";
 import { usePets } from "../hooks/usePets";
 
-const people = [
-  { id: 1, name: "Durward Reynolds" },
-  { id: 2, name: "Kenton Towne" },
-  { id: 3, name: "Therese Wunsch" },
-  { id: 4, name: "Benedict Kessler" },
-  { id: 5, name: "Katelyn Rohan" },
-];
-
 const PetsPage = () => {
-  const [selectedPeople1, setSelectedPeople1] = useState([]);
-  const [selectedPeople2, setSelectedPeople2] = useState([]);
-  const [selectedPeople3, setSelectedPeople3] = useState([]);
-  const [selectedPeople4, setSelectedPeople4] = useState([]);
-
-  const handleRemovePerson = (person, setSelectedPeople) => {
-    setSelectedPeople((prev) => prev.filter((p) => p.id !== person.id));
-  };
-
   const { petsQuery } = usePets();
 
-  if (petsQuery.isLoading) {
-    return <h1>Loading...</h1>;
-  }
+  return (
+    <>
+      <div className="container mx-auto bg-white px-6 py-28 md:py-40">
+        <div className="w-full md:flex md:gap-12">
+          <Filters />
 
-  if (petsQuery.error) {
-    return <h1>Error: {petsQuery.error.message}</h1>;
-  }
+          <div className="flex-1">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {petsQuery.isLoading && <h2>Loading...</h2>}
 
-  if (petsQuery.isSuccess) {
-    return (
-      <div className={`${styles.mainContainer} mainConatiner1`}>
-        <div className={styles.flexContainer}>
-          <div className={`${styles.fillterContainer} mainfillter1`}>
-            <ListboxComponent
-              people={people}
-              selectedPeople={selectedPeople1}
-              setSelectedPeople={setSelectedPeople1}
-              handleRemovePerson={(person) =>
-                handleRemovePerson(person, setSelectedPeople1)
-              }
-            />
-            <ListboxComponent
-              people={people}
-              selectedPeople={selectedPeople2}
-              setSelectedPeople={setSelectedPeople2}
-              handleRemovePerson={(person) =>
-                handleRemovePerson(person, setSelectedPeople2)
-              }
-            />
-            <ListboxComponent
-              people={people}
-              selectedPeople={selectedPeople3}
-              setSelectedPeople={setSelectedPeople3}
-              handleRemovePerson={(person) =>
-                handleRemovePerson(person, setSelectedPeople3)
-              }
-            />
-            <ListboxComponent
-              people={people}
-              selectedPeople={selectedPeople4}
-              setSelectedPeople={setSelectedPeople4}
-              handleRemovePerson={(person) =>
-                handleRemovePerson(person, setSelectedPeople4)
-              }
-            />
-          </div>
+              {petsQuery.error && <h2>Error: {petsQuery.error.message}</h2>}
 
-          <div className={styles.petCardsContainer}>
-            {petsQuery.data.map((pet) => (
-              <Card
-                key={pet.id}
-                imgSrc={pet.images[0]}
-                imgAlt={`An image for a ${pet.name}`}
-                title={pet.name}
-                link={`/pets/${pet.id}`}
-              />
-            ))}
+              {petsQuery.isSuccess
+                ? petsQuery.data.map((pet) => (
+                    <PetCard
+                      key={pet.id}
+                      id={pet.id}
+                      images={pet.images}
+                      breed={pet.breed}
+                      name={pet.name}
+                      description={pet.description}
+                    />
+                  ))
+                : null}
+            </div>
           </div>
         </div>
       </div>
-    );
-  }
+    </>
+  );
+};
+
+export const PetCard = ({ id, images, breed, name, description }) => {
+  const navigate = useNavigate();
+
+  return (
+    <div
+      className="cursor-pointer transition-transform hover:-translate-y-1"
+      onClick={() => navigate(`/pets/${id}`)}
+    >
+      <img
+        src={images[0]}
+        className="mb-3 h-[200px] w-full rounded-lg object-cover"
+        alt={`An image for a ${name}`}
+      />
+      <span className="rounded-md border-[1px] border-neutral-500 px-1.5 py-1 text-xs uppercase text-neutral-500">
+        {breed}
+      </span>
+      <p className="mt-1.5 text-lg font-medium">{name}</p>
+      <p className="line-clamp-2 text-sm text-neutral-500">{description}</p>
+    </div>
+  );
 };
 
 export default PetsPage;
