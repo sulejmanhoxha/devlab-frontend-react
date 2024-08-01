@@ -17,7 +17,7 @@
     "@heroicons/react": "^2.1.5",
     "@hookform/resolvers": "^3.9.0",
     "@tanstack/react-query": "^5.51.11",
-    "framer-motion": "^11.3.8",
+    "framer-motion": "^11.3.20",
     "joi": "^17.13.3",
     "lightgallery": "^2.7.2",
     "lucide-react": "^0.411.0",

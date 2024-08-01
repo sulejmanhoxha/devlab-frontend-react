@@ -5,8 +5,11 @@ import "lightgallery/css/lightgallery.css";
 import lgThumbnail from "lightgallery/plugins/thumbnail";
 import lgZoom from "lightgallery/plugins/zoom";
 import LightGallery from "lightgallery/react";
+import React, { useRef } from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 
+import SlideInNotifications from "../components/SlideInNotifications";
 // import styles
 import "../css/base.css";
 import { getPetDetails } from "../lib/pets/pets";
@@ -21,6 +24,22 @@ const ViewPetPage = () => {
     queryFn: () => getPetDetails(id),
     enabled: !!id,
   });
+
+  const [isClicked, setIsClicked] = useState(false);
+
+  const handleClick = () => {
+    setIsClicked(!isClicked);
+  };
+
+  const notifRef = useRef();
+
+  const handleLinkClick = (event) => {
+    event.preventDefault(); // Prevent default link behavior
+    notifRef.current.addNotification({
+      id: Math.random(),
+      text: isClicked ? "Clicked!" : "Removed",
+    });
+  };
   return (
     <div className="bg-white py-28">
       <div className="mx-auto max-w-screen-lg px-4 md:px-8">
@@ -154,10 +173,17 @@ const ViewPetPage = () => {
               >
                 Adopt
               </a>
+
               <a
                 href="#"
-                className="inline-block rounded-lg bg-gray-200 px-4 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base"
+                onClick={(event) => {
+                  handleLinkClick(event);
+                  handleClick(event);
+                }}
+                className={`inline-block rounded-lg ${isClicked ? "bg-red-500" : "bg-gray-200"} px-4 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 focus-visible:ring active:text-gray-700 md:text-base`}
               >
+                <SlideInNotifications ref={notifRef} />
+
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6"
