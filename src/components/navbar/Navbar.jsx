@@ -10,7 +10,7 @@ import "/src/css/base.css";
 const FlipNav = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <nav className="fixed z-50 flex w-full items-center justify-between border-b-[1px] border-gray-200 bg-white p-4">
+    <nav className="z-50 flex w-full items-center justify-between border-b-[1px] border-gray-200 bg-white p-4">
       <NavLeft setIsOpen={setIsOpen} />
       <div className="flex items-center gap-4 text-blue-600 max-lg:hidden">
         <Instagram />
@@ -46,9 +46,9 @@ const NavLeft = ({ setIsOpen }) => {
       </motion.button>
       <Logo />
       <NavLink text="Home" href="/" />
-      <NavLink text="Pets" href="/pets" />
-      <NavLink text="About" href="/about" />
-      <NavLink text="Contact" href="/contact" />
+      <NavLink text="Pets" href="" />
+      <NavLink text="About" href="" />
+      <NavLink text="Contact" href="" />
     </div>
   );
 };
