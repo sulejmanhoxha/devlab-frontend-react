@@ -27,6 +27,7 @@ const ViewPetPage = () => {
         <div className="grid gap-8 md:grid-cols-2">
           {/* images - start */}
           <LightGallery
+            elementClassNames="grid gap-4 grid-cols-2 h-fit [&>*:first-child]:col-span-2"
             // onInit={onInit}
             speed={500}
             plugins={[lgThumbnail, lgZoom]}
@@ -37,54 +38,11 @@ const ViewPetPage = () => {
                   src={image}
                   loading="lazy"
                   alt="Photo by Himanshu Dewangan"
-                  className="w-full object-cover object-center"
+                  className="aspect-video w-full object-cover object-center"
                 />
               </a>
             ))}
           </LightGallery>
-
-          {/* <LightGallery
-            onInit={onInit}
-            speed={500}
-            plugins={[lgThumbnail, lgZoom]}
-          >
-            <div className="space-y-4">
-              <div className="relative overflow-hidden rounded-lg bg-gray-100">
-                <a href="/images/hero.jpg">
-                  <img
-                    src="/images/hero.jpg"
-                    alt="Photo by Himanshu Dewangan"
-                    className="h-full w-full object-cover object-center"
-                  />
-                </a>
-                <span className="absolute left-0 top-0 rounded-br-lg bg-red-500 px-3 py-1.5 text-sm uppercase tracking-wider text-white">
-                  sale
-                </span>
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="overflow-hidden rounded-lg bg-gray-100">
-                  <a href="/images/hero.jpg">
-                    <img
-                      src="/images/hero.jpg"
-                      loading="lazy"
-                      alt="Photo by Himanshu Dewangan"
-                      className="h-full w-full object-cover object-center"
-                    />{" "}
-                  </a>
-                </div>
-                <div className="overflow-hidden rounded-lg bg-gray-100">
-                  <a href="/images/hero.jpg">
-                    <img
-                      src="/images/hero.jpg"
-                      loading="lazy"
-                      alt="Photo by Himanshu Dewangan"
-                      className="h-full w-full object-cover object-center"
-                    />{" "}
-                  </a>
-                </div>
-              </div>
-            </div>
-          </LightGallery> */}
 
           {/* images - end */}
           {/* content - start */}
