@@ -3,16 +3,14 @@ const ContactPage = () => {
     <section className="body-font relative text-gray-600">
       <div className="absolute inset-0 bg-gray-300">
         <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11777.207264704306!2d19.2407667!3d42.442594!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x134deb261ab478b7%3A0x841bb5a318032bf5!2sFaculty%20of%20Electrical%20Engineering!5e0!3m2!1sen!2s!4v1722477958438!5m2!1sen!2s"
           width="100%"
           height="100%"
           style={{ filter: "grayscale(1) contrast(1.2) opacity(0.4)" }}
-          frameBorder={0}
-          marginHeight={0}
-          marginWidth={0}
           title="map"
-          scrolling="no"
-          src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=%C4%B0zmir+(My%20Business%20Name)&ie=UTF8&t=&z=14&iwloc=B&output=embed"
-        />
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
       </div>
       <div className="container mx-auto flex px-5 py-24">
         <div className="relative z-10 mt-10 flex w-full flex-col rounded-lg bg-white p-8 shadow-md md:ml-auto md:mt-0 md:w-1/2 lg:w-1/3">

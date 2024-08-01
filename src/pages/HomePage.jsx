@@ -13,50 +13,23 @@ const HomePage = () => {
   useEffect(() => {
     console.log("petsQuery.data", petsQuery.data);
   }, [petsQuery.data]);
+  return (
+    <>
+      <Hero />
+      {petsQuery.isLoading || petsQuery.isRefetching ? (
+        <h1>Loading...</h1>
+      ) : null}
+      {petsQuery.error ? <h1>Error: {petsQuery.error.message}</h1> : null}
 
-  if (petsQuery.isLoading) {
-    return <h1>Loading...</h1>;
-  }
-
-  if (petsQuery.error) {
-    return <h1>Error: {petsQuery.error.message}</h1>;
-  }
-
-  if (petsQuery.isSuccess) {
-    return (
-      <>
-        <Hero />
-        <CardCarousel pets={petsQuery.data} title={"Dogs"} />
-        <CardCarousel pets={petsQuery.data} title={"Cats"} />
-        <CountUpStats />
-        <LearnMore />
-      </>
-    );
-  }
-
-  return <h1>sdi...</h1>;
-  // return (
-  //   <>
-  //     <Hero />
-
-  //     {/* {petsQuery.isLoading && <h1>Loading...</h1>}
-
-  //     {petsQuery.error && <h1>Error: {petsQuery.error.message}</h1>} */}
-
-  //     {/* {!petsQuery.isLoading && !petsQuery.error && petsQuery.data && (
-  //       <>
-  //         <h1>Data: {JSON.stringify(petsQuery.data)}</h1>
-  //         <CardCarousel pets={petsQuery.data} title={"Dogs"} />
-  //         <CardCarousel pets={petsQuery.data} title={"Cats"} />
-  //       </>
-  //     )} */}
-
-  //     <CardCarousel pets={petsQuery.data} title={"Dogs"} />
-  //     <CardCarousel pets={petsQuery.data} title={"Cats"} />
-
-  //     <CountUpStats />
-  //   </>
-  // );
+      {petsQuery.isSuccess && !petsQuery.isRefetching && petsQuery.data ? (
+        <>
+          <CardCarousel pets={petsQuery.data} title={"Dogs"} />
+          <CardCarousel pets={petsQuery.data} title={"Cats"} />
+        </>
+      ) : null}
+      <CountUpStats />
+    </>
+  );
 };
 
 export default HomePage;

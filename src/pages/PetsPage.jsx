@@ -14,11 +14,17 @@ const PetsPage = () => {
 
           <div className="flex-1">
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-              {petsQuery.isLoading && <h2>Loading...</h2>}
+              {petsQuery.isLoading || petsQuery.isRefetching ? (
+                <h1>Loading...</h1>
+              ) : null}
 
-              {petsQuery.error && <h2>Error: {petsQuery.error.message}</h2>}
+              {petsQuery.error ? (
+                <h1>Error: {petsQuery.error.message}</h1>
+              ) : null}
 
-              {petsQuery.isSuccess
+              {petsQuery.isSuccess &&
+              !petsQuery.isRefetching &&
+              petsQuery.data.length > 0
                 ? petsQuery.data.map((pet) => (
                     <PetCard
                       key={pet.id}
@@ -30,6 +36,12 @@ const PetsPage = () => {
                     />
                   ))
                 : null}
+
+              {petsQuery.isSuccess &&
+              !petsQuery.isRefetching &&
+              petsQuery.data.length === 0 ? (
+                <h1>No pets found</h1>
+              ) : null}
             </div>
           </div>
         </div>
