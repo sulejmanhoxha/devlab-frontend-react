@@ -5,134 +5,99 @@ import "lightgallery/css/lightgallery.css";
 import lgThumbnail from "lightgallery/plugins/thumbnail";
 import lgZoom from "lightgallery/plugins/zoom";
 import LightGallery from "lightgallery/react";
-import React, { useRef } from "react";
-import { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import SlideInNotifications from "../components/SlideInNotifications";
-// import styles
+import {
+  addFavorite,
+  getFavorites,
+  removeFavorite,
+} from "../context/WishlistContext";
 import "../css/base.css";
 import { getPetDetails } from "../lib/pets/pets";
 
-const ViewPetPage = () => {
+const ViewPetPage = ({
+  addPetToSelection,
+  removePetFromSelection,
+  selectedPets,
+}) => {
   const { id } = useParams();
-
   const queryClient = useQueryClient();
-
   const petDetailsQuery = useQuery({
     queryKey: ["pets", id],
     queryFn: () => getPetDetails(id),
     enabled: !!id,
   });
 
-  const [isClicked, setIsClicked] = useState(false);
+  const [isClicked, setIsClicked] = useState(getFavorites().includes(id));
+  const notifRef = useRef();
+
+  useEffect(() => {
+    setIsClicked(getFavorites().includes(id));
+  }, [id]);
 
   const handleClick = () => {
+    if (isClicked) {
+      removeFavorite(id);
+      removePetFromSelection(id);
+    } else {
+      addFavorite(id);
+      addPetToSelection(id);
+    }
     setIsClicked(!isClicked);
   };
 
-  const notifRef = useRef();
-
   const handleLinkClick = (event) => {
-    event.preventDefault(); // Prevent default link behavior
+    event.preventDefault();
     notifRef.current.addNotification({
       id: Math.random(),
-      text: isClicked ? "Clicked!" : "Removed",
+      text: isClicked ? "Removed from favorites" : "Added to favorites",
     });
+    handleClick();
   };
+
+  if (petDetailsQuery.isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (petDetailsQuery.isError) {
+    return <div>Error loading pet details</div>;
+  }
+
+  const petDetails = petDetailsQuery.data;
+
   return (
     <div className="bg-white py-28">
       <div className="mx-auto max-w-screen-lg px-4 md:px-8">
         <div className="grid gap-8 md:grid-cols-2">
-          {/* images - start */}
           <LightGallery
             elementClassNames="grid gap-4 grid-cols-2 h-fit [&>*:first-child]:col-span-2"
-            // onInit={onInit}
             speed={500}
             plugins={[lgThumbnail, lgZoom]}
           >
-            {petDetailsQuery.data?.images.map((image, index) => (
+            {petDetails.images.map((image, index) => (
               <a href={image} key={index}>
                 <img
                   src={image}
                   loading="lazy"
-                  alt="Photo by Himanshu Dewangan"
+                  alt="Pet"
                   className="h-auto w-full max-w-full rounded-lg object-cover object-center"
                 />
               </a>
             ))}
           </LightGallery>
 
-          {/* images - end */}
-          {/* content - start */}
           <div className="md:py-8">
-            {/* name - start */}
             <div className="mb-2 md:mb-3">
               <span className="mb-0.5 inline-block text-gray-500">
-                {petDetailsQuery.data?.breed}
+                {petDetails.breed}
               </span>
               <h2 className="text-2xl font-bold text-gray-800 lg:text-3xl">
-                {petDetailsQuery.data?.name}
+                {petDetails.name}
               </h2>
             </div>
-            {/* name - end */}
 
-            {/* color - start */}
-            {/* <div className="mb-4 md:mb-6">
-              <span className="mb-3 inline-block text-sm font-semibold text-gray-500 md:text-base">
-                Color
-              </span>
-              <div className="flex flex-wrap gap-2">
-                <span className="h-8 w-8 rounded-full border bg-gray-800 ring-2 ring-gray-800 ring-offset-1 transition duration-100" />
-                <button
-                  type="button"
-                  className="h-8 w-8 rounded-full border bg-gray-500 ring-2 ring-transparent ring-offset-1 transition duration-100 hover:ring-gray-200"
-                />
-                <button
-                  type="button"
-                  className="h-8 w-8 rounded-full border bg-gray-200 ring-2 ring-transparent ring-offset-1 transition duration-100 hover:ring-gray-200"
-                />
-                <button
-                  type="button"
-                  className="h-8 w-8 rounded-full border bg-white ring-2 ring-transparent ring-offset-1 transition duration-100 hover:ring-gray-200"
-                />
-              </div>
-            </div> */}
-            {/* color - end */}
-            {/* size - start */}
-            {/* <div className="mb-8 md:mb-10">
-              <span className="mb-3 inline-block text-sm font-semibold text-gray-500 md:text-base">
-                Size
-              </span>
-              <div className="flex flex-wrap gap-3">
-                <button
-                  type="button"
-                  className="flex h-8 w-12 items-center justify-center rounded-md border bg-white text-center text-sm font-semibold text-gray-800 transition duration-100 hover:bg-gray-100 active:bg-gray-200"
-                >
-                  XS
-                </button>
-                <button
-                  type="button"
-                  className="flex h-8 w-12 items-center justify-center rounded-md border bg-white text-center text-sm font-semibold text-gray-800 transition duration-100 hover:bg-gray-100 active:bg-gray-200"
-                >
-                  S
-                </button>
-                <span className="flex h-8 w-12 cursor-default items-center justify-center rounded-md border border-indigo-500 bg-indigo-500 text-center text-sm font-semibold text-white">
-                  M
-                </span>
-                <button
-                  type="button"
-                  className="flex h-8 w-12 items-center justify-center rounded-md border bg-white text-center text-sm font-semibold text-gray-800 transition duration-100 hover:bg-gray-100 active:bg-gray-200"
-                >
-                  L
-                </button>
-                <span className="flex h-8 w-12 cursor-not-allowed items-center justify-center rounded-md border border-transparent bg-white text-center text-sm font-semibold text-gray-400">
-                  XL
-                </span>
-              </div>
-            </div> */}
-            {/* size - end */}
-            {/* price - start */}
             <div className="mb-4">
               <div className="flex items-end gap-2">
                 <span className="text-xl font-bold text-gray-800 md:text-2xl">
@@ -144,8 +109,7 @@ const ViewPetPage = () => {
                 incl. VAT plus shipping
               </span>
             </div>
-            {/* price - end */}
-            {/* shipping notice - start */}
+
             <div className="mb-6 flex items-center gap-2 text-gray-500">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -164,8 +128,7 @@ const ViewPetPage = () => {
               </svg>
               <span className="text-sm">Shipping fee included</span>
             </div>
-            {/* shipping notice - end */}
-            {/* buttons - start */}
+
             <div className="flex gap-2.5">
               <a
                 href="#"
@@ -176,10 +139,7 @@ const ViewPetPage = () => {
 
               <a
                 href="#"
-                onClick={(event) => {
-                  handleLinkClick(event);
-                  handleClick(event);
-                }}
+                onClick={handleLinkClick}
                 className={`inline-block rounded-lg ${isClicked ? "bg-red-500" : "bg-gray-200"} px-4 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 focus-visible:ring active:text-gray-700 md:text-base`}
               >
                 <SlideInNotifications ref={notifRef} />
@@ -200,19 +160,14 @@ const ViewPetPage = () => {
                 </svg>
               </a>
             </div>
-            {/* buttons - end */}
-            {/* description - start */}
+
             <div className="mt-10 md:mt-16 lg:mt-20">
               <div className="mb-3 text-lg font-semibold text-gray-800">
                 Description
               </div>
-              <p className="text-gray-500">
-                {petDetailsQuery.data?.description}
-              </p>
+              <p className="text-gray-500">{petDetails.description}</p>
             </div>
-            {/* description - end */}
           </div>
-          {/* content - end */}
         </div>
       </div>
     </div>

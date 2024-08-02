@@ -52,7 +52,7 @@ const Notification = ({ text, id, removeNotif }) => {
       exit={{ x: "100%", opacity: 0 }}
       transition={{ duration: 0.35, ease: "easeOut" }}
       className="pointer-events-auto flex items-start gap-2 rounded bg-indigo-500 p-2 text-xs font-medium text-white shadow-lg"
-      onClick={(e) => e.stopPropagation()} // Prevent click event from bubbling up
+      onClick={(e) => e.stopPropagation()}
     >
       <FiCheckSquare className="mt-0.5" />
       <span>{text}</span>

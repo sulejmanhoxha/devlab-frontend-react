@@ -1,14 +1,16 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Menu } from "lucide-react";
 import { Facebook, Instagram, Twitter } from "lucide-react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
+import Wishlist from "../Wishlist";
 import { ThemeToggle } from "./ThemeToggle";
 import "/src/css/base.css";
 
-const FlipNav = () => {
-  const [isOpen, setIsOpen] = useState(false);
+const FlipNav = ({ selectedPets }) => {
+  const [isOpen, setIsOpen] = React.useState(false);
+
   return (
     <nav className="z-50 flex w-full items-center justify-between border-b-[1px] border-gray-200 bg-white p-4">
       <NavLeft setIsOpen={setIsOpen} />
@@ -17,7 +19,7 @@ const FlipNav = () => {
         <Twitter />
         <Facebook />
       </div>
-      <NavRight />
+      <NavRight selectedPets={selectedPets} />
       <NavMenu isOpen={isOpen} setIsOpen={setIsOpen} />
     </nav>
   );
@@ -69,9 +71,12 @@ const NavLink = ({ text, href }) => {
   );
 };
 
-const NavRight = () => {
+const NavRight = ({ selectedPets }) => {
   return (
     <div className="flex items-center gap-4">
+      <div className="flex items-center space-x-4">
+        <Wishlist selectedPets={selectedPets} />
+      </div>
       <motion.button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
@@ -79,7 +84,6 @@ const NavRight = () => {
       >
         Sign in
       </motion.button>
-
       <ThemeToggle />
     </div>
   );
