@@ -23,7 +23,7 @@ const SlideInNotifications = forwardRef((props, ref) => {
   };
 
   return (
-    <div className="fixed right-2 top-2 z-50 flex w-72 flex-col gap-1">
+    <div className="fixed right-2 top-[75%] z-50 flex w-72 flex-col gap-1">
       <AnimatePresence>
         {notifications.map((n) => (
           <Notification removeNotif={removeNotif} {...n} key={n.id} />
@@ -84,7 +84,7 @@ const generateRandomNotif = () => {
 
   return {
     id: Math.random(),
-    text: `New notification from ${names[randomIndex]}`,
+    text: "New notification from ${names[randomIndex]}",
   };
 };
 

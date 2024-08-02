@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import Wishlist from "../Wishlist";
+import WhishlistDropdown from "../WishlistDropdown";
 import { ThemeToggle } from "./ThemeToggle";
 import "/src/css/base.css";
 
@@ -48,9 +49,9 @@ const NavLeft = ({ setIsOpen }) => {
       </motion.button>
       <Logo />
       <NavLink text="Home" href="/" />
-      <NavLink text="Pets" href="" />
-      <NavLink text="About" href="" />
-      <NavLink text="Contact" href="" />
+      <NavLink text="Pets" href="/pets" />
+      <NavLink text="About" href="/contact2" />
+      <NavLink text="Contact" href="/contact" />
     </div>
   );
 };
@@ -74,6 +75,7 @@ const NavLink = ({ text, href }) => {
 const NavRight = ({ selectedPets }) => {
   return (
     <div className="flex items-center gap-4">
+      <WhishlistDropdown />
       <div className="flex items-center space-x-4">
         <Wishlist selectedPets={selectedPets} />
       </div>
