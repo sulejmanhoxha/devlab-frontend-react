@@ -1,14 +1,8 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import "../css/ContactUs.css";
+import "./ContactPage.css";
 
-const ContactUs = () => {
-  const navigate = useNavigate();
-
-  const handleButtonClick = () => {
-    navigate("/");
-  };
+const ContactPage = () => {
   return (
     <section className="body-font relative text-gray-600">
       <div className="container mx-auto px-5 py-24">
@@ -67,13 +61,8 @@ const ContactUs = () => {
               ></textarea>
             </div>
             <div className="w-full p-2">
-              <a href="#" onClick={handleButtonClick}>
-                Go Back
-              </a>
-              <button
-                className="mx-auto flex rounded border-0 bg-indigo-500 px-8 py-2 text-lg text-white hover:bg-indigo-600 focus:outline-none"
-                onClick={handleButtonClick}
-              >
+              <Link to="/">Go Back</Link>
+              <button className="mx-auto flex rounded border-0 bg-indigo-500 px-8 py-2 text-lg text-white hover:bg-indigo-600 focus:outline-none">
                 Button
               </button>
             </div>
@@ -151,4 +140,4 @@ const ContactUs = () => {
   );
 };
 
-export default ContactUs;
+export default ContactPage;

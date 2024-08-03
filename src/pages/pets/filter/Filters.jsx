@@ -8,7 +8,7 @@ import { ChevronDown, Search } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
-import ListboxComponent from "../components/ListBoxFilter";
+import ListboxComponent from "./ListBoxFilter";
 
 const sortOptions = [
   { id: 1, name: "Name (A-Z)" },

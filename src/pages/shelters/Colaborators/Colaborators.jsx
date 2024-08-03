@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../css/Colaborators.css";
+import "./Colaborators.css";
 
 const teamMembers = [
   {

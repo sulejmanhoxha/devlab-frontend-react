@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
-import Filters from "../components/Filters";
-import { usePets } from "../hooks/usePets";
+import { usePets } from "../../hooks/usePets";
+import Filters from "./filter/Filters";
 
 const PetsPage = () => {
   const { petsQuery } = usePets();

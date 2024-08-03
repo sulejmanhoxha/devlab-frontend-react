@@ -5,17 +5,16 @@ import "lightgallery/css/lightgallery.css";
 import lgThumbnail from "lightgallery/plugins/thumbnail";
 import lgZoom from "lightgallery/plugins/zoom";
 import LightGallery from "lightgallery/react";
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import SlideInNotifications from "../components/SlideInNotifications";
+import SlideInNotifications from "../../components/SlideInNotifications";
 import {
   addFavorite,
   getFavorites,
   removeFavorite,
-} from "../context/WishlistContext";
-import "../css/base.css";
-import { getPetDetails } from "../lib/pets/pets";
+} from "../../context/WishlistContext";
+import { getPetDetails } from "../../lib/pets/pets";
 
 const ViewPetPage = ({
   addPetToSelection,
