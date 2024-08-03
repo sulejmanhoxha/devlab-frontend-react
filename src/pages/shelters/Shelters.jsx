@@ -47,7 +47,7 @@ const Shelters = () => {
         </div>
       </div>
 
-      <section className={stylesShelter.textGray}>
+      <section className={`${stylesShelter.textGray} ${stylesShelter.section}`}>
         <div className={stylesShelter.container}>
           <div
             className={`${stylesShelter.flex} ${stylesShelter.borderBottom} ${stylesShelter.marginBottom}`}
@@ -143,7 +143,7 @@ const Shelters = () => {
         </div>
       </section>
 
-      <section>
+      <section className={stylesShelter.section}>
         <div className={stylesShelter.shelterTitle}>
           <h1>Our Shelter Statistics</h1>
           <p>
