@@ -1,7 +1,7 @@
 const ContactPage = () => {
   return (
     <section className="body-font relative text-gray-600">
-      <div className="absolute inset-0 bg-gray-300">
+      <div className="contactMap absolute inset-0">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11777.207264704306!2d19.2407667!3d42.442594!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x134deb261ab478b7%3A0x841bb5a318032bf5!2sFaculty%20of%20Electrical%20Engineering!5e0!3m2!1sen!2s!4v1722477958438!5m2!1sen!2s"
           width="100%"
@@ -13,7 +13,7 @@ const ContactPage = () => {
         ></iframe>
       </div>
       <div className="container mx-auto flex px-5 py-24">
-        <div className="relative z-10 mt-10 flex w-full flex-col rounded-lg bg-white p-8 shadow-md md:ml-auto md:mt-0 md:w-1/2 lg:w-1/3">
+        <div className="contactForm relative z-10 mt-10 flex w-full flex-col rounded-lg bg-white p-8 shadow-md md:ml-auto md:mt-0 md:w-1/2 lg:w-1/3">
           <h2 className="title-font mb-1 text-lg font-medium text-gray-900">
             Feedback
           </h2>

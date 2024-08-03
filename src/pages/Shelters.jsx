@@ -1,7 +1,10 @@
+import { Disclosure } from "@headlessui/react";
+import { ChevronUpIcon } from "@heroicons/react/20/solid";
 import { useNavigate } from "react-router-dom";
 
 import Colaborators from "../components/Colaborators";
 import stylesShelter from "../css/Shelters.module.css";
+import stylesDisclosure from "../css/disclosure.module.css";
 
 const Shelters = () => {
   const navigate = useNavigate();
@@ -9,6 +12,7 @@ const Shelters = () => {
   const handleButtonClick = () => {
     navigate("/");
   };
+
   return (
     <>
       <div className={stylesShelter.textBox}>
@@ -117,7 +121,7 @@ const Shelters = () => {
               </svg>
             </div>
           </div>
-          <div className={`${stylesShelter.flex}`}>
+          <div className={stylesShelter.flex}>
             <div
               className={`${stylesShelter.iconContainer} ${stylesShelter.bgIndigo100} ${stylesShelter.textIndigo500}`}
             >
@@ -158,26 +162,133 @@ const Shelters = () => {
         </div>
         <div className={stylesShelter.statsRow}>
           <div className={stylesShelter.stat}>
-            <img src="images/animal-shelter2.png"></img>
+            <img src="images/animal-shelter2.png" alt="Animal Shelter" />
             <p className={stylesShelter.statNum}>146</p>
             <p className={stylesShelter.statText}>Animals Housed</p>
           </div>
           <div className={stylesShelter.stat}>
-            <img src="images/friends.png"></img>
+            <img src="images/friends.png" alt="Friends" />
             <p className={stylesShelter.statNum}>32</p>
             <p className={stylesShelter.statText}>Volunteers</p>
           </div>
           <div className={stylesShelter.stat}>
-            <img src="images/location.png"></img>
+            <img src="images/location.png" alt="Location" />
             <p className={stylesShelter.statNum}>3</p>
             <p className={stylesShelter.statText}>Shelter Locations</p>
           </div>
           <div className={stylesShelter.stat}>
-            <img src="images/kitten.png"></img>
+            <img src="images/kitten.png" alt="Kitten" />
             <p className={stylesShelter.statNum}>94</p>
             <p className={stylesShelter.statText}>Animals Adopted</p>
           </div>
         </div>
+
+        {/* Disclosure Component */}
+        <div className={stylesDisclosure.container}>
+          <div className={stylesDisclosure.innerContainer}>
+            <Disclosure>
+              {({ open }) => (
+                <>
+                  <Disclosure.Button
+                    className={`${stylesDisclosure.disclosureButton} ${open ? stylesDisclosure.buttonOpen : ""}`}
+                  >
+                    <span>What is your return policy for pet products?</span>
+                    <ChevronUpIcon
+                      className={`${stylesDisclosure.icon} ${open ? stylesDisclosure.iconOpen : ""}`}
+                    />
+                  </Disclosure.Button>
+                  <Disclosure.Panel
+                    className={stylesDisclosure.disclosurePanel}
+                  >
+                    If you're unhappy with your purchase for any reason, email
+                    us within 30 days and we'll provide a full refund or
+                    exchange.
+                  </Disclosure.Panel>
+                </>
+              )}
+            </Disclosure>
+            <Disclosure as="div" className={stylesDisclosure.disclosureItem}>
+              {({ open }) => (
+                <>
+                  <Disclosure.Button
+                    className={`${stylesDisclosure.disclosureButton} ${open ? stylesDisclosure.buttonOpen : ""}`}
+                  >
+                    <span>Do you offer grooming services?</span>
+                    <ChevronUpIcon
+                      className={`${stylesDisclosure.icon} ${open ? stylesDisclosure.iconOpen : ""}`}
+                    />
+                  </Disclosure.Button>
+                  <Disclosure.Panel
+                    className={stylesDisclosure.disclosurePanel}
+                  >
+                    Yes, we offer grooming services for dogs and cats. Please
+                    contact us to schedule an appointment.
+                  </Disclosure.Panel>
+                </>
+              )}
+            </Disclosure>
+            <Disclosure as="div" className={stylesDisclosure.disclosureItem}>
+              {({ open }) => (
+                <>
+                  <Disclosure.Button
+                    className={`${stylesDisclosure.disclosureButton} ${open ? stylesDisclosure.buttonOpen : ""}`}
+                  >
+                    <span>How long does delivery take?</span>
+                    <ChevronUpIcon
+                      className={`${stylesDisclosure.icon} ${open ? stylesDisclosure.iconOpen : ""}`}
+                    />
+                  </Disclosure.Button>
+                  <Disclosure.Panel
+                    className={stylesDisclosure.disclosurePanel}
+                  >
+                    Delivery typically takes 3-5 business days.
+                  </Disclosure.Panel>
+                </>
+              )}
+            </Disclosure>
+            <Disclosure as="div" className={stylesDisclosure.disclosureItem}>
+              {({ open }) => (
+                <>
+                  <Disclosure.Button
+                    className={`${stylesDisclosure.disclosureButton} ${open ? stylesDisclosure.buttonOpen : ""}`}
+                  >
+                    <span>Can I change my order after placing it?</span>
+                    <ChevronUpIcon
+                      className={`${stylesDisclosure.icon} ${open ? stylesDisclosure.iconOpen : ""}`}
+                    />
+                  </Disclosure.Button>
+                  <Disclosure.Panel
+                    className={stylesDisclosure.disclosurePanel}
+                  >
+                    Yes, you can change your order within 24 hours of placing
+                    it.
+                  </Disclosure.Panel>
+                </>
+              )}
+            </Disclosure>
+            <Disclosure as="div" className={stylesDisclosure.disclosureItem}>
+              {({ open }) => (
+                <>
+                  <Disclosure.Button
+                    className={`${stylesDisclosure.disclosureButton} ${open ? stylesDisclosure.buttonOpen : ""}`}
+                  >
+                    <span>Do you offer pet adoption services?</span>
+                    <ChevronUpIcon
+                      className={`${stylesDisclosure.icon} ${open ? stylesDisclosure.iconOpen : ""}`}
+                    />
+                  </Disclosure.Button>
+                  <Disclosure.Panel
+                    className={stylesDisclosure.disclosurePanel}
+                  >
+                    Yes, we partner with local shelters to offer pet adoption
+                    services. Visit our adoption page for more details.
+                  </Disclosure.Panel>
+                </>
+              )}
+            </Disclosure>
+          </div>
+        </div>
+
         <Colaborators />
         <a href="#" onClick={handleButtonClick}>
           Go Back

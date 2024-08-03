@@ -50,7 +50,7 @@ const NavLeft = ({ setIsOpen }) => {
       <Logo />
       <NavLink text="Home" href="/" />
       <NavLink text="Pets" href="/pets" />
-      <NavLink text="About" href="/contact2" />
+      <NavLink text="About" href="/shelters" />
       <NavLink text="Contact" href="/contact" />
     </div>
   );

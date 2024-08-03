@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^2.1.2",
+    "@headlessui/vue": "^1.7.22",
     "@heroicons/react": "^2.1.5",
     "@hookform/resolvers": "^3.9.0",
     "@tanstack/react-query": "^5.51.11",
