@@ -1,19 +1,18 @@
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 
-import ContactUs from "./components/ContactUs";
 import Footer from "./components/Footer";
-import FlipNav from "./components/navbar/Navbar";
-import AboutPage from "./pages/AboutPage";
-import ContactPage from "./pages/ContactPage";
-import HomePage from "./pages/HomePage";
-import HomePageSave from "./pages/HomePageSave";
-import LoginPage from "./pages/LoginPage";
-import NotFoundPage from "./pages/NotFoundPage";
-import PetsPage from "./pages/PetsPage";
-import Shelters from "./pages/Shelters";
-import SignUpPage from "./pages/SignUpPage";
-import ViewPetPage from "./pages/ViewPetPage";
+import Navbar from "./components/navbar/Navbar";
+import "./css/base.css";
+import AboutPage from "./pages/about/AboutPage";
+import ContactPage from "./pages/contact/ContactPage";
+import HomePage from "./pages/home/HomePage";
+import LoginPage from "./pages/login/LoginPage";
+import NotFoundPage from "./pages/notFound/NotFoundPage";
+import PetsPage from "./pages/pets/PetsPage";
+import Shelters from "./pages/shelters/Shelters";
+import SignUpPage from "./pages/signup/SignUpPage";
+import ViewPetPage from "./pages/viewPet/ViewPetPage";
 
 function App() {
   const [selectedPets, setSelectedPets] = useState([]);
@@ -28,12 +27,11 @@ function App() {
 
   return (
     <>
-      <FlipNav selectedPets={selectedPets} />
+      <Navbar selectedPets={selectedPets} />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="/contact2" element={<ContactUs />} />
         <Route path="/shelters" element={<Shelters />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />

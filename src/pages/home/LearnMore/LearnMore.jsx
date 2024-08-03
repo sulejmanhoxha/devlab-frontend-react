@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import "../css/LearnMore.css";
+import "./LearnMore.css";
 
 const LearnMore = () => {
   return (

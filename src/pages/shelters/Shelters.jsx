@@ -1,14 +1,9 @@
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import Colaborators from "../components/Colaborators";
-import stylesShelter from "../css/Shelters.module.css";
+import Colaborators from "./Colaborators/Colaborators";
+import stylesShelter from "./Shelters.module.css";
 
 const Shelters = () => {
-  const navigate = useNavigate();
-
-  const handleButtonClick = () => {
-    navigate("/");
-  };
   return (
     <>
       <div className={stylesShelter.textBox}>
@@ -25,8 +20,8 @@ const Shelters = () => {
           <h2 className={stylesShelter.sectionTitle2}>What We Do</h2>
           <p className={stylesShelter.sectionText}>
             We offer a unique platform where you can buy, sell, and adopt pets.
-            Whether you’re looking for a new furry friend or need to find a
-            loving home for a pet, we’re here to help. Our comprehensive
+            Whether you're looking for a new furry friend or need to find a
+            loving home for a pet, we're here to help. Our comprehensive
             database allows you to browse through numerous profiles, ensuring
             you find the perfect match for your family.
           </p>
@@ -95,7 +90,7 @@ const Shelters = () => {
                 We are dedicated to supporting shelters and rescue
                 organizations. Our community-focused approach means we work
                 closely with these groups to help find loving homes for pets in
-                need. By choosing us, you’re also contributing to the welfare of
+                need. By choosing us, you're also contributing to the welfare of
                 animals and supporting rescue efforts.
               </p>
             </div>
@@ -137,7 +132,7 @@ const Shelters = () => {
             <div className={stylesShelter.textContainer}>
               <h2 className={stylesShelter.title}>Diverse Pet Selection</h2>
               <p className={stylesShelter.text}>
-                Whether you’re looking for a dog, cat, bird, or reptile, we
+                Whether you're looking for a dog, cat, bird, or reptile, we
                 cater to all pet lovers. Our wide variety of pets ensures that
                 you can find the perfect companion to match your lifestyle and
                 preferences. Explore our extensive selection and discover your
@@ -179,9 +174,7 @@ const Shelters = () => {
           </div>
         </div>
         <Colaborators />
-        <a href="#" onClick={handleButtonClick}>
-          Go Back
-        </a>
+        <Link to="/">Go Back</Link>
       </section>
     </>
   );

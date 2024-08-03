@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import SignUpForm from "../components/forms/SignUpForm";
+import SignUpForm from "./SignUpForm";
 
 function LoginPage() {
   return (

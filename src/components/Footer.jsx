@@ -1,8 +1,6 @@
 import { Facebook, Instagram, Twitter } from "lucide-react";
 import { Link } from "react-router-dom";
 
-import "/src/css/base.css";
-
 const Footer = () => {
   return (
     <footer className="body-font text-gray-600">

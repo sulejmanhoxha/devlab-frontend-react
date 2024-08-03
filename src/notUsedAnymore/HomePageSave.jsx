@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import { Card } from "../components/Card";
+// import { Card } from "../components/Card";
 // import { Carousel } from "../components/Carousel";
 import Colaborators from "../components/Colaborators";
 import LearnMore from "../components/LearnMore";

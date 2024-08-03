@@ -1,16 +1,15 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Menu } from "lucide-react";
 import { Facebook, Instagram, Twitter } from "lucide-react";
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import Wishlist from "../Wishlist";
 import WhishlistDropdown from "../WishlistDropdown";
 import { ThemeToggle } from "./ThemeToggle";
-import "/src/css/base.css";
 
-const FlipNav = ({ selectedPets }) => {
-  const [isOpen, setIsOpen] = React.useState(false);
+const Navbar = ({ selectedPets }) => {
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <nav className="z-50 flex w-full items-center justify-between border-b-[1px] border-gray-200 bg-white p-4">
@@ -130,7 +129,7 @@ const MenuLink = ({ text, href, setIsOpen }) => {
   );
 };
 
-export default FlipNav;
+export default Navbar;
 
 const menuVariants = {
   open: {
