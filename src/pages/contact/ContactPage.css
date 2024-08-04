@@ -1,20 +1,11 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body-font {
-  font-family: Arial, sans-serif;
-}
-
-.mb-12 {
+/* CHANGE COMMENTED STYLES (GIVE ANOTHER NAME TO THE CLASSES AND USE THEM IN THE COMPONENTNS) */
+/* .mb-12 {
   text-align: center;
 }
 
 .mb-12 h1 {
   margin-bottom: 10px;
-}
+} */
 
 .form-container {
   display: flex;
@@ -83,24 +74,24 @@ button:hover {
   background-color: #3730a3;
 } */
 
-.mt-8 {
+/* .mt-8 {
   margin-top: 32px;
   text-align: center;
 }
 
 .text-gray-500 {
   color: #6b7280;
-}
+} */
 
 .icon {
   height: 16px;
   width: 16px;
   fill: currentColor;
 }
-
+/* 
 .inline-flex a {
   margin: 0 8px;
-}
+} */
 
 #light .form-group {
   color: #000;
@@ -114,10 +105,10 @@ button:hover {
   background-color: gray;
 }
 
-.p-2 a {
+/* .p-2 a {
   text-decoration: none;
 }
 
 #light .p-2 a {
   color: #1864ab;
-}
+} */
