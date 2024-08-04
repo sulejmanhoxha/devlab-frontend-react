@@ -56,8 +56,8 @@ const teamMembers = [
 const Colaborators = () => {
   return (
     <section className="body-font text-gray-600">
-      <div className="container mx-auto px-5 py-24">
-        <div className="mb-20 flex w-full flex-col text-center">
+      <div className="colaborators-container container mx-auto px-5 py-24">
+        <div className="colaborators-mb-20 mb-20 flex w-full flex-col text-center">
           <h1 className="title-font mb-4 text-2xl font-medium tracking-widest text-gray-900">
             OUR TEAM
           </h1>

@@ -53,11 +53,11 @@
   cursor: pointer;
 }
 
-#light .container {
+#light .colaborators-container {
   background-color: #ced4da;
 }
 
-#dark .container {
+#dark .colaborators-container {
   background-color: #242424;
 }
 
@@ -69,10 +69,10 @@
   color: antiquewhite;
 }
 
-#light .mb-20 {
+#light .colaborators-mb-20 {
   color: #2d3748;
 }
 
-.mb-20 {
+.colaborators-mb-20 {
   margin-top: 20px;
 }
