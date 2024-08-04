@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Menu } from "lucide-react";
-import { Facebook, Instagram, Twitter } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -10,17 +9,11 @@ import { ThemeToggle } from "./ThemeToggle";
 
 const Navbar = ({ selectedPets }) => {
   const [isOpen, setIsOpen] = useState(false);
-
   return (
-    <nav className="z-50 flex w-full items-center justify-between border-b-[1px] border-gray-200 bg-white p-4">
+    <nav className="relative flex items-center justify-between border-b-[1px] border-gray-200 bg-white p-4">
       <NavLeft setIsOpen={setIsOpen} />
-      <div className="flex items-center gap-4 text-blue-600 max-lg:hidden">
-        <Instagram />
-        <Twitter />
-        <Facebook />
-      </div>
       <NavRight selectedPets={selectedPets} />
-      <NavMenu isOpen={isOpen} setIsOpen={setIsOpen} />
+      <NavMenu isOpen={isOpen} />
     </nav>
   );
 };
@@ -49,7 +42,8 @@ const NavLeft = ({ setIsOpen }) => {
       <Logo />
       <NavLink text="Home" href="/" />
       <NavLink text="Pets" href="/pets" />
-      <NavLink text="About" href="/contact2" />
+      <NavLink text="Shelters" href="/shelters" />
+      <NavLink text="About" href="/about" />
       <NavLink text="Contact" href="/contact" />
     </div>
   );
@@ -78,19 +72,22 @@ const NavRight = ({ selectedPets }) => {
       <div className="flex items-center space-x-4">
         <Wishlist selectedPets={selectedPets} />
       </div>
-      <motion.button
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        className="whitespace-nowrap rounded-md bg-gradient-to-r from-violet-600 to-indigo-600 px-4 py-2 font-medium text-white"
-      >
-        Sign in
-      </motion.button>
+      <Link to="/login">
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="whitespace-nowrap rounded-md bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text px-4 py-2 font-medium text-transparent"
+        >
+          Login
+        </motion.button>
+      </Link>
+
       <ThemeToggle />
     </div>
   );
 };
 
-const NavMenu = ({ isOpen, setIsOpen }) => {
+const NavMenu = ({ isOpen }) => {
   return (
     <motion.div
       variants={menuVariants}
@@ -98,17 +95,18 @@ const NavMenu = ({ isOpen, setIsOpen }) => {
       animate={isOpen ? "open" : "closed"}
       className="absolute left-0 right-0 top-full flex origin-top flex-col gap-4 bg-white p-4 shadow-lg"
     >
-      <MenuLink text="Home" href="/" setIsOpen={setIsOpen} />
-      <MenuLink text="Pets" href="/pets" setIsOpen={setIsOpen} />
-      <MenuLink text="About" href="/about" setIsOpen={setIsOpen} />
-      <MenuLink text="Contact" href="/contact" setIsOpen={setIsOpen} />
+      <MenuLink text="Home" href="/" />
+      <MenuLink text="Pets" href="/pets" />
+      <MenuLink text="Shelters" href="/shelters" />
+      <MenuLink text="About" href="/about" />
+      <MenuLink text="Contact" href="/contact" />
     </motion.div>
   );
 };
 
-const MenuLink = ({ text, href, setIsOpen }) => {
+const MenuLink = ({ text, href }) => {
   return (
-    <Link to={href} onClick={() => setIsOpen(false)}>
+    <Link to={href}>
       <motion.span
         variants={menuLinkVariants}
         className="flex h-[30px] items-start gap-2 overflow-hidden text-lg font-medium"
