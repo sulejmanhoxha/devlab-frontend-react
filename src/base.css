@@ -68,3 +68,41 @@ footer .container {
 .dark .listboxOptionsOpen1 {
   background-color: #393d41;
 }
+
+.light .contactMap {
+  --tw-bg-opacity: 1;
+  background-color: rgb(209, 213, 219 / var(--tw-bg-opacity));
+  filter: brightness(80%);
+}
+
+.light .contactForm {
+  background-color: #e8ebed;
+}
+.dark .contactForm {
+  background-color: #585d61;
+}
+
+.dark .contactForm #message {
+  background-color: #868e96;
+}
+
+.dark .contactForm #email {
+  background-color: #868e96;
+}
+
+.dark .contactForm button {
+  background-color: #1f7dcf;
+}
+
+.dark label {
+  color: #fff;
+}
+
+.dark .petsBackgroundImg {
+  background-color: #565656;
+}
+
+.dark .petTemplate {
+  color: #fff !important;
+  filter: brightness(60%);
+}

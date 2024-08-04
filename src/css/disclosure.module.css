@@ -1,0 +1,76 @@
+/* Container for the Disclosure Component */
+.container {
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 4rem;
+}
+
+/* Inner container to center the Disclosure component */
+.innerContainer {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 28rem;
+  border-radius: 1rem;
+  background-color: white;
+  padding: 1rem;
+  box-shadow:
+    0px 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0px 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Individual Disclosure item */
+.disclosureItem {
+  margin-top: 1rem;
+}
+
+/* Button for the Disclosure component */
+.disclosureButton {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  border-radius: 0.5rem;
+  background-color: #e9d8fd; /* bg-purple-200 */
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  text-align: left;
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 500; /* font-medium */
+  color: #6b46c1; /* text-purple-900 */
+}
+
+/* Hover state for the Disclosure button */
+.disclosureButton:hover {
+  background-color: #d6bcfa; /* hover:bg-purple-300 */
+}
+
+/* Focus state for the Disclosure button */
+.disclosureButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(128, 90, 213, 0.75); /* focus-visible:ring-purple-500/75 */
+}
+
+/* Icon within the Disclosure button */
+.icon {
+  height: 1.25rem; /* h-5 */
+  width: 1.25rem; /* w-5 */
+  color: #805ad5; /* text-purple-500 */
+}
+
+/* Icon when the Disclosure is open */
+.iconOpen {
+  transform: rotate(180deg);
+}
+
+/* Panel content of the Disclosure component */
+.disclosurePanel {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+  font-size: 0.875rem; /* text-sm */
+  color: #718096; /* text-gray-600 */
+}

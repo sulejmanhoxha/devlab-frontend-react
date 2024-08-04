@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 const Hero = () => {
   return (
     <>
-      <section className="hero m-0 flex min-h-screen flex-col items-center justify-center">
+      <section className="petsBackgroundImg hero m-0 flex min-h-screen flex-col items-center justify-center">
         <div
-          className="flex max-w-xl flex-col items-center pb-16 text-center lg:pb-48 lg:pt-32"
+          className="petTemplate flex max-w-xl flex-col items-center pb-16 text-center lg:pb-48 lg:pt-32"
           style={{ marginBottom: "150px" }}
         >
           <h1 className="mb-8 text-4xl font-bold text-white md:mb-12">
