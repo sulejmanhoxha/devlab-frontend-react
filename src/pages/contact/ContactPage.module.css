@@ -1,0 +1,256 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.pageSectionContainer {
+  font-family: Arial, sans-serif;
+  position: relative;
+  color: #718096;
+}
+
+.pageContainerDiv {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+
+.pageHead {
+  text-align: center;
+  margin-bottom: 48px;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.pageHead h1 {
+  margin-bottom: 10px;
+}
+
+.pageH1 {
+  margin-bottom: 16px;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 500;
+  color: #1a202c;
+}
+
+@media (min-width: 640px) {
+  .pageH1 {
+    font-size: 30px;
+    line-height: 36px;
+  }
+}
+
+.pageParagraph {
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 16px;
+  line-height: 1.625;
+}
+
+@media (min-width: 1024px) {
+  .pageParagraph {
+    width: 66.666667%;
+  }
+}
+
+.pageContainer {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .pageContainer {
+    width: 66.666667%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pageContainer {
+    width: 50%;
+  }
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.formRow {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.formGroup {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.formLabelName {
+  font-size: 14px;
+  line-height: 28px;
+  color: #718096;
+}
+
+.formInput,
+.formTextarea {
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  padding: 12px;
+  background-color: #f9f9f9;
+  transition:
+    border-color 0.2s ease-in-out,
+    background-color 0.2s ease-in-out;
+}
+
+.formInput:focus,
+.formTextarea:focus {
+  border-color: #4f46e5;
+  background-color: #fff;
+  outline: none;
+}
+
+.formTextarea {
+  height: 125px;
+}
+
+.formLabelEmail {
+  font-size: 14px;
+  line-height: 28px;
+  color: #718096;
+}
+
+.messageGroup {
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 16px;
+}
+
+/* .w-full button {
+  display: inline-block;
+  background-color: #4f46e5;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  margin-left: 100px;
+}
+
+button:hover {
+  background-color: #3730a3;
+} */
+
+.formLabelMessage {
+  font-size: 14px;
+  line-height: 28px;
+  color: #718096;
+}
+
+.contactButtonContainer {
+  width: 100%;
+  padding: 8px;
+}
+
+.contactButton {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  border-radius: 0.25rem; /* Adjust as needed */
+  border: none;
+  background-color: #6366f1; /* Medium indigo */
+  padding-left: 2rem; /* 32px */
+  padding-right: 2rem; /* 32px */
+  padding-top: 0.5rem; /* 8px */
+  padding-bottom: 0.5rem; /* 8px */
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.75rem; /* 28px */
+  color: #ffffff; /* White */
+}
+
+.contactButton:hover {
+  background-color: #4f46e5; /* Darker indigo */
+}
+
+.contactButton:focus {
+  outline: none;
+}
+
+.contactDisContainer {
+  margin-top: 32px;
+  width: 100%;
+  border-top: 1px solid #e5e7eb;
+  padding: 8px;
+  padding-top: 32px;
+  text-align: center;
+}
+
+.contactPageLinkEmail {
+  color: #6366f1;
+}
+
+.contactDisParagraph {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  color: #6b7280;
+}
+
+.icon {
+  height: 16px;
+  width: 16px;
+  fill: currentColor;
+}
+
+.inlineFlex {
+  display: inline-flex;
+}
+
+.inlineFlex a {
+  margin: 0 8px;
+}
+
+.contactSpanLink {
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity)) /* #6b7280 */;
+}
+
+#light .formGroup {
+  color: #000;
+}
+
+#light .formGroup input {
+  background-color: gray;
+}
+
+#light .formGroup textarea {
+  background-color: gray;
+}
+
+.contactButtonContainer a {
+  text-decoration: none;
+}
+
+#light .contactButtonContainer a {
+  color: #1864ab;
+}
+
+.contactSpanLinkPath {
+  margin-left: 1rem; /* 16px */
+  color: #6b7280; /* Medium gray */
+}

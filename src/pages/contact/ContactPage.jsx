@@ -1,27 +1,25 @@
 import { Link } from "react-router-dom";
 
-import "./ContactPage.css";
+import stylesContactPage from "./ContactPage.module.css";
 
 const ContactPage = () => {
   return (
-    <section className="body-font relative text-gray-600">
-      <div className="container mx-auto px-5 py-24">
-        <div className="mb-12 flex w-full flex-col text-center">
-          <h1 className="title-font mb-4 text-2xl font-medium text-gray-900 sm:text-3xl">
-            Contact Us
-          </h1>
-          <p className="mx-auto text-base leading-relaxed lg:w-2/3">
+    <section className={stylesContactPage.pageSectionContainer}>
+      <div className={stylesContactPage.pageContainerDiv}>
+        <div className={stylesContactPage.pageHead}>
+          <h1 className={stylesContactPage.pageH1}>Contact Us</h1>
+          <p className={stylesContactPage.pageParagraph}>
             Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical
             gentrify.
           </p>
         </div>
-        <div className="mx-auto md:w-2/3 lg:w-1/2">
-          <div className="form-container">
-            <div className="form-row">
-              <div className="form-group">
+        <div className={stylesContactPage.pageContainer}>
+          <div className={stylesContactPage.formContainer}>
+            <div className={stylesContactPage.formRow}>
+              <div className={stylesContactPage.formGroup}>
                 <label
                   htmlFor="name"
-                  className="text-sm leading-7 text-gray-600"
+                  className={stylesContactPage.formLabelName}
                 >
                   Name
                 </label>
@@ -29,13 +27,13 @@ const ContactPage = () => {
                   type="text"
                   id="name"
                   name="name"
-                  className="form-input"
+                  className={stylesContactPage.formInput}
                 />
               </div>
-              <div className="form-group">
+              <div className={stylesContactPage.formGroup}>
                 <label
                   htmlFor="email"
-                  className="text-sm leading-7 text-gray-600"
+                  className={stylesContactPage.formLabelEmail}
                 >
                   Email
                 </label>
@@ -43,40 +41,44 @@ const ContactPage = () => {
                   type="email"
                   id="email"
                   name="email"
-                  className="form-input"
+                  className={stylesContactPage.formInput}
                 />
               </div>
             </div>
-            <div className="form-group message-group">
+            <div
+              className={`${stylesContactPage.formGroup} ${stylesContactPage.messageGroup}`}
+            >
               <label
                 htmlFor="message"
-                className="text-sm leading-7 text-gray-600"
+                className={stylesContactPage.formLabelMessage}
               >
                 Message
               </label>
               <textarea
                 id="message"
                 name="message"
-                className="form-textarea"
+                className={stylesContactPage.formTextarea}
               ></textarea>
             </div>
-            <div className="w-full p-2">
+            <div className={stylesContactPage.contactButtonContainer}>
               <Link to="/">Go Back</Link>
-              <button className="mx-auto flex rounded border-0 bg-indigo-500 px-8 py-2 text-lg text-white hover:bg-indigo-600 focus:outline-none">
+              <button className={stylesContactPage.contactButton}>
                 Button
               </button>
             </div>
-            <div className="mt-8 w-full border-t border-gray-200 p-2 pt-8 text-center">
-              <a className="text-indigo-500">example@email.com</a>
-              <p className="my-5 leading-normal">
+            <div className={stylesContactPage.contactDisContainer}>
+              <a className={stylesContactPage.contactPageLinkEmail}>
+                example@email.com
+              </a>
+              <p className={stylesContactPage.contactDisParagraph}>
                 49 Smith St.
                 <br />
                 Saint Cloud, MN 56301
               </p>
-              <span className="inline-flex">
-                <a className="text-gray-500">
+              <span className={stylesContactPage.inlineFlex}>
+                <a className={stylesContactPage.contactSpanLink}>
                   <svg
-                    className="icon"
+                    className={stylesContactPage.icon}
                     fill="currentColor"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -86,9 +88,9 @@ const ContactPage = () => {
                     <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
                   </svg>
                 </a>
-                <a className="ml-4 text-gray-500">
+                <a className={stylesContactPage.contactSpanLinkPath}>
                   <svg
-                    className="icon"
+                    className={stylesContactPage.icon}
                     fill="currentColor"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -98,9 +100,9 @@ const ContactPage = () => {
                     <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
                   </svg>
                 </a>
-                <a className="ml-4 text-gray-500">
+                <a className={stylesContactPage.contactSpanLinkPath}>
                   <svg
-                    className="icon"
+                    className={stylesContactPage.icon}
                     fill="none"
                     stroke="currentColor"
                     strokeLinecap="round"
@@ -119,9 +121,9 @@ const ContactPage = () => {
                     <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
                   </svg>
                 </a>
-                <a className="ml-4 text-gray-500">
+                <a className={stylesContactPage.contactSpanLinkPath}>
                   <svg
-                    className="icon"
+                    className={stylesContactPage.icon}
                     fill="currentColor"
                     strokeLinecap="round"
                     strokeLinejoin="round"
