@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./Colaborators.css";
+import stylesCollaborators from "./Collaborators.module.css";
 
 const teamMembers = [
   {
@@ -53,29 +53,27 @@ const teamMembers = [
   },
 ];
 
-const Colaborators = () => {
+const Collaborators = () => {
   return (
-    <section className="body-font text-gray-600">
-      <div className="colaborators-container container mx-auto px-5 py-24">
-        <div className="colaborators-mb-20 mb-20 flex w-full flex-col text-center">
-          <h1 className="title-font mb-4 text-2xl font-medium tracking-widest text-gray-900">
-            OUR TEAM
-          </h1>
-          <p className="mx-auto text-base leading-relaxed lg:w-2/3">
+    <section className={stylesCollaborators.sectionMain}>
+      <div className={stylesCollaborators.collaboratorsContainer}>
+        <div className={stylesCollaborators.collaboratorsHead}>
+          <h1 className={stylesCollaborators.collaboratorsHeadH1}>OUR TEAM</h1>
+          <p className={stylesCollaborators.collaboratorsHeadParagraph}>
             Meet the talented individuals who drive our success. Our team is a
             diverse group of professionals, each bringing unique skills and
             expertise to the table.
           </p>
         </div>
-        <div className="team-container">
+        <div className={stylesCollaborators.teamContainer}>
           {teamMembers.map((member, index) => (
-            <div key={index} className="team-card">
+            <div key={index} className={stylesCollaborators.teamCard}>
               <img alt="team" src={member.imgSrc} />
-              <div className="team-card-content">
+              <div className={stylesCollaborators.teamCardContent}>
                 <h2>{member.name}</h2>
                 <h3>{member.role}</h3>
                 <p>{member.description}</p>
-                <div className="icon-container">
+                <div className={stylesCollaborators.iconContainer}>
                   {member.icons.map((iconPath, idx) => (
                     <a key={idx} className="text-gray-500">
                       <svg
@@ -84,7 +82,7 @@ const Colaborators = () => {
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         strokeWidth="2"
-                        className="icon"
+                        className={stylesCollaborators.icon}
                         viewBox="0 0 24 24"
                       >
                         <path d={iconPath}></path>
@@ -101,4 +99,4 @@ const Colaborators = () => {
   );
 };
 
-export default Colaborators;
+export default Collaborators;
