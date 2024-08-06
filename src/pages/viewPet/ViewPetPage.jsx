@@ -1,4 +1,5 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { AnimatePresence, motion } from "framer-motion";
 import "lightgallery/css/lg-thumbnail.css";
 import "lightgallery/css/lg-zoom.css";
 import "lightgallery/css/lightgallery.css";
@@ -6,6 +7,7 @@ import lgThumbnail from "lightgallery/plugins/thumbnail";
 import lgZoom from "lightgallery/plugins/zoom";
 import LightGallery from "lightgallery/react";
 import { useEffect, useRef, useState } from "react";
+import { FiAlertCircle } from "react-icons/fi";
 import { useParams } from "react-router-dom";
 
 import SlideInNotifications from "../../components/SlideInNotifications";
@@ -15,6 +17,72 @@ import {
   removeFavorite,
 } from "../../context/WishlistContext";
 import { getPetDetails } from "../../lib/pets/pets";
+
+const ExampleWrapper = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <div className="grid place-content-center">
+      <button
+        onClick={() => setIsOpen(true)}
+        className="inline-block flex-1 rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 sm:flex-none md:text-base"
+      >
+        Open Modal
+      </button>
+      <SpringModal isOpen={isOpen} setIsOpen={setIsOpen} />
+    </div>
+  );
+};
+
+const SpringModal = ({ isOpen, setIsOpen }) => {
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={() => setIsOpen(false)}
+          className="fixed inset-0 z-50 grid cursor-pointer place-items-center overflow-y-scroll bg-slate-900/20 p-8 backdrop-blur"
+        >
+          <motion.div
+            initial={{ scale: 0, rotate: "12.5deg" }}
+            animate={{ scale: 1, rotate: "0deg" }}
+            exit={{ scale: 0, rotate: "0deg" }}
+            onClick={(e) => e.stopPropagation()}
+            className="relative w-full max-w-lg cursor-default overflow-hidden rounded-lg bg-gradient-to-br from-violet-600 to-indigo-600 p-6 text-white shadow-xl"
+          >
+            <FiAlertCircle className="absolute -left-24 -top-24 z-0 rotate-12 text-[250px] text-white/10" />
+            <div className="relative z-10">
+              <div className="mx-auto mb-2 grid h-16 w-16 place-items-center rounded-full bg-white text-3xl text-indigo-600">
+                <FiAlertCircle />
+              </div>
+              <h3 className="mb-2 text-center text-3xl font-bold">
+                One more thing!
+              </h3>
+              <p className="mb-6 text-center">
+                Are you sure you want to adopt this pet?
+              </p>
+              <div className="flex gap-2">
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="w-full rounded bg-transparent py-2 font-semibold text-white transition-colors hover:bg-white/10"
+                >
+                  No
+                </button>
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="w-full rounded bg-white py-2 font-semibold text-indigo-600 transition-opacity hover:opacity-90"
+                >
+                  Yes
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+};
 
 const ViewPetPage = ({
   addPetToSelection,
@@ -129,12 +197,7 @@ const ViewPetPage = ({
             </div>
 
             <div className="flex gap-2.5">
-              <a
-                href="#"
-                className="inline-block flex-1 rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 sm:flex-none md:text-base"
-              >
-                Adopt
-              </a>
+              <ExampleWrapper />
 
               <a
                 href="#"

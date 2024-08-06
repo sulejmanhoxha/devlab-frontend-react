@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useMeasure from "react-use-measure";
 
+import NeuButton from "./NeuButton";
+
 const CARD_WIDTH = 350;
 const MARGIN = 20;
 const CARD_SIZE = CARD_WIDTH + MARGIN;
@@ -44,7 +46,10 @@ const CardCarousel = ({ pets, title }) => {
       <div className="relative overflow-hidden p-4">
         <div className="mx-auto max-w-6xl">
           <div className="flex items-center justify-between">
-            <h2 className="mb-4 text-2xl">{title}</h2>
+            <div className="flex items-center gap-4">
+              <h2 className="mb-4 text-2xl">{title}</h2>
+              <NeuButton />
+            </div>
 
             <div className="flex items-center gap-2">
               <button

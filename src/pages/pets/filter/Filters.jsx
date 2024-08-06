@@ -18,6 +18,10 @@ const sortOptions = [
 ];
 
 const filterOptions = {
+  priceCategory: [
+    { id: 1, name: "Free" },
+    { id: 2, name: "Paid" },
+  ],
   category: [
     { id: 1, name: "Dogs" },
     { id: 2, name: "Cats" },
@@ -78,6 +82,7 @@ const Filters = () => {
   );
 
   const [selectedFilters, setSelectedFilters] = useState({
+    priceCategory: getInitialSelected("category", filterOptions.priceCategory),
     category: getInitialSelected("category", filterOptions.category),
     age: getInitialSelected("age", filterOptions.age),
     gender: getInitialSelected("gender", filterOptions.gender),

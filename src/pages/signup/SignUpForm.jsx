@@ -11,6 +11,8 @@ const schema = Joi.object({
   confirmPassword: Joi.any().valid(Joi.ref("password")).required(),
 }).required();
 
+
+
 const SignUpForm = () => {
   const {
     register,
