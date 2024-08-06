@@ -71,6 +71,7 @@
 
 .iconContainer {
   display: flex;
+  justify-content: center;
   gap: 12px;
   margin-bottom: 16px;
 }

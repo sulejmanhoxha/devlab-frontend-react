@@ -284,7 +284,9 @@ const Shelters = () => {
         </div>
 
         <Colaborators />
-        <Link to="/">Go Back</Link>
+        <Link to="/" className={stylesShelter.linkButton}>
+          Go Back
+        </Link>
       </section>
     </>
   );

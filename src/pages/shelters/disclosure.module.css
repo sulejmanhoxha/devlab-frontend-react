@@ -9,11 +9,19 @@
   width: 100%;
   max-width: 28rem;
   border-radius: 0.75rem;
-  background-color: #ffffff;
   padding: 1rem;
   box-shadow:
     0px 10px 15px -3px rgba(0, 0, 0, 0.1),
     0px 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.light .innerContainer {
+  background-color: #ffffff;
+}
+
+.dark .innerContainer {
+  background-color: #242424;
+  color: #fff;
 }
 
 .disclosureItem {
@@ -25,7 +33,6 @@
   width: 100%;
   justify-content: space-between;
   border-radius: 0.5rem;
-  background-color: #f7f7f7;
   padding: 0.75rem 1rem;
   text-align: left;
   font-size: 0.875rem;
@@ -34,8 +41,20 @@
   border: 1px solid #e2e8f0;
 }
 
-.disclosureButton:hover {
+.light .disclosureButton {
+  background-color: #f7f7f7;
+}
+
+.dark .disclosureButton {
+  background-color: #242424;
+}
+
+.light .disclosureButton:hover {
   background-color: #e2e8f0;
+}
+
+.dark .disclosureButton:hover {
+  background-color: #444;
 }
 
 .disclosureButton:focus {
