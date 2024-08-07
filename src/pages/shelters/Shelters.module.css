@@ -20,7 +20,11 @@
 }
 
 .textBox {
-  display: flow-root;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1200px;
 }
 
 .statsRow {
@@ -46,18 +50,26 @@
 }
 
 .sectionIntro {
+  text-align: left;
   margin: 20px 0;
   padding: 20px;
   border-radius: 8px;
-  padding-top: 76px;
-  margin-bottom: 0;
-  padding-bottom: 0;
 }
 
 .sectionSub {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
   margin: 20px 0;
   padding: 20px;
   border-radius: 8px;
+}
+
+.sectionSub > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .sectionTitle2 {
@@ -187,6 +199,24 @@
 
   .stat img {
     width: 110px;
+  }
+
+  .textBox {
+    width: 90%;
+  }
+
+  .sectionIntro,
+  .sectionSub {
+    text-align: left;
+  }
+
+  .sectionSub {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .sectionSub > div {
+    margin-bottom: 20px;
   }
 }
 

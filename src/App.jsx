@@ -10,6 +10,7 @@ import HomePage from "./pages/home/HomePage";
 import LoginPage from "./pages/login/LoginPage";
 import NotFoundPage from "./pages/notFound/NotFoundPage";
 import PetsPage from "./pages/pets/PetsPage";
+import PostPet from "./pages/postPet/postPet";
 import Shelters from "./pages/shelters/Shelters";
 import SignUpPage from "./pages/signup/SignUpPage";
 import ViewPetPage from "./pages/viewPet/ViewPetPage";
@@ -36,6 +37,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/pets" element={<PetsPage />} />
+        <Route path="/postPet" element={<PostPet />} />
         <Route
           path="/pets/:id"
           element={

@@ -2,6 +2,7 @@ import { Disclosure } from "@headlessui/react";
 import { ChevronUpIcon } from "@heroicons/react/20/solid";
 import { Link } from "react-router-dom";
 
+import HeroShelters from "../HeroShelters/HeroShelters";
 import Colaborators from "./Colaborators/Colaborators";
 import stylesShelter from "./Shelters.module.css";
 import stylesDisclosure from "./disclosure.module.css";
@@ -9,6 +10,7 @@ import stylesDisclosure from "./disclosure.module.css";
 const Shelters = () => {
   return (
     <>
+      <HeroShelters />
       <div className={stylesShelter.textBox}>
         <div className={stylesShelter.sectionIntro}>
           <h2 className={stylesShelter.sectionTitle2}>Our Mission</h2>
@@ -20,33 +22,39 @@ const Shelters = () => {
           </p>
         </div>
         <div className={stylesShelter.sectionSub}>
-          <h2 className={stylesShelter.sectionTitle2}>What We Do</h2>
-          <p className={stylesShelter.sectionText}>
-            We offer a unique platform where you can buy, sell, and adopt pets.
-            Whether you're looking for a new furry friend or need to find a
-            loving home for a pet, we're here to help. Our comprehensive
-            database allows you to browse through numerous profiles, ensuring
-            you find the perfect match for your family.
-          </p>
-          <p className={stylesShelter.sectionText}>
-            Beyond pet adoption, we provide resources and support for pet care.
-            From veterinary advice to training tips, our goal is to support pet
-            owners in every step of their journey.
-          </p>
-          <h2 className={stylesShelter.sectionTitle2}>Our Story</h2>
-          <p className={stylesShelter.sectionText}>
-            Founded in 2022, PawLand started with a simple goal: to make pet
-            adoption and care accessible and easy for everyone. Over the years,
-            we've grown into a community of pet lovers and advocates. Our
-            journey began with a small team of passionate individuals who wanted
-            to make a difference in the lives of pets and their future owners.
-          </p>
-          <p className={stylesShelter.sectionText}>
-            Today, PawLand is proud to have facilitated thousands of successful
-            adoptions. Our community continues to grow, united by a shared love
-            for animals and a commitment to their well-being. Join us in our
-            mission to create a world where every pet has a loving home.
-          </p>
+          <div>
+            <h2 className={stylesShelter.sectionTitle2}>What We Do</h2>
+            <p className={stylesShelter.sectionText}>
+              We offer a unique platform where you can buy, sell, and adopt
+              pets. Whether you're looking for a new furry friend or need to
+              find a loving home for a pet, we're here to help. Our
+              comprehensive database allows you to browse through numerous
+              profiles, ensuring you find the perfect match for your family.
+            </p>
+            <p className={stylesShelter.sectionText}>
+              Beyond pet adoption, we provide resources and support for pet
+              care. From veterinary advice to training tips, our goal is to
+              support pet owners in every step of their journey.
+            </p>
+          </div>
+          <div>
+            <h2 className={stylesShelter.sectionTitle2}>Our Story</h2>
+            <p className={stylesShelter.sectionText}>
+              Founded in 2022, PawLand started with a simple goal: to make pet
+              adoption and care accessible and easy for everyone. Over the
+              years, we've grown into a community of pet lovers and advocates.
+              Our journey began with a small team of passionate individuals who
+              wanted to make a difference in the lives of pets and their future
+              owners.
+            </p>
+            <p className={stylesShelter.sectionText}>
+              Today, PawLand is proud to have facilitated thousands of
+              successful adoptions. Our community continues to grow, united by a
+              shared love for animals and a commitment to their well-being. Join
+              us in our mission to create a world where every pet has a loving
+              home.
+            </p>
+          </div>
         </div>
       </div>
 
@@ -284,9 +292,6 @@ const Shelters = () => {
         </div>
 
         <Colaborators />
-        <Link to="/" className={stylesShelter.linkButton}>
-          Go Back
-        </Link>
       </section>
     </>
   );

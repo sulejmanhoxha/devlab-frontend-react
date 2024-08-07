@@ -17,8 +17,10 @@
         "/images/german-shepherd-2.webp",
         "/images/german-shepherd-3.webp",
         "/images/german-shepherd-4.jpg"
-      ]
+      ],
+      "isPaid": true
     },
+
     {
       "id": "2",
       "age": 2,
@@ -39,7 +41,8 @@
         "/images/labrador-retriever-3.jpeg",
         "/images/labrador-retriever-3.jpeg",
         "/images/labrador-retriever-4.webp"
-      ]
+      ],
+      "isPaid": true
     },
     {
       "id": "3",
@@ -58,7 +61,8 @@
         "/images/persian-cat-2.jpg",
         "/images/persian-cat-3.jpg",
         "/images/persian-cat-4.webp"
-      ]
+      ],
+      "isPaid": false
     },
     {
       "id": "4",
@@ -77,7 +81,8 @@
         "/images/bengal-cat-2.avif",
         "/images/bengal-cat-3.jpg",
         "/images/bengal-cat-4.jpg"
-      ]
+      ],
+      "isPaid": true
     },
     {
       "id": "5",
@@ -96,7 +101,8 @@
         "/images/bengal-cat-1.jpg",
         "/images/bengal-cat-4.jpg",
         "/images/bengal-cat-3.jpg"
-      ]
+      ],
+      "isPaid": false
     },
     {
       "id": "6",
@@ -115,7 +121,8 @@
         "/images/brittany-shepherd-dog-2.jpg",
         "/images/brittany-shepherd-dog-3.webp",
         "/images/brittany-shepherd-dog-4.jpg"
-      ]
+      ],
+      "isPaid": false
     }
   ]
 }

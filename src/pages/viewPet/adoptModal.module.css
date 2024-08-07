@@ -1,19 +1,14 @@
 .modalBackground {
   width: 100vw;
   height: 100vh;
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.5
-  ); /* Adjust the background color for better visibility */
+  background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
-  top: 0; /* Ensure the modal is positioned at the top of the viewport */
-  left: 0; /* Ensure the modal is positioned at the left of the viewport */
+  top: 0;
+  left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000; /* Make sure the modal is above other elements */
+  z-index: 1000;
 }
 
 .modalContainer {
