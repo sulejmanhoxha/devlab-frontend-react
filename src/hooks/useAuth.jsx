@@ -1,14 +1,18 @@
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import { useLocalStorage } from "react-use";
 
-import { getAccessToken, getUserDetails } from "../lib/auth/auth";
+import {
+  createAccount,
+  getAccessToken,
+  getUserDetails,
+} from "../lib/auth/auth";
 
 export function useAuth() {
   const queryClient = useQueryClient();
   const navigate = useNavigate();
-  const [refreshToken, setRefreshToken, removeRefreshToken] = useLocalStorage(
-    "refreshToken",
+  const [accessToken, setAccessToken, removeAccessToken] = useLocalStorage(
+    "accessToken",
     "",
     { raw: true },
   );
@@ -16,28 +20,50 @@ export function useAuth() {
   const logout = () => {
     queryClient.invalidateQueries({ queryKey: ["user"] });
     queryClient.invalidateQueries({ queryKey: ["token"] });
-    removeRefreshToken();
+    removeAccessToken();
     navigate("/login");
   };
 
-  const tokenQuery = useQuery({
-    queryKey: ["token"],
-    queryFn: () => getAccessToken(refreshToken),
-    enabled: !!refreshToken && refreshToken.length > 0,
+  const tokenLoginMutation = useMutation({
+    mutationFn: (data) => getAccessToken(data),
+    onSuccess: (data) => {
+      console.log(data);
+      setAccessToken(data.access_token);
+      queryClient.invalidateQueries({ queryKey: ["user"] });
+      navigate("/");
+    },
   });
 
+  // const userQuery = useQuery({
+  //   queryKey: ["user"],
+  //   queryFn: () => getUserDetails(tokenQuery.data?.access_token),
+  //   enabled:
+  //     accessToken &&
+  //     accessToken.length > 0 &&
+  //     !!tokenLoginMutation.data?.access_token.length &&
+  //     tokenLoginMutation.data?.access_token.length > 0,
+  // });
   const userQuery = useQuery({
     queryKey: ["user"],
-    queryFn: () => getUserDetails(tokenQuery.data?.access_token),
-    enabled:
-      !!tokenQuery.data?.access_token.length &&
-      tokenQuery.data?.access_token.length > 0,
+    queryFn: () => getUserDetails(tokenLoginMutation.data?.access_token),
+    enabled: !!accessToken && !!tokenLoginMutation.data?.access_token,
+  });
+
+  const createUserMutation = useMutation({
+    mutationFn: (data) => createAccount(data),
+    onSuccess: (data) => {
+      queryClient.invalidateQueries({ queryKey: ["user"] });
+      removeAccessToken();
+      navigate("/login");
+    },
   });
 
   return {
-    tokenQuery,
-    setRefreshToken,
+    tokenLoginMutation,
+    accessToken,
+    setAccessToken,
     userQuery,
+    createUserMutation,
     logout,
   };
 }

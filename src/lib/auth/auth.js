@@ -1,17 +1,18 @@
 import { API_BASE_URL } from "../api";
 
-export async function getAccessToken(refreshToken) {
+export async function getAccessToken(formData) {
   let response;
   try {
-    response = await fetch(`${API_BASE_URL}/auth/refresh-token`, {
+    const body = new URLSearchParams(formData);
+    response = await fetch(`${API_BASE_URL}/users/token`, {
       method: "POST",
-      body: JSON.stringify({ refreshToken }),
+      body: body.toString(),
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/x-www-form-urlencoded",
       },
     });
   } catch (error) {
-    throw new Error("Network error");
+    throw new Error("Network Error");
   }
 
   if (response.ok) {
@@ -19,19 +20,16 @@ export async function getAccessToken(refreshToken) {
     return responseData;
   } else if (response.status === 401) {
     const responseData = await response.json();
-    throw new Error(responseData?.detail || "Invalid token");
+    throw new Error(responseData?.message || "Invalid credentials");
   } else {
-    console.error(`Unexpected status: ${response.status}`);
-    const responseData = await response.text();
-    console.error(`Response body: ${responseData}`);
     throw new Error("Unexpected error. Please try again later!");
   }
 }
 
-export async function login(formData) {
+export async function createAccount(formData) {
   let response;
   try {
-    response = await fetch(`${API_BASE_URL}/api/v1/auth/login`, {
+    response = await fetch(`${API_BASE_URL}/users/register/`, {
       method: "POST",
       body: JSON.stringify(formData),
       headers: {
@@ -56,7 +54,7 @@ export async function login(formData) {
 export async function getUserDetails(accessToken) {
   let response;
   try {
-    response = await fetch(`${API_BASE_URL}/api/v1/auth/profile`, {
+    response = await fetch(`${API_BASE_URL}/users/me/`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${accessToken}`,

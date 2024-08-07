@@ -2,10 +2,10 @@ import { joiResolver } from "@hookform/resolvers/joi";
 import Joi from "joi";
 import { useForm } from "react-hook-form";
 
+import { useAuth } from "../../hooks/useAuth";
+
 const schema = Joi.object({
-  email: Joi.string()
-    .email({ minDomainSegments: 2, tlds: { allow: ["com", "net"] } })
-    .required(),
+  username: Joi.string().min(3).max(15).required(),
 
   password: Joi.string().min(8).required(),
 }).required();
@@ -18,23 +18,33 @@ const LoginForm = () => {
   } = useForm({
     resolver: joiResolver(schema),
   });
-  const onSubmit = (data) => console.log(data);
+
+  const { tokenLoginMutation } = useAuth();
+
+  const onSubmit = (data) => {
+    const { username, password } = data;
+    console.log({ username, password });
+    console.log("login");
+    tokenLoginMutation.mutate({ username, password });
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
       <div>
         <label
-          htmlFor="email"
+          htmlFor="username"
           className="block text-sm font-medium leading-6 text-gray-900"
         >
-          Email address
+          Username
         </label>
         <div className="mt-2">
           <input
             className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            {...register("email")}
+            {...register("username")}
           />
-          <p className="mt-1 text-sm text-red-500">{errors.email?.message}</p>
+          <p className="mt-1 text-sm text-red-500">
+            {errors.username?.message}
+          </p>
         </div>
       </div>
 
