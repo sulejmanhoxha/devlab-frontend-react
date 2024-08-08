@@ -1,0 +1,30 @@
+{
+  "post_id": 0,
+  "user": {
+    "username": "string",
+    "email": "string",
+    "user_id": 0
+  },
+  "pet": {
+    "pet_type_id": 0,
+    "pet_breed": "string",
+    "pet_name": "string",
+    "pet_gender": "string",
+    "pet_age": 0,
+    "pet_size": "string",
+    "pet_coatLength": "string",
+    "pet_color": "string",
+    "medical_card": "string",
+    "location": 0,
+    "pet_id": 0,
+    "user_id": 0,
+    "pet_type": {
+      "pet_type": "string",
+      "pet_type_id": 0
+    }
+  },
+  "title": "string",
+  "abstract": "string",
+  "content": "string",
+  "image": "string"
+}

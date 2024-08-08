@@ -17,8 +17,7 @@ const HomePage = () => {
 
       {postsQuery.isSuccess && !postsQuery.isRefetching && postsQuery.data ? (
         <>
-          <CardCarousel pets={postsQuery.data} title={"Dogs"} />
-          <CardCarousel pets={postsQuery.data} title={"Cats"} />
+          <CardCarousel pets={postsQuery.data} title={"Latest Posts"} />
         </>
       ) : null}
       <CountUpStats />

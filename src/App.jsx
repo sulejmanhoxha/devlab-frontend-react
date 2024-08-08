@@ -4,7 +4,6 @@ import { Route, Routes } from "react-router-dom";
 import "./base.css";
 import Footer from "./components/Footer";
 import Navbar from "./components/navbar/Navbar";
-import AboutPage from "./pages/about/AboutPage";
 import ContactPage from "./pages/contact/ContactPage";
 import HomePage from "./pages/home/HomePage";
 import LoginPage from "./pages/login/LoginPage";
@@ -12,6 +11,7 @@ import NotFoundPage from "./pages/notFound/NotFoundPage";
 import PetsPage from "./pages/pets/PetsPage";
 import PostPet from "./pages/postPet/postPet";
 import PostsPage from "./pages/posts/PostsPage";
+import CreatePost from "./pages/posts/create/CreatePost";
 import ProfilePage from "./pages/profile/ProfilePage";
 import Shelters from "./pages/shelters/Shelters";
 import SignUpPage from "./pages/signup/SignUpPage";
@@ -33,20 +33,26 @@ function App() {
       <Navbar selectedPets={selectedPets} />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        {/* posts routes */}
-        <Route path="/posts" element={<PostsPage />} />
+        {/* public view all posts routes */}
+        <Route path="/posts" element={<PostsPage />} /> {/* view public all posts */}
+      
+        {/* private filip */}
+        <Route path="/myposts" element={<PostsPage />} /> {/* /api/posts/user/{username} view my routes */}
+        <Route path="/posts/create" element={<CreatePost />} />
+        <Route path="/posts/:id/update" element={<PostsPage />} />
         <Route path="/posts/:id" element={<PostsPage />} />
         {/* about routes */}
-        <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/shelters" element={<Shelters />} />
         {/* auth routes */}
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/profile" element={<ProfilePage />} />
-        {/* pets routes */}
-        <Route path="/pets" element={<PetsPage />} />
-        <Route path="/postPet" element={<PostPet />} />
+        {/* private pets sulejman routes */}
+        <Route path="/pets" element={<PetsPage />} /> {/* my pets */}
+        <Route path="/pets/create" element={<PostPet />} /> {/* create pets */}
+        <Route path="/pets/:id/udpate" element={<PostPet />} />{" "}
+        {/* udpate pets */}
         <Route
           path="/pets/:id"
           element={
@@ -56,7 +62,8 @@ function App() {
               selectedPets={selectedPets}
             />
           }
-        />
+        />{" "}
+        {/* view a single  pet */}
         {/* 404 route */}
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
