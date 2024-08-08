@@ -104,7 +104,7 @@ const NavMenu = ({ isOpen }) => {
       <MenuLink text="Posts" href="/posts" />
       <MenuLink text="My Pets" href="/pets" />
       <MenuLink text="Shelters" href="/shelters" />
-      <MenuLink text="About" href="/about" />
+      <MenuLink text="PostPet" href="/postPet" />
       <MenuLink text="Contact" href="/contact" />
     </motion.div>
   );

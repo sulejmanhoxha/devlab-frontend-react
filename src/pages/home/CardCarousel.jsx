@@ -4,8 +4,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useMeasure from "react-use-measure";
 
-import NeuButton from "./NeuButton";
-
 const CARD_WIDTH = 350;
 const MARGIN = 20;
 const CARD_SIZE = CARD_WIDTH + MARGIN;
@@ -18,12 +16,12 @@ const BREAKPOINTS = {
 const CardCarousel = ({ pets, title }) => {
   const [ref, { width }] = useMeasure();
   const [offset, setOffset] = useState(0);
-  const [filterPaid, setFilterPaid] = useState(true); // Manage filter state here
 
   const CARD_BUFFER =
     width > BREAKPOINTS.lg ? 3 : width > BREAKPOINTS.sm ? 2 : 1;
 
   const CAN_SHIFT_LEFT = offset < 0;
+
   const CAN_SHIFT_RIGHT =
     Math.abs(offset) < CARD_SIZE * (pets.length - CARD_BUFFER);
 
@@ -41,20 +39,12 @@ const CardCarousel = ({ pets, title }) => {
     setOffset((pv) => (pv -= CARD_SIZE));
   };
 
-  const filteredPets = pets.filter((pet) => pet.isPaid === filterPaid);
-
   return (
     <section className="bg-neutral-100 py-8" ref={ref}>
       <div className="relative overflow-hidden p-4">
         <div className="mx-auto max-w-6xl">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <h2 className="mb-4 text-2xl">{title}</h2>
-              <NeuButton
-                filterPaid={filterPaid}
-                setFilterPaid={setFilterPaid}
-              />
-            </div>
+            <h2 className="mb-4 text-2xl">{title}</h2>
 
             <div className="flex items-center gap-2">
               <button
@@ -86,9 +76,9 @@ const CardCarousel = ({ pets, title }) => {
             }}
             className="flex"
           >
-            {filteredPets.map((pet) => (
-              <PetCard key={pet.id} {...pet} />
-            ))}
+            {pets.map((pet) => {
+              return <PetCard key={pet.id} {...pet} />;
+            })}
           </motion.div>
         </div>
       </div>
