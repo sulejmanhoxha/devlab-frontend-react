@@ -43,7 +43,7 @@ const NavLeft = ({ setIsOpen }) => {
       <NavLink text="Home" href="/" />
       <NavLink text="Pets" href="/pets" />
       <NavLink text="Shelters" href="/shelters" />
-      <NavLink text="About" href="/about" />
+      <NavLink text="PostPet" href="/postPet" />
       <NavLink text="Contact" href="/contact" />
     </div>
   );
