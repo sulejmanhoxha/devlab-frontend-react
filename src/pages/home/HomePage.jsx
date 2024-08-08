@@ -1,24 +1,24 @@
-import { usePets } from "../../hooks/usePets";
+import { usePosts } from "../../hooks/usePosts";
 import CardCarousel from "./CardCarousel";
 import Hero from "./Hero";
 import LearnMore from "./LearnMore/LearnMore";
 import CountUpStats from "./Stats";
 
 const HomePage = () => {
-  const { petsQuery } = usePets();
+  const { postsQuery } = usePosts();
 
   return (
     <>
       <Hero />
-      {/* {petsQuery.isLoading || petsQuery.isRefetching ? (
+      {/* {postsQuery.isLoading || postsQuery.isRefetching ? (
         <h1>Loading...</h1>
       ) : null}
-      {petsQuery.error ? <h1>Error: {petsQuery.error.message}</h1> : null} */}
+      {postsQuery.error ? <h1>Error: {postsQuery.error.message}</h1> : null} */}
 
-      {petsQuery.isSuccess && !petsQuery.isRefetching && petsQuery.data ? (
+      {postsQuery.isSuccess && !postsQuery.isRefetching && postsQuery.data ? (
         <>
-          <CardCarousel pets={petsQuery.data} title={"Dogs"} />
-          <CardCarousel pets={petsQuery.data} title={"Cats"} />
+          <CardCarousel pets={postsQuery.data} title={"Dogs"} />
+          <CardCarousel pets={postsQuery.data} title={"Cats"} />
         </>
       ) : null}
       <CountUpStats />

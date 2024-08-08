@@ -1,13 +1,17 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 
 import { getPets } from "../lib/pets/pets";
+import { useAuth } from "./useAuth";
 
 export function usePets() {
   const queryClient = useQueryClient();
 
+  const { accessToken } = useAuth();
+
   const petsQuery = useQuery({
     queryKey: ["pets"],
-    queryFn: getPets,
+    queryFn: getPets(accessToken),
+    enabled: !!accessToken,
   });
 
   // if you want to return more tham one thing, place all the things you want

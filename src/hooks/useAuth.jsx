@@ -18,6 +18,7 @@ export function useAuth() {
   );
 
   const logout = () => {
+    console.log("logout");
     queryClient.invalidateQueries({ queryKey: ["user"] });
     queryClient.invalidateQueries({ queryKey: ["token"] });
     removeAccessToken();
@@ -45,8 +46,8 @@ export function useAuth() {
   // });
   const userQuery = useQuery({
     queryKey: ["user"],
-    queryFn: () => getUserDetails(tokenLoginMutation.data?.access_token),
-    enabled: !!accessToken && !!tokenLoginMutation.data?.access_token,
+    queryFn: () => getUserDetails(accessToken),
+    enabled: !!tokenLoginMutation.data?.access_token || !!accessToken,
   });
 
   const createUserMutation = useMutation({

@@ -54,7 +54,7 @@ export async function createAccount(formData) {
 export async function getUserDetails(accessToken) {
   let response;
   try {
-    response = await fetch(`${API_BASE_URL}/users/me/`, {
+    response = await fetch(`${API_BASE_URL}/users/me`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${accessToken}`,

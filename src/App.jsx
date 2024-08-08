@@ -11,6 +11,7 @@ import LoginPage from "./pages/login/LoginPage";
 import NotFoundPage from "./pages/notFound/NotFoundPage";
 import PetsPage from "./pages/pets/PetsPage";
 import PostPet from "./pages/postPet/postPet";
+import PostsPage from "./pages/posts/PostsPage";
 import Shelters from "./pages/shelters/Shelters";
 import SignUpPage from "./pages/signup/SignUpPage";
 import ViewPetPage from "./pages/viewPet/ViewPetPage";
@@ -31,6 +32,8 @@ function App() {
       <Navbar selectedPets={selectedPets} />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/posts" element={<PostsPage />} />
+        <Route path="/posts/:id" element={<PostsPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/shelters" element={<Shelters />} />

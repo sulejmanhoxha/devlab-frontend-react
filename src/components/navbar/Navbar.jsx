@@ -3,9 +3,10 @@ import { ArrowRight, Menu } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
+import { useAuth } from "../../hooks/useAuth";
 import Wishlist from "../Wishlist";
-import WhishlistDropdown from "../WishlistDropdown";
 import { ThemeToggle } from "./ThemeToggle";
+import UserDropdown from "./UserDropdown";
 
 const Navbar = ({ selectedPets }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,7 +42,8 @@ const NavLeft = ({ setIsOpen }) => {
       </motion.button>
       <Logo />
       <NavLink text="Home" href="/" />
-      <NavLink text="Pets" href="/pets" />
+      <NavLink text="Posts" href="/posts" />
+      <NavLink text="My Pets" href="/pets" />
       <NavLink text="Shelters" href="/shelters" />
       <NavLink text="PostPet" href="/postPet" />
       <NavLink text="Contact" href="/contact" />
@@ -66,22 +68,25 @@ const NavLink = ({ text, href }) => {
 };
 
 const NavRight = ({ selectedPets }) => {
+  const { logout, userQuery } = useAuth();
   return (
     <div className="flex items-center gap-4">
-      <WhishlistDropdown />
       <div className="flex items-center space-x-4">
         <Wishlist selectedPets={selectedPets} />
       </div>
-      <Link to="/login">
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="whitespace-nowrap rounded-md bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text px-4 py-2 font-medium text-transparent"
-        >
-          Login
-        </motion.button>
-      </Link>
-
+      {userQuery.data ? (
+        <UserDropdown username={userQuery.data.username} />
+      ) : (
+        <Link to="/login">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="whitespace-nowrap rounded-md bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text px-4 py-2 font-medium text-transparent"
+          >
+            Login
+          </motion.button>
+        </Link>
+      )}
       <ThemeToggle />
     </div>
   );
@@ -96,7 +101,8 @@ const NavMenu = ({ isOpen }) => {
       className="absolute left-0 right-0 top-full flex origin-top flex-col gap-4 bg-white p-4 shadow-lg"
     >
       <MenuLink text="Home" href="/" />
-      <MenuLink text="Pets" href="/pets" />
+      <MenuLink text="Posts" href="/posts" />
+      <MenuLink text="My Pets" href="/pets" />
       <MenuLink text="Shelters" href="/shelters" />
       <MenuLink text="About" href="/about" />
       <MenuLink text="Contact" href="/contact" />

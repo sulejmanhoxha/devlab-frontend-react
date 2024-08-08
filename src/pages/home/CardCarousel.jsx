@@ -96,11 +96,12 @@ const CardCarousel = ({ pets, title }) => {
   );
 };
 
-const PetCard = ({ id, images, breed, name, description }) => {
+const PetCard = ({ id, image, title, abstract }) => {
   const navigate = useNavigate();
 
   return (
     <div
+      key={id}
       className="relative shrink-0 cursor-pointer transition-transform hover:-translate-y-1"
       style={{
         width: CARD_WIDTH,
@@ -109,15 +110,13 @@ const PetCard = ({ id, images, breed, name, description }) => {
       onClick={() => navigate(`/pets/${id}`)}
     >
       <img
-        src={images[0]}
+        src={image}
         className="mb-3 h-[200px] w-full rounded-lg object-cover"
-        alt={`An image for a ${name}`}
+        alt={`An image for a ${title}`}
       />
-      <span className="rounded-md border-[1px] border-neutral-500 px-1.5 py-1 text-xs uppercase text-neutral-500">
-        {breed}
-      </span>
-      <p className="mt-1.5 text-base font-medium">{name}</p>
-      <p className="text-sm text-neutral-500">{description}</p>
+
+      <p className="mt-1.5 text-base font-medium">{title}</p>
+      <p className="text-sm text-neutral-500">{abstract}</p>
     </div>
   );
 };

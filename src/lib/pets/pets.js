@@ -1,15 +1,21 @@
 import { API_BASE_URL } from "../api";
 
-export async function getPets() {
+export async function getPets(accessToken) {
   let response;
   try {
-    response = await fetch(`${API_BASE_URL}/pets`);
+    response = await fetch(`${API_BASE_URL}/pets/`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
   } catch (error) {
     console.error("Network error:", error);
     throw new Error("Network error");
   }
   if (response.ok) {
     const responseData = await response.json();
+    console.log("pets", responseData);
     return responseData;
   } else {
     console.error(`Unexpected status: ${response.status}`);
