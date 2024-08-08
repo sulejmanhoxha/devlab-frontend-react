@@ -12,6 +12,7 @@ import NotFoundPage from "./pages/notFound/NotFoundPage";
 import PetsPage from "./pages/pets/PetsPage";
 import PostPet from "./pages/postPet/postPet";
 import PostsPage from "./pages/posts/PostsPage";
+import ProfilePage from "./pages/profile/ProfilePage";
 import Shelters from "./pages/shelters/Shelters";
 import SignUpPage from "./pages/signup/SignUpPage";
 import ViewPetPage from "./pages/viewPet/ViewPetPage";
@@ -32,13 +33,18 @@ function App() {
       <Navbar selectedPets={selectedPets} />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        {/* posts routes */}
         <Route path="/posts" element={<PostsPage />} />
         <Route path="/posts/:id" element={<PostsPage />} />
+        {/* about routes */}
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/shelters" element={<Shelters />} />
+        {/* auth routes */}
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        {/* pets routes */}
         <Route path="/pets" element={<PetsPage />} />
         <Route path="/postPet" element={<PostPet />} />
         <Route
@@ -51,6 +57,7 @@ function App() {
             />
           }
         />
+        {/* 404 route */}
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />

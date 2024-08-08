@@ -6,6 +6,7 @@ import {
   createAccount,
   getAccessToken,
   getUserDetails,
+  updateAccount,
 } from "../lib/auth/auth";
 
 export function useAuth() {
@@ -59,12 +60,23 @@ export function useAuth() {
     },
   });
 
+  const updateProfileMutation = useMutation({
+    mutationFn: ({ data, id, accessToken }) =>
+      updateAccount(data, id, accessToken),
+    onSuccess: (data) => {
+      queryClient.invalidateQueries({ queryKey: ["user"] });
+      removeAccessToken();
+      navigate("/login");
+    },
+  });
+
   return {
     tokenLoginMutation,
     accessToken,
     setAccessToken,
     userQuery,
     createUserMutation,
+    updateProfileMutation,
     logout,
   };
 }
