@@ -5,8 +5,8 @@ import stylesHero from "./HeroShelters.module.css";
 
 const HeroShelters = () => {
   return (
-    <div className={stylesHero.heroShelters}>
-      <div className={stylesHero.heroContent}>
+    <div className={`heroShelters ${stylesHero.HeroShelters}`}>
+      <div className={`heroContent ${stylesHero.heroContent}`}>
         <BubbleText />
       </div>
     </div>

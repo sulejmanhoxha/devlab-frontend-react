@@ -16,7 +16,7 @@ const BubbleText = () => {
 
 const Example = () => {
   return (
-    <div className="grid h-screen place-content-center bg-black">
+    <div className="boubbleFloat grid h-screen place-content-center bg-black">
       <BubbleText />
     </div>
   );

@@ -102,7 +102,7 @@ footer .container {
   background-color: #565656;
 }
 
-.dark .petTemplate {
+.dark .boubbleFloat {
   color: #fff !important;
   filter: brightness(60%);
 }

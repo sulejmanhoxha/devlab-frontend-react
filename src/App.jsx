@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import "./base.css";
 import Footer from "./components/Footer";
 import Navbar from "./components/navbar/Navbar";
+import postedPets from "./lib/apiPosts/postedPets";
 import ContactPage from "./pages/contact/ContactPage";
 import HomePage from "./pages/home/HomePage";
 import LoginPage from "./pages/login/LoginPage";
@@ -34,10 +35,11 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         {/* public view all posts routes */}
-        <Route path="/posts" element={<PostsPage />} /> {/* view public all posts */}
-      
+        <Route path="/posts" element={<PostsPage />} />{" "}
+        {/* view public all posts */}
         {/* private filip */}
-        <Route path="/myposts" element={<PostsPage />} /> {/* /api/posts/user/{username} view my routes */}
+        <Route path="/myposts" element={<postedPets />} />{" "}
+        {/* /api/posts/user/{username} view my routes */}
         <Route path="/posts/create" element={<CreatePost />} />
         <Route path="/posts/:id/update" element={<PostsPage />} />
         <Route path="/posts/:id" element={<PostsPage />} />

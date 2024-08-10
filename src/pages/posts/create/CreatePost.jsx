@@ -1,18 +1,28 @@
 import React, { useState } from "react";
 
+import { API_BASE_URL } from "../../../lib/api";
 import styles from "./postPet.module.css";
 
 const CreatePost = () => {
   const [title, setTitle] = useState("");
-  const [absctract, setAbsctract] = useState("");
-  const [content, setContent] = useState("");
+  const [petTypeId, setPetTypeId] = useState("");
+  const [petBreed, setPetBreed] = useState("");
+  const [petName, setPetName] = useState("");
+  const [petGender, setPetGender] = useState("");
+  const [petAge, setPetAge] = useState(0);
+  const [petSize, setPetSize] = useState("");
+  const [petCoatLength, setPetCoatLength] = useState("");
+  const [petColor, setPetColor] = useState("");
+  const [medicalCard, setMedicalCard] = useState("");
+  const [location, setLocation] = useState(0);
   const [image, setImage] = useState(null);
-  const [pet, setPet] = useState("");
+  const [error, setError] = useState("");
+  const [imagePreview, setImagePreview] = useState(null);
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     if (file) {
-      setPetImage(file);
+      setImage(file);
       const reader = new FileReader();
       reader.onloadend = () => {
         setImagePreview(reader.result);
@@ -21,19 +31,40 @@ const CreatePost = () => {
     }
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (petName && petType && petAge && petDescription && petImage) {
+    if (petName && petTypeId && petAge && petBreed && image) {
       setError("");
-      alert("Your pet has been posted successfully!");
-      console.log({
-        petName,
-        petType,
-        petAge,
-        petDescription,
-        petImage,
-      });
+
+      const formData = new FormData();
+      formData.append("pet_type_id", petTypeId);
+      formData.append("pet_breed", petBreed);
+      formData.append("pet_name", petName);
+      formData.append("pet_gender", petGender);
+      formData.append("pet_age", petAge);
+      formData.append("pet_size", petSize);
+      formData.append("pet_coatLength", petCoatLength);
+      formData.append("pet_color", petColor);
+      formData.append("medical_card", medicalCard);
+      formData.append("location", location);
+      formData.append("image", image);
+
+      try {
+        const response = await fetch(`${API_BASE_URL}/pets/`, {
+          method: "POST",
+          body: formData,
+        });
+
+        if (response.ok) {
+          alert("Your pet has been posted successfully!");
+        } else {
+          const errorResponse = await response.json();
+          setError(`Error: ${errorResponse.message}`);
+        }
+      } catch (error) {
+        setError("Network error. Please try again later.");
+      }
     } else {
       setError(
         "Please fill out all required fields, including uploading an image.",
@@ -45,51 +76,42 @@ const CreatePost = () => {
     <div className={styles.CreatePostContainer}>
       <h1 className={styles.title}>Post Your Pet</h1>
       <form onSubmit={handleSubmit} className={styles.form}>
-        <label htmlFor="pet-name">Title</label>
-
+        {/* Add more here */}
+        <label htmlFor="pet-name">Pet Name:</label>
         <input
           type="text"
           id="pet-name"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          value={petName}
+          onChange={(e) => setPetName(e.target.value)}
           className={styles.input}
           required
         />
 
-        <label htmlFor="pet-type">Pet Type:</label>
+        <label htmlFor="pet-type-id">Pet Type:</label>
         <select
-          id="pet-type"
-          value={petType}
-          onChange={(e) => setPetType(e.target.value)}
+          id="pet-type-id"
+          value={petTypeId}
+          onChange={(e) => setPetTypeId(e.target.value)}
           className={styles.select}
           required
         >
-          <option value="dog">Dog</option>
-          <option value="cat">Cat</option>
-          <option value="bird">Bird</option>
-          <option value="other">Other</option>
+          <option value="">Select Type</option>
+          <option value="1">Dog</option>
+          <option value="2">Cat</option>
+          {/* Add more here */}
         </select>
 
-        <label htmlFor="pet-age">Pet Age:</label>
+        <label htmlFor="pet-breed">Breed:</label>
         <input
-          type="number"
-          id="pet-age"
-          value={petAge}
-          onChange={(e) => setPetAge(e.target.value)}
+          type="text"
+          id="pet-breed"
+          value={petBreed}
+          onChange={(e) => setPetBreed(e.target.value)}
           className={styles.input}
-          min="0"
           required
         />
 
-        <label htmlFor="pet-description">Description:</label>
-        <textarea
-          id="pet-description"
-          value={petDescription}
-          onChange={(e) => setPetDescription(e.target.value)}
-          className={styles.textarea}
-          rows="4"
-          required
-        ></textarea>
+        {/* Add more here */}
 
         <label htmlFor="pet-image">Pet Image:</label>
         <input
