@@ -77,7 +77,7 @@ const CardCarousel = ({ pets, title }) => {
             className="flex"
           >
             {pets.map((pet) => {
-              return <PetCard key={pet.id} {...pet} />;
+              return <PetCard key={pet.id} {...pet} />; // Added key prop
             })}
           </motion.div>
         </div>
