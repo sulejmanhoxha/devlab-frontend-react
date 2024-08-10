@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { usePets } from "../../hooks/usePets";
 import Filters from "./filter/Filters";
@@ -9,6 +9,7 @@ const PetsPage = () => {
   return (
     <>
       <div className="container mx-auto bg-white px-6 py-28 md:py-40">
+        <Link to="/pets/create">Add your pet</Link>
         <div className="w-full md:flex md:gap-12">
           <Filters />
 
@@ -25,16 +26,7 @@ const PetsPage = () => {
               {petsQuery.isSuccess &&
               !petsQuery.isRefetching &&
               petsQuery.data.length > 0
-                ? petsQuery.data.map((pet) => (
-                    <PetCard
-                      key={pet.id}
-                      id={pet.id}
-                      images={pet.images}
-                      breed={pet.breed}
-                      name={pet.name}
-                      description={pet.description}
-                    />
-                  ))
+                ? petsQuery.data.map((pet) => <PetCard id={pet.id} {...pet} />)
                 : null}
 
               {petsQuery.isSuccess &&
@@ -50,24 +42,25 @@ const PetsPage = () => {
   );
 };
 
-export const PetCard = ({ id, images, breed, name, description }) => {
+export const PetCard = ({ pet_id, pet_breed, pet_name }) => {
   const navigate = useNavigate();
 
   return (
     <div
+      key={pet_id}
       className="cursor-pointer transition-transform hover:-translate-y-1"
-      onClick={() => navigate(`/pets/${id}`)}
+      onClick={() => navigate(`/pets/${pet_id}`)}
     >
-      <img
+      {/* <img
         src={images[0]}
         className="mb-3 h-[200px] w-full rounded-lg object-cover"
-        alt={`An image for a ${name}`}
-      />
+        alt={`An image for a ${pet_name}`}
+      /> */}
       <span className="rounded-md border-[1px] border-neutral-500 px-1.5 py-1 text-xs uppercase text-neutral-500">
-        {breed}
+        {pet_breed}
       </span>
-      <p className="mt-1.5 text-lg font-medium">{name}</p>
-      <p className="line-clamp-2 text-sm text-neutral-500">{description}</p>
+      <p className="mt-1.5 text-lg font-medium">{pet_name}</p>
+      {/* <p className="line-clamp-2 text-sm text-neutral-500">{description}</p> */}
     </div>
   );
 };

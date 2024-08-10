@@ -13,7 +13,6 @@ function ListBoxFilter({ list, selectedList, setSelectedList }) {
     <Listbox value={selectedList} onChange={setSelectedList} multiple>
       <ListboxButton as={Fragment}>
         <motion.button
-          whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           className="group flex w-full items-center justify-between rounded-md border bg-gray-100 px-4 py-2 text-start text-[17px] font-medium dark:bg-gray-700 dark:text-white"
         >

@@ -1,7 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
-import { useLocalStorage } from "react-use";
 
+import { useGlobalContext } from "../context/GlobalContext";
 import {
   createAccount,
   getAccessToken,
@@ -12,17 +12,19 @@ import {
 export function useAuth() {
   const queryClient = useQueryClient();
   const navigate = useNavigate();
-  const [accessToken, setAccessToken, removeAccessToken] = useLocalStorage(
-    "accessToken",
-    "",
-    { raw: true },
-  );
+  // const [accessToken, setAccessToken, removeAccessToken] = useLocalStorage(
+  //   "accessToken",
+  //   "",
+  //   { raw: true },
+  // );
+
+  const { accessToken, setAccessToken } = useGlobalContext();
 
   const logout = () => {
     console.log("logout");
     queryClient.invalidateQueries({ queryKey: ["user"] });
     queryClient.invalidateQueries({ queryKey: ["token"] });
-    removeAccessToken();
+    setAccessToken("");
     navigate("/login");
   };
 
@@ -55,7 +57,7 @@ export function useAuth() {
     mutationFn: (data) => createAccount(data),
     onSuccess: (data) => {
       queryClient.invalidateQueries({ queryKey: ["user"] });
-      removeAccessToken();
+      setAccessToken("");
       navigate("/login");
     },
   });
@@ -65,7 +67,7 @@ export function useAuth() {
       updateAccount(data, id, accessToken),
     onSuccess: (data) => {
       queryClient.invalidateQueries({ queryKey: ["user"] });
-      removeAccessToken();
+      setAccessToken("");
       navigate("/login");
     },
   });

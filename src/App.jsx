@@ -10,6 +10,7 @@ import HomePage from "./pages/home/HomePage";
 import LoginPage from "./pages/login/LoginPage";
 import NotFoundPage from "./pages/notFound/NotFoundPage";
 import PetsPage from "./pages/pets/PetsPage";
+import CreatePetsPage from "./pages/pets/create/CreatePetsPage";
 import PostPet from "./pages/postPet/postPet";
 import PostsPage from "./pages/posts/PostsPage";
 import CreatePost from "./pages/posts/create/CreatePost";
@@ -37,6 +38,8 @@ function App() {
         {/* public view all posts routes */}
         <Route path="/posts" element={<PostsPage />} />{" "}
         {/* view public all posts */}
+        <Route path="/posts" element={<PostsPage />} />{" "}
+        {/* view public all posts */}
         {/* private filip */}
         <Route path="/myposts" element={<postedPets />} />{" "}
         {/* /api/posts/user/{username} view my routes */}
@@ -52,7 +55,8 @@ function App() {
         <Route path="/profile" element={<ProfilePage />} />
         {/* private pets sulejman routes */}
         <Route path="/pets" element={<PetsPage />} /> {/* my pets */}
-        <Route path="/pets/create" element={<PostPet />} /> {/* create pets */}
+        <Route path="/pets/create" element={<CreatePetsPage />} />{" "}
+        {/* create pets */}
         <Route path="/pets/:id/udpate" element={<PostPet />} />{" "}
         {/* udpate pets */}
         <Route
