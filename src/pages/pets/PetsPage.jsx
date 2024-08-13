@@ -9,7 +9,9 @@ const PetsPage = () => {
   return (
     <>
       <div className="container mx-auto bg-white px-6 py-28 md:py-40">
-        <Link to="/pets/create">Add your pet</Link>
+        <Link to="/pets/create" className="dark:text-white">
+          Add your pet
+        </Link>
         <div className="w-full md:flex md:gap-12">
           <Filters />
 

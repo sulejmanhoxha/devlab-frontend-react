@@ -82,7 +82,10 @@ const Filters = () => {
   );
 
   const [selectedFilters, setSelectedFilters] = useState({
-    priceCategory: getInitialSelected("category", filterOptions.priceCategory),
+    priceCategory: getInitialSelected(
+      "priceCategory",
+      filterOptions.priceCategory,
+    ),
     category: getInitialSelected("category", filterOptions.category),
     age: getInitialSelected("age", filterOptions.age),
     gender: getInitialSelected("gender", filterOptions.gender),
@@ -107,14 +110,15 @@ const Filters = () => {
 
   return (
     <div className="mb-8 w-full md:mb-0 md:max-w-60">
-      <FilterOption title="Search">
-        <div className="flex items-center gap-2">
-          <input className="block w-full rounded-md border-0 px-4 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+      <div className="mb-4">
+        <h2 className="text-3xl dark:text-white">Search</h2>
+        <div className="mt-2 flex items-center gap-2">
+          <input className="block w-full rounded-md border-0 bg-gray-100 px-4 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500 dark:ring-gray-600 sm:text-sm sm:leading-6" />
           <button className="whitespace-nowrap rounded-md bg-gradient-to-r from-violet-600 to-indigo-600 px-4 py-2 font-medium text-white">
             <Search />
           </button>
         </div>
-      </FilterOption>
+      </div>
 
       <FilterOption title="Sort">
         <ListboxComponent
@@ -128,7 +132,7 @@ const Filters = () => {
         <div className="space-y-3">
           {Object.entries(filterOptions).map(([filterType, options]) => (
             <div key={filterType}>
-              <h3 className="mb-1 text-sm font-medium tracking-wide">
+              <h3 className="mb-1 text-sm font-medium tracking-wide dark:text-white">
                 {filterType.charAt(0).toUpperCase() + filterType.slice(1)}
               </h3>
               <ListboxComponent
@@ -162,7 +166,7 @@ const FilterOption = ({ title, children }) => {
     <Disclosure as="div" className="mb-4" defaultOpen>
       {({ open }) => (
         <>
-          <DisclosureButton className="group flex w-full items-center justify-between text-3xl">
+          <DisclosureButton className="group flex w-full items-center justify-between text-3xl dark:text-white">
             {title}
             <ChevronDown
               className={`w-5 transition ${open ? "rotate-180" : ""}`}
