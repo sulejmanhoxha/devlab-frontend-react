@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-
 import { getPosts } from "../posts/posts";
 
-const postedPets = () => {
+const PostedPets = ({ userId }) => {
   const [posts, setPosts] = useState([]);
   const [error, setError] = useState(null);
-  const userId = 1; // just an example change later
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -15,15 +14,16 @@ const postedPets = () => {
         setPosts(userPosts);
       } catch (error) {
         setError(error.message);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchPosts();
-  }, [userId]); // depended on userId
+  }, [userId]);
 
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
+  if (loading) return <p>Loading...</p>;
+  if (error) return <div>Error: {error}</div>;
 
   return (
     <div>
@@ -34,7 +34,11 @@ const postedPets = () => {
             <li key={post.post_id}>
               <h2>{post.title}</h2>
               <p>{post.abstract}</p>
-              <p>{post.content}</p>
+              <p>
+                {post.content.length > 100
+                  ? `${post.content.substring(0, 100)}...`
+                  : post.content}
+              </p>
               {post.image && <img src={post.image} alt={post.title} />}
             </li>
           ))
@@ -46,4 +50,4 @@ const postedPets = () => {
   );
 };
 
-export default postedPets;
+export default PostedPets;

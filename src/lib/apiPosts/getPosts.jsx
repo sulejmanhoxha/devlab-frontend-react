@@ -1,15 +1,5 @@
 import React, { useEffect, useState } from "react";
-
 import { getPostDetails } from "../posts/posts";
-
-async function fetchPostData(postId) {
-  try {
-    const postData = await getPostDetails(postId);
-    console.log("Fetched Post:", postData);
-  } catch (error) {
-    console.error("Failed to fetch post data:", error.message);
-  }
-}
 
 function PostDetail({ postId }) {
   const [post, setPost] = useState(null);
@@ -37,10 +27,14 @@ function PostDetail({ postId }) {
 
   return (
     <div>
-      <h1>{post.title}</h1>
-      <p>{post.abstract}</p>
-      <p>{post.content}</p>
-      {post.image && <img src={post.image} alt={post.title} />}
+      <h1>{post.title || "Untitled Post"}</h1>
+      <p>{post.abstract || "No abstract available."}</p>
+      <p>{post.content || "No content available."}</p>
+      {post.image ? (
+        <img src={post.image} alt={post.title || "Post Image"} />
+      ) : (
+        <p>No image available.</p>
+      )}
     </div>
   );
 }

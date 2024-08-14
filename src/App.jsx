@@ -4,7 +4,11 @@ import { Route, Routes } from "react-router-dom";
 import "./base.css";
 import Footer from "./components/Footer";
 import Navbar from "./components/navbar/Navbar";
+import CreatePostForm from "./lib/apiPosts/createPosts";
+import PostDetail from "./lib/apiPosts/getPosts";
 import postedPets from "./lib/apiPosts/postedPets";
+import PostedPets from "./lib/apiPosts/postedPets";
+import UpdatePostForm from "./lib/apiPosts/updatePosts";
 import ContactPage from "./pages/contact/ContactPage";
 import HomePage from "./pages/home/HomePage";
 import LoginPage from "./pages/login/LoginPage";
@@ -41,11 +45,12 @@ function App() {
         <Route path="/posts" element={<PostsPage />} />{" "}
         {/* view public all posts */}
         {/* private filip */}
-        <Route path="/myposts" element={<postedPets />} />{" "}
+        <Route path="/myposts" element={<PostedPets />} />
+        {"PostedPets "}
         {/* /api/posts/user/{username} view my routes */}
-        <Route path="/posts/create" element={<CreatePost />} />
-        <Route path="/posts/:id/update" element={<PostsPage />} />
-        <Route path="/posts/:id" element={<PostsPage />} />
+        <Route path="/posts/create" element={<CreatePostForm />} />
+        <Route path="/posts/:id/update" element={<UpdatePostForm />} />
+        <Route path="/posts/:id" element={<PostDetail />} />
         {/* about routes */}
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/shelters" element={<Shelters />} />

@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-import { updatePost } from "../posts/posts";
+import { getPostDetails, updatePost } from "../posts/posts";
 
 function UpdatePostForm({ postId }) {
   const [postData, setPostData] = useState({
@@ -12,6 +12,22 @@ function UpdatePostForm({ postId }) {
     image: "",
   });
   const [message, setMessage] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    async function fetchPost() {
+      try {
+        const post = await getPostDetails(postId);
+        setPostData(post);
+      } catch (error) {
+        setError("Failed to load post details.");
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchPost();
+  }, [postId]);
 
   const handleChange = (e) => {
     setPostData({
@@ -22,13 +38,20 @@ function UpdatePostForm({ postId }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!postData.title || !postData.abstract || !postData.content) {
+      setMessage("Please fill in all required fields.");
+      return;
+    }
     try {
-      const updatedPost = await updatePost(postId, postData);
+      await updatePost(postId, postData);
       setMessage("Post updated successfully!");
     } catch (error) {
       setMessage(`Error updating post: ${error.message}`);
     }
   };
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>{error}</p>;
 
   return (
     <form onSubmit={handleSubmit}>
