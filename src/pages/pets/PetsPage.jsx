@@ -1,13 +1,22 @@
+import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 
 import { useGlobalContext } from "../../context/GlobalContext";
 import { usePets } from "../../hooks/usePets";
+import { getPets } from "../../lib/pets/pets";
 import Filters from "./filter/Filters";
 
 const PetsPage = () => {
-  const { petsQuery, deletePetMutation } = usePets();
+  const { deletePetMutation } = usePets();
   const { accessToken } = useGlobalContext();
+  const [searchParams] = useSearchParams(); // Add this line
+
+  const petsQuery = useQuery({
+    queryKey: ["pets", searchParams.toString()], // Update queryKey to include searchParams
+    queryFn: () => getPets(accessToken, searchParams.toString()), // Pass searchParams to getPets
+    enabled: !!accessToken,
+  });
 
   return (
     <>

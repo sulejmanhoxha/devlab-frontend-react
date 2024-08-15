@@ -10,12 +10,6 @@ export function usePets() {
 
   const { accessToken } = useGlobalContext();
 
-  const petsQuery = useQuery({
-    queryKey: ["pets"],
-    queryFn: () => getPets(accessToken),
-    enabled: !!accessToken,
-  });
-
   const createPetMutation = useMutation({
     mutationFn: ({ data, accessToken }) => createPet(data, accessToken),
     onSuccess: (data) => {
@@ -44,7 +38,6 @@ export function usePets() {
   // to return in an object {petsQuery, something, anotherthing }
   // do not forget when using usePets to destructure the object
   return {
-    petsQuery,
     deletePetMutation,
     createPetMutation,
     updatePetMutation,

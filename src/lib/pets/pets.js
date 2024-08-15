@@ -1,14 +1,17 @@
 import { API_BASE_URL } from "../api";
 
-export async function getPets(accessToken) {
+export async function getPets(accessToken, queryString) {
   let response;
   try {
-    response = await fetch(`${API_BASE_URL}/pets/`, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
+    response = await fetch(
+      `${API_BASE_URL}/pets/?skip=0&limit=10${queryString ? `&${queryString}` : ""}`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
       },
-    });
+    );
   } catch (error) {
     console.error("Network error:", error);
     throw new Error("Network error");

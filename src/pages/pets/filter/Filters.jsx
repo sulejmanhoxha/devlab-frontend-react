@@ -77,9 +77,9 @@ const Filters = () => {
     [searchParams],
   );
 
-  const [selectedSort, setSelectedSort] = useState(
-    getInitialSelected("sort", sortOptions),
-  );
+  // const [selectedSort, setSelectedSort] = useState(
+  //   getInitialSelected("sort", sortOptions),
+  // );
 
   const [selectedFilters, setSelectedFilters] = useState({
     priceCategory: getInitialSelected(
@@ -99,7 +99,7 @@ const Filters = () => {
   }, [searchParams]);
 
   const fetchPets = () => {
-    updateSearchParams("sort", selectedSort);
+    // updateSearchParams("sort", selectedSort);
     Object.entries(selectedFilters).forEach(([param, selectedList]) => {
       updateSearchParams(param, selectedList);
     });
@@ -110,7 +110,7 @@ const Filters = () => {
 
   return (
     <div className="mb-8 w-full md:mb-0 md:max-w-60">
-      <div className="mb-4">
+      {/* <div className="mb-4">
         <h2 className="text-3xl dark:text-white">Search</h2>
         <div className="mt-2 flex items-center gap-2">
           <input className="block w-full rounded-md border-0 bg-gray-100 px-4 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500 dark:ring-gray-600 sm:text-sm sm:leading-6" />
@@ -118,15 +118,15 @@ const Filters = () => {
             <Search />
           </button>
         </div>
-      </div>
+      </div> */}
 
-      <FilterOption title="Sort">
+      {/* <FilterOption title="Sort">
         <ListboxComponent
           list={sortOptions}
           selectedList={selectedSort}
           setSelectedList={setSelectedSort}
         />
-      </FilterOption>
+      </FilterOption> */}
 
       <FilterOption title="Filters">
         <div className="space-y-3">
