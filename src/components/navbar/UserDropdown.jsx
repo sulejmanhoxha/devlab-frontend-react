@@ -7,6 +7,7 @@ import { useAuth } from "../../hooks/useAuth";
 
 const links = [
   { href: "/profile", label: "Profile", icon: User },
+  { href: "/pets/create", label: "Add your pet", icon: User },
   { href: "/login", label: "Logout", icon: LogOut },
 ];
 

@@ -45,7 +45,6 @@ const NavLeft = ({ setIsOpen }) => {
       <NavLink text="Posts" href="/posts" />
       <NavLink text="My Pets" href="/pets" />
       <NavLink text="Shelters" href="/shelters" />
-      <NavLink text="PostPet" href="/postPet" />
       <NavLink text="Contact" href="/contact" />
     </div>
   );
@@ -104,7 +103,6 @@ const NavMenu = ({ isOpen }) => {
       <MenuLink text="Posts" href="/posts" />
       <MenuLink text="My Pets" href="/pets" />
       <MenuLink text="Shelters" href="/shelters" />
-      <MenuLink text="PostPet" href="/postPet" />
       <MenuLink text="Contact" href="/contact" />
     </motion.div>
   );

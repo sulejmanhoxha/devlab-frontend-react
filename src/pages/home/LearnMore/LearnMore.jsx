@@ -97,7 +97,7 @@ const LearnMore = () => {
               <p className={stylesLearnMore.flexGrowParagraph}>
                 Make the adoption transition as smooth as possible
               </p>
-              <a className={stylesLearnMore.flexGrowLink} href="#!">
+              <Link className={stylesLearnMore.flexGrowLink} to={"/posts"}>
                 Learn More
                 <svg
                   fill="none"
@@ -110,7 +110,7 @@ const LearnMore = () => {
                 >
                   <path d="M5 12h14M12 5l7 7-7 7"></path>
                 </svg>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

@@ -1,3 +1,7 @@
+.CreatePostContainer {
+  padding: 80px;
+}
+
 .postPetContainer {
   padding: 2rem;
   max-width: 600px;

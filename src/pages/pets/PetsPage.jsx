@@ -10,11 +10,11 @@ import Filters from "./filter/Filters";
 const PetsPage = () => {
   const { deletePetMutation } = usePets();
   const { accessToken } = useGlobalContext();
-  const [searchParams] = useSearchParams(); // Add this line
+  const [searchParams] = useSearchParams();
 
   const petsQuery = useQuery({
-    queryKey: ["pets", searchParams.toString()], // Update queryKey to include searchParams
-    queryFn: () => getPets(accessToken, searchParams.toString()), // Pass searchParams to getPets
+    queryKey: ["pets", searchParams.toString()],
+    queryFn: () => getPets(accessToken, searchParams.toString()),
     enabled: !!accessToken,
   });
 
@@ -25,15 +25,6 @@ const PetsPage = () => {
           <Filters />
 
           <div className="flex-1">
-            <Link to="/pets/create" className="mb-8 ml-auto block w-fit">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="whitespace-nowrap rounded-md bg-gradient-to-r from-violet-600 to-indigo-600 px-4 py-2 font-medium text-white"
-              >
-                Add your pet
-              </motion.button>
-            </Link>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {petsQuery.isLoading || petsQuery.isRefetching ? (
                 <h1>Loading...</h1>

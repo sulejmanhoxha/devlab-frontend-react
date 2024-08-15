@@ -7,8 +7,8 @@ const Hero = () => {
     <>
       <section className="petsBackgroundImg hero m-0 flex min-h-screen flex-col items-center justify-center">
         <div
-          className="petTemplate flex max-w-xl flex-col items-center pb-16 text-center lg:pb-48 lg:pt-32"
-          style={{ marginBottom: "150px" }}
+          className="petTemplate flex flex-col items-center pb-16 text-center lg:pb-48 lg:pt-32"
+          style={{ marginBottom: "150px", maxWidth: "17rem" }}
         >
           <h1 className="mb-8 text-4xl font-bold text-white md:mb-12">
             Find your new best friend
@@ -16,15 +16,14 @@ const Hero = () => {
           <div className="flex w-full flex-col gap-2.5 sm:flex-row sm:justify-center">
             <NavLink
               to="/pets"
-              className="inline-block rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base"
+              className="inline-block rounded-lg bg-indigo-500 px-6 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:px-8 md:text-base"
             >
               Pets
             </NavLink>
             <NavLink
               to="/shelters"
-              className="inline-block rounded-lg bg-gray-200 px-8 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base"
+              className="inline-block rounded-lg bg-gray-200 px-6 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:px-8 md:text-base"
             >
-              {" "}
               About Us
             </NavLink>
           </div>

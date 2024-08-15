@@ -5,29 +5,16 @@ const CountUpStats = () => {
   return (
     <div className="mx-auto max-w-3xl px-4 py-20 md:py-24">
       <h2 className="mb-8 text-center text-base text-indigo-900 md:mb-16">
-        BUILD TRUST WITH YOUR USERS WITH A
-        <span className="text-indigo-500"> BEAUTIFUL LANDING PAGE</span>
+        BUILD TRUST WITH YOUR CUSTOMERS WITH A
+        <span className="text-indigo-500"> BEAUTIFUL PET STORE</span>
       </h2>
 
       <div className="flex flex-col items-center justify-center sm:flex-row">
-        <Stat
-          num={45}
-          suffix="%"
-          subheading="Lorem ipsum dolor sit amet consectetur"
-        />
+        <Stat num={45} suffix="%" subheading="Happy Customers" />
         <div className="h-[1px] w-12 bg-indigo-200 sm:h-12 sm:w-[1px]" />
-        <Stat
-          num={15.5}
-          decimals={1}
-          suffix="K+"
-          subheading="Lorem ipsum dolor sit amet consectetur"
-        />
+        <Stat num={15.5} decimals={1} suffix="K+" subheading="Pets Adopted" />
         <div className="h-[1px] w-12 bg-indigo-200 sm:h-12 sm:w-[1px]" />
-        <Stat
-          num={20}
-          suffix="B+"
-          subheading="Lorem ipsum dolor sit amet consectetur"
-        />
+        <Stat num={20} suffix="B+" subheading="Products Sold" />
       </div>
     </div>
   );
