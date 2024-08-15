@@ -51,6 +51,7 @@ export function useAuth() {
     queryKey: ["user"],
     queryFn: () => getUserDetails(accessToken),
     enabled: !!tokenLoginMutation.data?.access_token || !!accessToken,
+    refetchInterval: false,
   });
 
   const createUserMutation = useMutation({

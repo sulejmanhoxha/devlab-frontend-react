@@ -1,10 +1,12 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useNavigate } from "react-router-dom";
 
 import { useGlobalContext } from "../context/GlobalContext";
-import { createPet, getPetDetails, getPets } from "../lib/pets/pets";
+import { createPet, deletePet, getPets, updatePet } from "../lib/pets/pets";
 
-export function usePets(id) {
+export function usePets() {
   const queryClient = useQueryClient();
+  const navigate = useNavigate();
 
   const { accessToken } = useGlobalContext();
 
@@ -12,12 +14,6 @@ export function usePets(id) {
     queryKey: ["pets"],
     queryFn: () => getPets(accessToken),
     enabled: !!accessToken,
-  });
-
-  const petDetailsQuery = useQuery({
-    queryKey: ["pets", id],
-    queryFn: () => getPetDetails(id, accessToken),
-    enabled: !!id && id !== undefined && !!accessToken,
   });
 
   const createPetMutation = useMutation({
@@ -29,7 +25,15 @@ export function usePets(id) {
   });
 
   const updatePetMutation = useMutation({
-    mutationFn: ({ data, id, accessToken }) => createPet(data, id, accessToken),
+    mutationFn: ({ data, id, accessToken }) => updatePet(data, id, accessToken),
+    onSuccess: (data) => {
+      queryClient.invalidateQueries("pets");
+      navigate("/pets");
+    },
+  });
+
+  const deletePetMutation = useMutation({
+    mutationFn: ({ id, accessToken }) => deletePet(id, accessToken),
     onSuccess: (data) => {
       queryClient.invalidateQueries("pets");
       navigate("/pets");
@@ -39,5 +43,10 @@ export function usePets(id) {
   // if you want to return more tham one thing, place all the things you want
   // to return in an object {petsQuery, something, anotherthing }
   // do not forget when using usePets to destructure the object
-  return { petsQuery, petDetailsQuery, createPetMutation, updatePetMutation };
+  return {
+    petsQuery,
+    deletePetMutation,
+    createPetMutation,
+    updatePetMutation,
+  };
 }

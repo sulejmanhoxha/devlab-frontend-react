@@ -1,10 +1,12 @@
 import { joiResolver } from "@hookform/resolvers/joi";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import Joi from "joi";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 
-import { useAuth } from "../../../hooks/useAuth";
+import { useGlobalContext } from "../../../context/GlobalContext";
 import { usePets } from "../../../hooks/usePets";
+import { getPetDetails } from "../../../lib/pets/pets";
 import styles from "./postPet.module.css";
 
 const schema = Joi.object({
@@ -21,30 +23,19 @@ const schema = Joi.object({
 
 const UpdatePetsPage = () => {
   const { id } = useParams();
-  const { accessToken } = useAuth();
-  const { updatePetMutation, petDetailsQuery } = usePets(id);
+  const { accessToken } = useGlobalContext();
+  const { updatePetMutation } = usePets();
+
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm({
     resolver: joiResolver(schema),
-    defaultValues: {
-      pet_breed: petDetailsQuery.data.pet_breed,
-      pet_name: petDetailsQuery.data.pet_name,
-      pet_gender: petDetailsQuery.data.pet_gender,
-      pet_age: petDetailsQuery.data.pet_age,
-      pet_size: petDetailsQuery.data.pet_size,
-      pet_coatLength: petDetailsQuery.data.pet_coatLength,
-      pet_color: petDetailsQuery.data.pet_color,
-      medical_card: petDetailsQuery.data.medical_card,
-      location: petDetailsQuery.data.location,
-    },
   });
 
   const onSubmit = (values) => {
-    // const petData = { ...values, pet_type_id: 1 };
-    console.log("update pet", petData);
+    console.log("update pet", values);
     updatePetMutation.mutate({
       data: values,
       id,
@@ -54,7 +45,7 @@ const UpdatePetsPage = () => {
 
   return (
     <div className={`${styles.CreatePostContainer} container mx-auto`}>
-      <h1 className={styles.title}>Add Your Pet</h1>
+      <h1 className={styles.title}>Update Your Pet</h1>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
         <div>
           <label htmlFor="pet_breed">Breed</label>
@@ -184,7 +175,7 @@ const UpdatePetsPage = () => {
             type="submit"
             className={styles.button}
           >
-            {isSubmitting ? "Loading..." : "Create"}
+            {isSubmitting ? "Loading..." : "Update"}
           </button>
         </div>
       </form>

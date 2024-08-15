@@ -2,7 +2,7 @@ import { joiResolver } from "@hookform/resolvers/joi";
 import Joi from "joi";
 import { useForm } from "react-hook-form";
 
-import { useAuth } from "../../../hooks/useAuth";
+import { useGlobalContext } from "../../../context/GlobalContext";
 import { usePets } from "../../../hooks/usePets";
 import styles from "./postPet.module.css";
 
@@ -27,7 +27,7 @@ const CreatePetsPage = () => {
     resolver: joiResolver(schema),
   });
 
-  const { accessToken } = useAuth();
+  const { accessToken } = useGlobalContext();
   const { createPetMutation } = usePets();
 
   const onSubmit = (values) => {

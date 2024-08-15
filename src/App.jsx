@@ -15,6 +15,7 @@ import LoginPage from "./pages/login/LoginPage";
 import NotFoundPage from "./pages/notFound/NotFoundPage";
 import PetsPage from "./pages/pets/PetsPage";
 import CreatePetsPage from "./pages/pets/create/CreatePetsPage";
+import UpdatePetsPage from "./pages/pets/update/UpdatePetsPage";
 import PostPet from "./pages/postPet/postPet";
 import PostsPage from "./pages/posts/PostsPage";
 import CreatePost from "./pages/posts/create/CreatePost";
@@ -42,8 +43,6 @@ function App() {
         {/* public view all posts routes */}
         <Route path="/posts" element={<PostsPage />} />{" "}
         {/* view public all posts */}
-        <Route path="/posts" element={<PostsPage />} />{" "}
-        {/* view public all posts */}
         {/* private filip */}
         <Route path="/myposts" element={<PostedPets />} />
         {"PostedPets "}
@@ -62,7 +61,7 @@ function App() {
         <Route path="/pets" element={<PetsPage />} /> {/* my pets */}
         <Route path="/pets/create" element={<CreatePetsPage />} />{" "}
         {/* create pets */}
-        <Route path="/pets/:id/udpate" element={<PostPet />} />{" "}
+        <Route path="/pets/:id/update" element={<UpdatePetsPage />} />{" "}
         {/* udpate pets */}
         <Route
           path="/pets/:id"
